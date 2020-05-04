@@ -14,6 +14,7 @@ From: https://en.wikipedia.org/wiki/List_of_probability_distributions
 - Poisson: describes the number of events occurring in a fixed interval of time if these events occur with a known constant mean rate and independently of the time since the last event.
 - Exponential: describes the time between consecutive rare random events in a process with no memory.
 - Gamma: describes the time until n consecutive rare random events occur in a process with no memory.
+- Weibull: describes the lifetime of technical devices, and the particle size distribution.
 
 ----------------------
 
@@ -24,5 +25,4 @@ From: https://en.wikipedia.org/wiki/List_of_probability_distributions
 
 - Log-normal: describes the product of many small independent positive variables.
 - Pareto: “Power law”
-- Weibull: describes the lifetime of technical devices, and the particle size distribution.
 - Student's T: estimates the unknown mean of a Gaussian population.
