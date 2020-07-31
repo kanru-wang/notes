@@ -27,16 +27,12 @@ e.g. the model need to be very conservative for a very small training dataset.
         `````&
 
 4. If there is a column in the training dataset that can identify the customer, we can do a grouped k-fold cross validation.
-It ensure that **rows generated from the same customer will be in one of the followings: training set, or validation set, or testing set, but will not spread into multiple of them.**
-
-The whole training dataset is used; do not progress along the timeline.
+It ensure that **rows generated from the same customer will be in one of the followings: training set, or validation set, or testing set, but will not spread into multiple of them.** The whole training dataset is used; do not progress along the timeline.
  
 5. Drawbacks of the grouped k-fold cross validation:
 
-- If there are temporary trends within the training period, the differences between training and validation distributions will be smaller than the training-realworld difference. Taking the Point 1 into consideration, a very basic 1-fold cross validation
+- If there are temporary trends within the training period, the differences between training and validation distributions will be smaller than the training-realworld difference. Taking the Point 1 into consideration, a very basic 1-fold cross validation as follows might be the only solution to solve this concern.
 
         `````````&&&
-        
-might be the only solution to solve this concern.
 
 - When there isn’t a column that indicates “customer ID”, need to find an proxy.
