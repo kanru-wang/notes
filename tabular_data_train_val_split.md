@@ -31,8 +31,19 @@ It ensure that **rows generated from the same customer will be in one of the fol
  
 5. Drawbacks of the grouped k-fold cross validation:
 
-- If there are temporary trends within the training period, the differences between training and validation distributions will be smaller than the training-realworld difference. Taking the Point 1 into consideration, a very basic 1-fold cross validation as follows might be the only solution to solve this concern.
+- If there are temporary trends within the training period, the differences between training and validation distributions will be smaller than the training-realworld difference.
 
-        `````````&&&
+    - Taking the Point 1 into consideration, a very basic 1-fold cross validation as follows might be a solution to solve this concern.
+
+            `````````&&&
+
+    - Or k-fold grouped by time instead
+
+            `````````&&&
+            ``````&&&```
+            ```&&&``````
+            &&&`````````
+
+    - Or treat it as a feature drifting problem and remove instable features.
 
 - When there isn’t a column that indicates “customer ID”, need to find an proxy.
