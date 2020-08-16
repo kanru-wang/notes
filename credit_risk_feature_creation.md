@@ -1,6 +1,6 @@
 # Credit Risk Feature Creation Digust
 
-Srouce: 
+Source: 
 1. https://mp.weixin.qq.com/s/FX_CDnd8OBcvlwIpWNDVPw
 2. https://mp.weixin.qq.com/s/MG41BuPFC0aIh7M1y_u4dA
 
@@ -14,4 +14,5 @@ Srouce:
 - Benefit of using "coefficient of variation" which is (standard deviation / mean) * 100%
     - Represents stability
     - A customer stably makes lots of credit card transactions is safer than doing that unstably
-- The article mentioned using PSI and IV (Information Value) to only include stable and useful features in the model.
+- The article mentiones using PSI and IV (Information Value) to only include stable and useful features in the model.
+- The article mentiones Observation Window and Performance Window. From my experience, if we want to predict 4-6 months in the future, we not only need a 4-month gap where we cannot use for generating features, but need to exclude customers who have positive events happen within the 4-month gap as well.
