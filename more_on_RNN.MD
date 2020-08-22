@@ -4,3 +4,7 @@
 ![train_rnn_1](image/train_rnn_1.png =250x)
 ![train_rnn_2](image/train_rnn_2.png =250x)
 ![evaluate_language_models](image/evaluate_language_models.png =250x)
+
+<img src="image/train_rnn_1.png" width="200"/>
+<img src="image/train_rnn_2.png" width="200"/>
+<img src="image/evaluate_language_models.png" width="200"/>
