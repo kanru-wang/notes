@@ -72,6 +72,9 @@ That concludes the self-attention calculation. The resulting vector is one we ca
 
 However, in the actual implementation, this calculation is done in matrix form for faster processing. 
 
+<br>
+<br>
+
 ### How to calculate self-attention using matrices
 
 The **first step** is to calculate the Query, Key, and Value matrices. We do that by packing our embeddings into a matrix X, and multiplying it by the weight matrices we’ve trained (WQ, WK, WV). 
@@ -84,8 +87,38 @@ Every row in the X matrix corresponds to a word in the input sentence. We again 
 
 <img src="image/self-attention-matrix-calculation-2.png" width="700"/>
 
+<br>
+<br>
 
+### Multi-headed self-attention
 
+Two benefits:
 
+1. It expands the model’s ability to focus on different positions. If there is only one head, it would contain a little bit of every other encoding, but it could be dominated by the the actual word itself.
+
+2. It gives the attention layer multiple “representation subspaces”. With multi-headed attention, we have multiple sets of Query/Key/Value weight matrices (the Transformer uses eight attention heads, so we end up with eight sets for each encoder/decoder). Each of these sets is randomly initialized. Then, after training, each set is used to project the input embeddings (or vectors from lower encoders/decoders) into a different representation subspace. 
+
+E.g. We multiply X by eight sets of WQ/WK/WV matrices to produce eight sets of Q/K/V matrices (which can be used to calculate eight sets of output matrices Z).
+
+<img src="image/transformer_attention_heads_qkv.png" width="700"/>
+<img src="image/transformer_attention_heads_z.png" width="700"/>
+
+The feed-forward layer is not expecting eight matrices – it’s expecting a single matrix (a vector for each word). We concat the eight matrices, and then multiple them by an additional weights matrix WO. Now we have condensed these eight down into a single matrix.
+
+<img src="image/transformer_attention_heads_weight_matrix_o.png" width="700"/>
+
+All in one:
+
+<img src="image/transformer_multi-headed_self-attention-recap.png" width="700"/>
+
+Now see where the different attention heads are focusing as we encode the word “it” in our example sentence:
+
+If we have two attention heads, as we encode the word "it", one attention head is focusing most on "the animal", while the other is focusing on "tired".
+
+<img src="image/transformer_self-attention_visualization_2.png" width="700"/>
+
+If we have eight attention heads, things can be harder to interpret.
+
+<img src="image/transformer_self-attention_visualization_3.png" width="700"/>
 
 
