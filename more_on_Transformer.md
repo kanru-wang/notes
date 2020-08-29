@@ -19,6 +19,11 @@ The output of the feedforward neural networks indicates the output word of this 
 
 "If attention gives us access to any state … maybe we don’t need the RNN?"
 
+<br>
+<br>
+<br>
+<br>
+
 # Transformer
 
 From:
@@ -37,6 +42,9 @@ What does “it” in this sentence refer to? The street or to the animal?
 As the model processes each word (each position in the input sequence), self-attention allows it to look at other positions in the input sequence for clues lead to a better encoding for this word. When the model is processing the word “it”, self-attention allows it to associate “it” with “animal”.
 
 <img src="image/transformer_self-attention_visualization.png" width="700"/>
+
+<br>
+<br>
 
 ### How to calculate self-attention using vectors
 
@@ -60,4 +68,24 @@ The **fifth step** is to multiply each value vector by the softmax score (in pre
 
 The **sixth step** is to sum up the weighted value vectors. This produces the output of the self-attention layer at this position (for the first word).
 
-That concludes the self-attention calculation. The resulting vector is one we can send along to the feed-forward neural network. In the actual implementation, however, this calculation is done in matrix form for faster processing. 
+That concludes the self-attention calculation. The resulting vector is one we can send along to the feed-forward neural network.
+
+However, in the actual implementation, this calculation is done in matrix form for faster processing. 
+
+### How to calculate self-attention using matrices
+
+The **first step** is to calculate the Query, Key, and Value matrices. We do that by packing our embeddings into a matrix X, and multiplying it by the weight matrices we’ve trained (WQ, WK, WV). 
+
+Every row in the X matrix corresponds to a word in the input sentence. We again see the difference in size of the embedding vector (512, or 4 boxes in the figure), and the q/k/v vectors (64, or 3 boxes in the figure)
+
+<img src="image/self-attention-matrix-calculation.png" width="700"/>
+
+**Then**, since we’re dealing with matrices, we can condense steps two through six in one formula to calculate the outputs of the self-attention layer.
+
+<img src="image/self-attention-matrix-calculation-2.png" width="700"/>
+
+
+
+
+
+
