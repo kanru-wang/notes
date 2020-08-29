@@ -1,4 +1,7 @@
-From: https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z
+From: 
+
+- https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z
+- http://web.stanford.edu/class/cs224n/slides/
 
 - Language Model is about predicting the next word. RNN is a way to build a Language Model.
 - The core idea of RNN is that the same weight matrix is used in all steps.
