@@ -1,9 +1,9 @@
+# Attention
+
 From: 
 
 - https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z
 - http://web.stanford.edu/class/cs224n/slides/
-
-# Attention
 
 <img src="image/attention_1.png" width="700"/>
 <img src="image/attention_2.png" width="700"/>
@@ -41,7 +41,7 @@ What does “it” in this sentence refer to? The street or to the animal?
 
 As the model processes each word (each position in the input sequence), self-attention allows it to look at other positions in the input sequence for clues lead to a better encoding for this word. When the model is processing the word “it”, self-attention allows it to associate “it” with “animal”.
 
-<img src="image/transformer_self-attention_visualization.png" width="700"/>
+<img src="image/transformer_self-attention_visualization.png" width="400"/>
 
 <br>
 <br>
@@ -81,7 +81,7 @@ The **first step** is to calculate the Query, Key, and Value matrices. We do tha
 
 Every row in the X matrix corresponds to a word in the input sentence. We again see the difference in size of the embedding vector (512, or 4 boxes in the figure), and the q/k/v vectors (64, or 3 boxes in the figure)
 
-<img src="image/self-attention-matrix-calculation.png" width="700"/>
+<img src="image/self-attention-matrix-calculation.png" width="400"/>
 
 **Then**, since we’re dealing with matrices, we can condense steps two through six in one formula to calculate the outputs of the self-attention layer.
 
@@ -115,10 +115,10 @@ Now see where the different attention heads are focusing as we encode the word �
 
 If we have two attention heads, as we encode the word "it", one attention head is focusing most on "the animal", while the other is focusing on "tired".
 
-<img src="image/transformer_self-attention_visualization_2.png" width="700"/>
+<img src="image/transformer_self-attention_visualization_2.png" width="400"/>
 
 If we have eight attention heads, things can be harder to interpret.
 
-<img src="image/transformer_self-attention_visualization_3.png" width="700"/>
+<img src="image/transformer_self-attention_visualization_3.png" width="400"/>
 
 
