@@ -52,13 +52,13 @@ The **first step** in calculating self-attention is to create three vectors from
 
 Notice that these new vectors are smaller in dimension than the embedding vector. Their dimensionality is 64, while the embedding and encoder input/output vectors have dimensionality of 512. They don’t HAVE to be smaller, this is an architecture choice to make the computation of multiheaded attention (mostly) constant.
 
-<img src="image/transformer_self_attention_vectors.png" width="700"/>
+<img src="image/transformer_self_attention_vectors.png" width="400"/>
 
 The **second step** in calculating self-attention is to calculate scores. The scores determine how much focus to place on other parts of the input sentence as we encode a word at a certain position.
 
 The score is calculated by taking the dot product of the query vector with the key vector of the respective word we’re scoring. So if we’re processing the self-attention for the word in position #1, the first score would be the dot product of q1 and k1. The second score would be the dot product of q1 and k2.
 
-<img src="image/self-attention-output.png" width="700"/>
+<img src="image/self-attention-output.png" width="400"/>
 
 The **third and forth steps** are to divide the scores by 8 (the square root of the dimension of the key vectors used in the paper – 64. This leads to having more stable gradients. There could be other possible values here, but this is the default), then pass the result through a softmax operation. Softmax normalizes the scores so they’re all positive and add up to 1.
 
@@ -85,7 +85,7 @@ Every row in the X matrix corresponds to a word in the input sentence. We again 
 
 **Then**, since we’re dealing with matrices, we can condense steps two through six in one formula to calculate the outputs of the self-attention layer.
 
-<img src="image/self-attention-matrix-calculation-2.png" width="700"/>
+<img src="image/self-attention-matrix-calculation-2.png" width="400"/>
 
 <br>
 <br>
@@ -143,7 +143,7 @@ If we assumed the embedding has a dimensionality of 4, the actual positional enc
 
 Zoom in:
 
-<img src="image/transformer_resideual_layer_norm_2.png" width="400"/>
+<img src="image/transformer_resideual_layer_norm_2.png" width="700"/>
 
 <br>
 <br>
