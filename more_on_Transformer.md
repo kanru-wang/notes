@@ -81,11 +81,11 @@ The **first step** is to calculate the Query, Key, and Value matrices. We do tha
 
 Every row in the X matrix corresponds to a word in the input sentence. We again see the difference in size of the embedding vector (512, or 4 boxes in the figure), and the q/k/v vectors (64, or 3 boxes in the figure)
 
-<img src="image/self-attention-matrix-calculation.png" width="400"/>
+<img src="image/self-attention-matrix-calculation.png" width="300"/>
 
 **Then**, since we’re dealing with matrices, we can condense steps two through six in one formula to calculate the outputs of the self-attention layer.
 
-<img src="image/self-attention-matrix-calculation-2.png" width="700"/>
+<img src="image/self-attention-matrix-calculation-2.png" width="500"/>
 
 <br>
 <br>
@@ -175,9 +175,7 @@ Let’s assume that our model knows 10,000 unique English words (our model’s �
 
 The softmax layer then turns those scores into probabilities (all positive, all add up to 1.0). The cell with the highest probability is chosen, and the word associated with it is produced as the output for this time step.
 
-<img src="image/transformer_decoder_output_softmax.gif" width="700"/>
-
-
-
-
+<img src="image/transformer_decoder_output_softmax.png" width="500"/>
+<img src="image/output_target_probability_distributions.png" width="500"/>
+<img src="image/output_trained_model_probability_distributions.png" width="500"/>
 
