@@ -52,13 +52,13 @@ The **first step** in calculating self-attention is to create three vectors from
 
 Notice that these new vectors are smaller in dimension than the embedding vector. Their dimensionality is 64, while the embedding and encoder input/output vectors have dimensionality of 512. They don’t HAVE to be smaller, this is an architecture choice to make the computation of multiheaded attention (mostly) constant.
 
-<img src="image/transformer_self_attention_vectors.png" width="400"/>
+<img src="image/transformer_self_attention_vectors.png" width="700"/>
 
 The **second step** in calculating self-attention is to calculate scores. The scores determine how much focus to place on other parts of the input sentence as we encode a word at a certain position.
 
 The score is calculated by taking the dot product of the query vector with the key vector of the respective word we’re scoring. So if we’re processing the self-attention for the word in position #1, the first score would be the dot product of q1 and k1. The second score would be the dot product of q1 and k2.
 
-<img src="image/self-attention-output.png" width="400"/>
+<img src="image/self-attention-output.png" width="700"/>
 
 The **third and forth steps** are to divide the scores by 8 (the square root of the dimension of the key vectors used in the paper – 64. This leads to having more stable gradients. There could be other possible values here, but this is the default), then pass the result through a softmax operation. Softmax normalizes the scores so they’re all positive and add up to 1.
 
@@ -85,7 +85,7 @@ Every row in the X matrix corresponds to a word in the input sentence. We again 
 
 **Then**, since we’re dealing with matrices, we can condense steps two through six in one formula to calculate the outputs of the self-attention layer.
 
-<img src="image/self-attention-matrix-calculation-2.png" width="400"/>
+<img src="image/self-attention-matrix-calculation-2.png" width="700"/>
 
 <br>
 <br>
@@ -124,7 +124,7 @@ If we have eight attention heads, things can be harder to interpret.
 <br>
 <br>
 
-### Representing the order of the sequence using Positional Encoding
+### Representing the order of the sequence using positional encoding
 
 The transformer adds a vector to each input embedding, as a way to account for the order of the words in the input sequence.
 
@@ -143,16 +143,40 @@ If we assumed the embedding has a dimensionality of 4, the actual positional enc
 
 Zoom in:
 
-<img src="image/transformer_resideual_layer_norm_2.png" width="700"/>
+<img src="image/transformer_resideual_layer_norm_2.png" width="400"/>
 
 <br>
 <br>
 
 ### Decoder
 
-The output of the top encoder is transformed into a set of attention vectors K and V. These are to be used by each decoder in its “encoder-decoder attention” layer which helps the decoder focus on appropriate places in the input sequence:
+The output of the top encoder is transformed into a set of attention vectors K and V. These are to be used by each decoder in its “encoder-decoder attention” layer which helps the decoder focus on appropriate places in the input sequence.
 
-<img src="image/transformer_decoding_1.gif" width="700"/>
+<img src="image/transformer_decoding_1.gif" width="800"/>
+
+The following steps repeat until "end of sentence". The output of each step is fed to the bottom decoder in the next time step, and the decoders bubble up their decoding results just like the encoders did. And just like we did with the encoder inputs, we embed and add positional encoding to those decoder inputs to indicate the position of each word.
+
+<img src="image/transformer_decoding_2.gif" width="800"/>
+
+The self-attention layers in the decoder is slightly different from the one in the encoder. In the decoder, the self-attention layer is only allowed to attend to earlier positions in the output sequence. This is done by masking future positions (setting them to -inf) before the softmax step in the self-attention calculation.
+
+The “Encoder-Decoder Attention” layer works just like multiheaded self-attention, except it creates its Queries matrix from the layer below it, and takes the Keys and Values matrix from the output of the encoder stack.
+
+<br>
+<br>
+
+### Final linear and softmax layer
+
+The decoder stack outputs a vector of floats. How do we turn that into a word? That’s the job of the final Linear layer which is followed by a Softmax Layer.
+
+The Linear layer is a simple fully connected neural network that projects the vector produced by the stack of decoders, into a much, much larger vector called a logits vector.
+
+Let’s assume that our model knows 10,000 unique English words (our model’s “output vocabulary”) that it’s learned from its training dataset. This would make the logits vector 10,000 cells wide – each cell corresponding to the score of a unique word. That is how we interpret the output of the model followed by the Linear layer.
+
+The softmax layer then turns those scores into probabilities (all positive, all add up to 1.0). The cell with the highest probability is chosen, and the word associated with it is produced as the output for this time step.
+
+<img src="image/transformer_decoder_output_softmax.gif" width="700"/>
+
 
 
 
