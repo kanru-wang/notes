@@ -121,4 +121,30 @@ If we have eight attention heads, things can be harder to interpret.
 
 <img src="image/transformer_self-attention_visualization_3.png" width="400"/>
 
+<br>
+<br>
+
+### Representing the order of the sequence using Positional Encoding
+
+The transformer adds a vector to each input embedding, as a way to account for the order of the words in the input sequence.
+
+<img src="image/transformer_positional_encoding_vectors.png" width="700"/>
+
+If we assumed the embedding has a dimensionality of 4, the actual positional encodings would look like this:
+
+<img src="image/transformer_positional_encoding_example.png" width="700"/>
+
+<br>
+<br>
+
+### Adding residual connection and doing layer-normalization
+
+<img src="image/transformer_resideual_layer_norm.png" width="700"/>
+
+Zoom in:
+
+<img src="image/transformer_resideual_layer_norm_2.png" width="700"/>
+
+
+
 
