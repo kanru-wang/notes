@@ -139,11 +139,20 @@ If we assumed the embedding has a dimensionality of 4, the actual positional enc
 
 ### Adding residual connection and doing layer-normalization
 
-<img src="image/transformer_resideual_layer_norm.png" width="700"/>
+<img src="image/transformer_resideual_layer_norm.png" width="400"/>
 
 Zoom in:
 
-<img src="image/transformer_resideual_layer_norm_2.png" width="700"/>
+<img src="image/transformer_resideual_layer_norm_2.png" width="400"/>
+
+<br>
+<br>
+
+### Decoder
+
+The output of the top encoder is transformed into a set of attention vectors K and V. These are to be used by each decoder in its “encoder-decoder attention” layer which helps the decoder focus on appropriate places in the input sequence:
+
+<img src="image/transformer_decoding_1.gif" width="700"/>
 
 
 
