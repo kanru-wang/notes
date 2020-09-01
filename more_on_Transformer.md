@@ -52,13 +52,13 @@ The **first step** in calculating self-attention is to create three vectors from
 
 Notice that these new vectors are smaller in dimension than the embedding vector. Their dimensionality is 64, while the embedding and encoder input/output vectors have dimensionality of 512. They don’t HAVE to be smaller, this is an architecture choice to make the computation of multiheaded attention (mostly) constant.
 
-<img src="image/transformer_self_attention_vectors.png" width="700"/>
+<img src="image/transformer_self_attention_vectors.png" width="600"/>
 
 The **second step** in calculating self-attention is to calculate scores. The scores determine how much focus to place on other parts of the input sentence as we encode a word at a certain position.
 
 The score is calculated by taking the dot product of the query vector with the key vector of the respective word we’re scoring. So if we’re processing the self-attention for the word in position #1, the first score would be the dot product of q1 and k1. The second score would be the dot product of q1 and k2.
 
-<img src="image/self-attention-output.png" width="700"/>
+<img src="image/self-attention-output.png" width="600"/>
 
 The **third and forth steps** are to divide the scores by 8 (the square root of the dimension of the key vectors used in the paper – 64. This leads to having more stable gradients. There could be other possible values here, but this is the default), then pass the result through a softmax operation. Softmax normalizes the scores so they’re all positive and add up to 1.
 
@@ -175,7 +175,46 @@ Let’s assume that our model knows 10,000 unique English words (our model’s �
 
 The softmax layer then turns those scores into probabilities (all positive, all add up to 1.0). The cell with the highest probability is chosen, and the word associated with it is produced as the output for this time step.
 
-<img src="image/transformer_decoder_output_softmax.png" width="500"/>
+<img src="image/transformer_decoder_output_softmax.png" width="600"/>
 <img src="image/output_target_probability_distributions.png" width="500"/>
 <img src="image/output_trained_model_probability_distributions.png" width="500"/>
+
+<br>
+<br>
+
+# BERT
+
+From:
+
+- http://jalammar.github.io/illustrated-bert/
+- https://towardsdatascience.com/bert-to-the-rescue-17671379687f
+- Feature extraction, may be flawed: http://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time
+
+Maximum sequence size for BERT is 512, so truncate any review that is longer than this. Make all the vectors the same size by padding shorter sentences with the token id 0.
+
+<img src="image/bert-distilbert-input-tokenization.png" width="700"/>
+
+Each position outputs a vector of size hidden_size (768 in BERT Base). For the sentence classification example, focus on the output of only the first position (that we passed the special `[CLS]` token to).
+
+<img src="image/bert-output-vector.png" width="500"/>
+
+First, we create the BERT model, then we create a PyTorch tensor with first 3 reviews from our training set and pass it to it. The output is two variables. Let's understand all the shapes: x is of size (3, 512) , we took only 3 reviews, 512 tokens each. y is of size (3, 512, 768) , this is the BERTs final layer output for each token. Each token in each review is represented using a vector of size 768.
+
+`pooled` is of size (3, 768) this is the output of our [CLS] token, the first token in our sequence.
+
+    bert = BertModel.from_pretrained('bert-base-uncased')
+    x = torch.tensor(train_tokens_ids[:3])
+    y, pooled = bert(x, output_all_encoded_layers=False)
+
+Our goal is to take BERTs pooled output, apply a linear layer and a sigmoid activation.
+
+    def forward(self, tokens, masks=None):
+        _, pooled = self.bert(tokens, attention_mask=masks, output_all_encoded_layers=False)
+        dropout_output = self.dropout(pooled)
+        linear_output = self.linear(dropout_output)
+        proba = self.sigmoid(linear_output)
+        return proba
+
+
+
 
