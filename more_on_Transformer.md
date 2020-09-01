@@ -192,13 +192,13 @@ From:
 
 Maximum sequence size for BERT is 512, so truncate any review that is longer than this. Make all the vectors the same size by padding shorter sentences with the token id 0.
 
-<img src="image/bert-distilbert-input-tokenization.png" width="700"/>
+<img src="image/bert-distilbert-input-tokenization.png" width="800"/>
 
 Each position outputs a vector of size hidden_size (768 in BERT Base). For the sentence classification example, focus on the output of only the first position (that we passed the special `[CLS]` token to).
 
-<img src="image/bert-output-vector.png" width="500"/>
+<img src="image/bert-output-vector.png" width="700"/>
 
-First, we create the BERT model, then we create a PyTorch tensor with first 3 reviews from our training set and pass it to it. The output is two variables. Let's understand all the shapes: x is of size (3, 512) , we took only 3 reviews, 512 tokens each. y is of size (3, 512, 768) , this is the BERTs final layer output for each token. Each token in each review is represented using a vector of size 768.
+For example, first, we create the BERT model, then we create a PyTorch tensor with first 3 reviews from our training set and pass it to it. The output is two variables. Let's understand all the shapes: x is of size (3, 512) , we took only 3 reviews, 512 tokens each. y is of size (3, 512, 768) , this is the BERTs final layer output for each token. Each token in each review is represented using a vector of size 768.
 
 `pooled` is of size (3, 768) this is the output of our [CLS] token, the first token in our sequence.
 
