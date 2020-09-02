@@ -187,7 +187,7 @@ The softmax layer then turns those scores into probabilities (all positive, all 
 From:
 
 - http://jalammar.github.io/illustrated-bert/
-- https://towardsdatascience.com/bert-to-the-rescue-17671379687f
+- https://towardsdatascience.com/bert-to-the-rescue-17671379687f and https://github.com/shudima/notebooks/blob/master/BERT_to_the_rescue.ipynb
 - Feature extraction, may be flawed: http://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time
 
 Maximum sequence size for BERT is 512, so truncate any review that is longer than this. Make all the vectors the same size by padding shorter sentences with the token id 0.
@@ -214,7 +214,11 @@ Our goal is to take BERTs pooled output, apply a linear layer and a sigmoid acti
         linear_output = self.linear(dropout_output)
         proba = self.sigmoid(linear_output)
         return proba
+    
+    ...
+    # The bert model returns probabilities, then
+    loss_func = nn.BCELoss()
+    batch_loss = loss_func(probas, labels)
+    ...
 
-
-
-
+The `class DistilBertForSequenceClassification` in https://huggingface.co/transformers/v2.1.1/_modules/transformers/modeling_distilbert.html mentions something similar.
