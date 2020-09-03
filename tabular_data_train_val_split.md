@@ -29,11 +29,11 @@ e.g. the model need to be very conservative for a very small training dataset.
 4. If there is a column in the training dataset that can identify the customer, we can do a grouped k-fold cross validation.
 It ensure that **rows generated from the same customer will be in one of the followings: training set, or validation set, or testing set, but will not spread into multiple of them.** The whole training dataset is used; do not progress along the timeline.
  
-5. Drawbacks of the grouped k-fold cross validation:
+5. Drawbacks of the grouped k-fold cross validation on "customer ID":
 
-- If there are temporary trends within the training period, the differences between training and validation distributions will be smaller than the training-realworld difference.
+- If there are temporary trends, part of a validation set may be very similar to part of a training set, so data leakage will happen, so a hyper-parameter set that will overfit the training set will be encouraged. See the following solutions to address this concern:
 
-    - Taking the Point 1 into consideration, a very basic 1-fold cross validation as follows might be a solution to solve this concern.
+    - Taking the Point 1 into consideration, a very basic 1-fold cross validation
 
             `````````&&&
 
@@ -43,6 +43,31 @@ It ensure that **rows generated from the same customer will be in one of the fol
             ``````&&&```
             ```&&&``````
             &&&`````````
+
+    - May also add "purging", which is useful when it is very important to eliminate data leakage. It is done to both ends of the testing period. See: https://www.youtube.com/watch?v=hDQssGntmFA
+
+            ` stands for training period
+            & stands for validation period
+            "B" stands for a trend arise in features
+            "A" stands for a trend settle in features
+
+            Just look at one of the CV folds
+            
+            for short trend
+            ``````&&&```
+            BBBBBAABBBBB
+
+            or longer trend
+            ``````&&&```
+            BBBBBAAAAABB
+
+            or multiple trends (e.g. different unknown marketing campaigns going on)
+            ``````&&&```
+            CDDEEFFGGHHI
+
+            All can be purged to
+            `````  &  ``
+            BBBBB  A  BB
 
     - Or treat it as a feature drifting problem and remove instable features.
 
