@@ -31,7 +31,7 @@ It ensure that **rows generated from the same customer will be in one of the fol
  
 5. Drawbacks of the grouped k-fold cross validation on "customer ID":
 
-    - If there are temporary trends, part of a validation set may be very similar to part of a training set, so data leakage will happen, so a hyper-parameter set that will overfit the training set will be encouraged. See the following solutions to address this concern:
+    - If there are temporary trends, the train/val split may happen amid a trend, so part of a training set may be very similar to part of a validation set (in terms both X and y; think duplicates as an extreme example), so data leakage will happen, so a hyper-parameter set that will overfit the training set (e.g. go very deep to "memorise" all samples in the trend) will be encouraged. See the following solutions to address this concern:
 
         - Taking the Point 1 into consideration, a very basic 1-fold cross validation
 
@@ -44,7 +44,7 @@ It ensure that **rows generated from the same customer will be in one of the fol
                 ```&&&``````
                 &&&`````````
 
-        - May also add "purging", which is useful when it is very important to eliminate data leakage. It is done to both ends of the testing period. See: https://www.youtube.com/watch?v=hDQssGntmFA
+        - May also add "purging", which is useful when it is very important to eliminate data leakage. It is done by creating a gap at both ends of the valuation period. See: https://www.youtube.com/watch?v=hDQssGntmFA
 
                 ` stands for training period
                 & stands for validation period
