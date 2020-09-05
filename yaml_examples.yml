@@ -1,0 +1,39 @@
+example_1: '20190101'
+
+example_2:
+    - ['item_1', 'item_2', 'item_3']
+
+example_3: ['item_1', 'item_2', 'item_3']
+
+example_4:
+    - 'item_1'
+    - 'item_2'
+    - 'item_3'
+
+example_5:
+    item_1: "9:00 am"
+    item_2: "12:00 pm"
+    item_3: "5:00 pm"
+
+example_6: {
+    "item_1": "9:00 am",
+    "item_2": "12:00 pm",
+    "item_3": "5:00 pm"
+}
+
+example_7:
+    '{item_1} + {item_2} = 1234'
+
+example_8: ('item_1','item_2','item_3')
+
+example_9:
+    item_1: &item_1 "9:00 am"
+    item_2: &item_2 "12:00 pm"
+    item_3: &item_3 ["5:00 pm", "9:00 pm"]
+
+example_10:
+    "employee_1": {"name": "AAA", "age": 20, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
+    "employee_2": {"name": "BBB", "age": 21, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
+    "employee_3": {"name": "CCC", "age": 22, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
+    "employee_4": {"name": "DDD", "age": 23, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
+    "employee_5": {"name": "EEE", "age": 24, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
