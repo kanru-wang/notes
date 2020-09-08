@@ -6,16 +6,16 @@ Think about cases where you observe customer transactions in the last three mont
 
     * Observation period
     ^ Performance period
-                                   now
-    window 1        ************^^^^|
-    window 2    ************^^^^    |
-    window 3 ************^^^^       |
-    final model         ************|????
+                                      now
+    window 1           ************^^^^|
+    window 2       ************^^^^    |
+    window 3    ************^^^^       |
+    final model            ************|????
         
-From my experience, we need to avoid:
+From my experience, we need to:
 
-- Rows from a same customer but different windows used in both training and validation sets (Data leakage)
-- Rows from different customers but a same window used in both training and validation sets (Data leakage, but less severe. Due to trends, e.g. market conditions, marketing campaigns, etc.)
+- Avoid having rows from a same customer but different windows used in both training and validation sets (Data leakage)
+- Avoid having rows from different customers but a same window used in both training and validation sets (Data leakage, but less severe. This problem is due to trends, e.g. market conditions, marketing campaigns, etc.)
 
 We certainly want to avoid the first point. If we also want to avoid the second point, we need to do grouped k-fold cross validation twice to construct train/val datasets that meet both requirements.
 
@@ -24,9 +24,9 @@ We certainly want to avoid the first point. If we also want to avoid the second 
     - train (window 1 and 3), val (window 2)
     - train (window 2 and 3), val (window 1)
 - Assume we have 6 customers, a, b, c, d, e, f
-- Now we can have (window, customer) combinations as such
-- Apply sklearn grouped **3** fold cross validation twice (once on window and once on customer ID)
-- For each of the 3 folds, we have a view as such. If both assignments are "train", that sample will be "train". If both "test", then "test". If conflict, then discard.
+- Now we can have (window, customer) combinations shown in below
+- Apply sklearn grouped m-fold cross validation on window (in our case m = 3), apply grouped n-fold cross validation on customer ID (say n = 3, but can also be 1, 2 or 6 in our case). This will result in a cross validation of m * n = 3 * 3 = 9 folds.
+- For each fold, we have a view shown in below. If both assignments are "train", that sample will be "train". If both "test", then "test". If conflict, then discard.
 
         (window, customer)  k-fold grouped on window  k-fold grouped on customer  overlapping
         1 a                 train                                          train        train
@@ -47,3 +47,12 @@ We certainly want to avoid the first point. If we also want to avoid the second 
         1 f                 train                                          val          /
         2 f                 train                                          val          /
         3 f                 val                                            val          val
+
+I even think since "window 2" is similar to "window 1" and "window 3", it should be removed. So unless we have a long period of historical data that allows multiple non-overlapping windows, we should just have two windows that are as far apart as possible. There can be a cross validation of m * n = 2 * maybe 2 = 4 folds.
+
+    * Observation period
+    ^ Performance period
+                                      now
+    window 1           ************^^^^|
+    window 2    ************^^^^       |
+    final model            ************|????
