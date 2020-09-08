@@ -4,9 +4,9 @@ From https://towardsdatascience.com/are-you-really-taking-care-of-overfitting-b7
 
 You may end up having the following two models:
 
-        Training performance    Test performance
-Model A                 0.94                0.79
-Model B                 0.82                0.79
+            Training performance    Test performance
+    Model A                 0.94                0.79
+    Model B                 0.82                0.79
 
 You may conclude that Model A and Model B are basically the same, because they obtain the same result on test data. However, if you have the whole picture, you will notice that Model B is way better than model A, because model A is clearly overfitting.
 
