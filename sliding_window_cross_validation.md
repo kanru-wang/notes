@@ -10,7 +10,8 @@ Think about cases where you observe customer transactions in the last three mont
     window 1           ************^^^^|
     window 2       ************^^^^    |
     window 3    ************^^^^       |
-    final model            ************|????
+    final model        ************^^^^|
+    application            ************|????
         
 From my experience, we need to:
 
@@ -48,11 +49,14 @@ We certainly want to avoid the first point. If we also want to avoid the second 
         2 f                 train                                          val          /
         3 f                 val                                            val          val
 
-I even think since "window 2" is similar to "window 1" and "window 3", it should be removed. So unless we have a long period of historical data that allows multiple non-overlapping windows, we should just have two windows that are as far apart as possible. There can be a cross validation of m * n = 2 * maybe 2 = 4 folds.
+I even think since "window 2" is similar to "window 1" and "window 3", it should be removed. So unless we have a long period of historical data that allows multiple non-overlapping windows, we should just have two windows that are as far apart as possible. There can be a cross validation of m * n = 2 * 4 = 8 folds. Here n = 3, 4 or 5 so that the training data size will be 66%, 75%, or 80% of the final model data size.
 
     * Observation period
     ^ Performance period
                                       now
     window 1           ************^^^^|
     window 2    ************^^^^       |
-    final model            ************|????
+    final model        ************^^^^|
+    application            ************|????
+    
+The other option, as the author of the quoted article said, if window 1 has enough data, no need to cross validate by training on window 2 and validate on window 1. https://medium.com/@kevinwang0811/nice-article-8f44100411c4
