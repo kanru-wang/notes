@@ -14,6 +14,7 @@
     - Implied by https://discuss.analyticsvidhya.com/t/optimize-n-estimators-using-xgb-cv/67850
 
 Other ways:
+
     - A wrapper around XGBClassifier should enable using the CV validation set as the early stopping eval set.
     - DIY a cross validation framework.
     - Use the native learning API's xgboost.cv function.
