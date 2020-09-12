@@ -9,7 +9,12 @@ From: https://machinelearningmastery.com/roc-curves-and-precision-recall-curves-
 - AUROC is being optimistic (or in my words, skewed), which is mainly because of the use of **True Negatives in the False Positive Rate** in the ROC Curve. In the Precision-Recall curve, True Negative is not used in the calculation.
 - There is an advantadge of AUROC which AURPC does not have:
 
-        If the proportion of positive to negative instances changes in a test set, the ROC curves will not change. Metrics such as accuracy, precision, lift and F scores use values from both columns of the confusion matrix. As a class distribution changes these measures will change as well, even if the fundamental classifier performance does not. ROC graphs are based upon TP rate and FP rate, in which each dimension is a strict columnar ratio, so do not depend on class distributions.
+        If the proportion of positive to negative instances changes in a test set, the ROC curves will not change. 
+        Metrics such as accuracy, precision, lift and F scores use values from both columns of the confusion matrix. 
+        As a class distribution changes these measures will change as well, 
+        even if the fundamental classifier performance does not. 
+        ROC graphs are based upon TP rate and FP rate, in which each dimension is a strict columnar ratio, 
+        so do not depend on class distributions.
 
 From: https://towardsdatascience.com/why-you-should-stop-using-the-roc-curve-a46a9adc728
 

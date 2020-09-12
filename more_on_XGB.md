@@ -45,7 +45,6 @@ For the training of XGBoost model, there are two ways to improve it.
 
         scale_pos_weight = count(negative examples)/count(Positive examples)
         In practice, that works pretty well, but if your dataset is extremely unbalanced I'd recommend using something more conservative like:
-
         scale_pos_weight = sqrt(count(negative examples)/count(Positive examples)) 
         This is useful to limit the effect of a multiplication of positive examples by a very high weight.
 
