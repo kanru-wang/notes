@@ -22,7 +22,7 @@
     - DIY a cross validation framework.
     - Use the native learning API's xgboost.cv function.
 
-## Handle Imbalanced Dataset
+## Handle imbalanced dataset
 
 From: https://xgboost.readthedocs.io/en/latest/tutorials/param_tuning.html
 
@@ -59,3 +59,22 @@ For the training of XGBoost model, there are two ways to improve it.
     - https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/40618
     - https://stats.stackexchange.com/questions/233248/max-delta-step-in-xgboost
     - https://stats.stackexchange.com/questions/387632/running-xgboost-with-highly-imbalanced-data-returns-near-0-true-positive-rate
+    
+## eval_metric
+
+- The parameter `eval_metric` in XGBClassifier's `fit()` is the evaluation metric for validation data. It is useful when not evaluating the validation dataset (passed by RandomizedSearchCV or GridSearchCV) using `predict_proba()`, but instead using the built-in `evals_result()` to evaluate on data passed to the `eval_set` parameter. From: https://xgboost.readthedocs.io/en/latest/python/python_api.html
+
+        clf = xgb.XGBClassifier()
+        clf.XGBClassifier().fit(
+            X_train, y_train,
+            early_stopping_rounds=10,
+            eval_metric="auc",
+            eval_set=[(X_test, y_test)]
+        )
+        clf.evals_result()
+
+- The parameter `eval_metric`'s default value is according to the `objective` parameter (`rmse` for regression, and `error` for classification). From: https://xgboost.readthedocs.io/en/latest/parameter.html
+
+- `eval_metric` is not the loss/cost/objective function; that is specified with the `objective` parameter instead, and it is default to `binary:logistic` for classification problems.
+
+- The same need to specify evaluation metric in RandomizedSearchCV or GridSearchCV is done by specifying `scoring`. From: https://stackoverflow.com/questions/43500893/gridsearchcv-and-xgbclassifier-with-eval-metric-mlogloss
