@@ -1,3 +1,7 @@
+## Parameter value ranges
+
+- https://xgboost.readthedocs.io/en/latest/parameter.html
+
 ## Early stopping
 
 - In a Sklearn cross validation framework (RandomizedSearchCV or GridSearchCV), in terms of XGBClassifier, there is no way to use the validation set (of each fold) as the early stopping eval set. A fixed dataset need to be used as the early stopping eval set, and does not change when training and validating each fold.
@@ -13,8 +17,46 @@
     - https://datascience.stackexchange.com/questions/58225/xgboost-rounds-is-equal-to-n-estimators
     - Implied by https://discuss.analyticsvidhya.com/t/optimize-n-estimators-using-xgb-cv/67850
 
-Other ways:
-
+- Other ways
     - A wrapper around XGBClassifier should enable using the CV validation set as the early stopping eval set.
     - DIY a cross validation framework.
     - Use the native learning API's xgboost.cv function.
+
+## Handle Imbalanced Dataset
+
+From: https://xgboost.readthedocs.io/en/latest/tutorials/param_tuning.html
+
+For the training of XGBoost model, there are two ways to improve it.
+
+- If you care only about the overall performance metric (AUC) of your prediction
+    - Balance the positive and negative weights via scale_pos_weight
+    - Use AUC for evaluation
+- If you care about predicting the right probability
+    - In such a case, you cannot re-balance the dataset
+    - Set parameter max_delta_step to a finite number (say 1) to help convergence
+
+### 1. scale_pos_weight
+
+- From: https://machinelearningmastery.com/xgboost-for-imbalanced-classification/
+    - Small Gradient: Small error or correction to the model. Large Gradient: Large error or correction to the model. The scale_pos_weight value is used to scale the gradient for the positive class.
+    - Select a good value for scale_pos_weight even improves AUC.
+
+- From: https://stats.stackexchange.com/questions/243207/what-is-the-proper-usage-of-scale-pos-weight-in-xgboost-for-imbalanced-datasets
+
+        scale_pos_weight = count(negative examples)/count(Positive examples)
+        In practice, that works pretty well, but if your dataset is extremely unbalanced I'd recommend using something more conservative like:
+
+        scale_pos_weight = sqrt(count(negative examples)/count(Positive examples)) 
+        This is useful to limit the effect of a multiplication of positive examples by a very high weight.
+
+- Here it says that scale_pos_weight should be much lower than the recommended value. From: https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/41359
+
+- scale_pos_weight is indeed an alternative to oversampling / undersampling. From: https://towardsdatascience.com/dealing-with-class-imbalanced-datasets-for-classification-2cc6fad99fd9
+
+### 2. max_delta_step
+
+- Useful for imbalanced data.
+    - https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/41359
+    - https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/40618
+    - https://stats.stackexchange.com/questions/233248/max-delta-step-in-xgboost
+    - https://stats.stackexchange.com/questions/387632/running-xgboost-with-highly-imbalanced-data-returns-near-0-true-positive-rate
