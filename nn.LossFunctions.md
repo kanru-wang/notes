@@ -19,18 +19,18 @@ From:
 
 Cross entropy loss function
 
-<img src="image/cross_entropy.png" width="250"/>
+<img src="image/cross_entropy.png" width="350"/>
 
 Focal loss loss function
 
-<img src="image/focal_loss.png" width="250"/>
+<img src="image/focal_loss.png" width="350"/>
 
 Cross entropy loss vs probability
 
-<img src="image/cross_entropy_loss_vs_prob.png" width="250"/>
+<img src="image/cross_entropy_loss_vs_prob.png" width="350"/>
 
 Focal loss loss vs probability, given α = 0.25 and γ = 4
 
-<img src="image/focal_loss_loss_vs_prob.png" width="250"/>
+<img src="image/focal_loss_loss_vs_prob.png" width="350"/>
 
-<img src="image/focal_loss_parameter_effect.png" width="600"/>
+<img src="image/focal_loss_parameter_effect.png" width="500"/>
