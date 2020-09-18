@@ -1,5 +1,7 @@
 # Do we cross validate tabular data the same way we do with time series data?
 
+First, notice that the problem discussed here is different from the problem in sliding_window_cross_validation.md, just because the problem here does not require an observation period.
+
 Regarding the hyper-parameter selection cross validation of tabular data, I think
  
 1. The size of the training dataset has a large impact for the best hyper-parameter chosen.

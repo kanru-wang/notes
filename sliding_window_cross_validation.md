@@ -2,7 +2,7 @@
 
 From: https://towardsdatascience.com/introducing-walk-backward-a-novel-approach-to-predicting-the-future-c7cf9e15e9e2
 
-Think about cases where you observe customer transactions in the last three months and predict the next one month. The "Performance Period" is one month where you get the target labels, and the "Observation Period" is a three-month period where you get the features.
+Think about cases where you observe customer transactions in the last three months and predict the next one month. The "Performance Period" is one month where you get the target labels, and the "Observation Period" is a three-month period where you get the features. This problem is different from the problem stated in tabular_data_train_val_split.md, because the problem here requies an observation period (instead of being able to get immediate outcome).
 
     * Observation period
     ^ Performance period
