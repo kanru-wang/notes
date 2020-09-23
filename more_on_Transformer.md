@@ -184,6 +184,8 @@ The softmax layer then turns those scores into probabilities (all positive, all 
 
 # BERT
 
+### BertForSequenceClassification
+
 From:
 
 - http://jalammar.github.io/illustrated-bert/
@@ -222,3 +224,22 @@ Our goal is to take BERTs pooled output, apply a linear layer and a sigmoid acti
     ...
 
 The `class DistilBertForSequenceClassification` in https://huggingface.co/transformers/v2.1.1/_modules/transformers/modeling_distilbert.html mentions something similar.
+
+### BertForQuestionAnswering
+
+    model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
+    question, text = "Who was Jim Henson?", "Jim Henson was a nice puppet"
+    input_text = "[CLS] " + question + " [SEP] " + text + " [SEP]"
+    input_ids = tokenizer.encode(input_text)
+
+    # Generate a boolean array which marks which tokens are part of the question and which are part of the context.
+    token_type_ids = [0 if i <= input_ids.index(102) else 1 for i in range(len(input_ids))]
+
+    # Run the model to get two arrays with the same length as input_ids.
+    # Each element in start_scores is an activation value indicating how likely it is that the token is the start of the answer. 
+    # Similarly, end_scores marks the end of the answer.
+    start_scores, end_scores = model(torch.tensor([input_ids]), token_type_ids=torch.tensor([token_type_ids]))
+
+    all_tokens = tokenizer.convert_ids_to_tokens(input_ids)  
+    print(' '.join(all_tokens[torch.argmax(start_scores) : torch.argmax(end_scores)+1]))
+    # a nice puppet
