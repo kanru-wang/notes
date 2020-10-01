@@ -227,6 +227,12 @@ The `class DistilBertForSequenceClassification` in https://huggingface.co/transf
 
 ### BertForQuestionAnswering
 
+See newest version example: https://huggingface.co/transformers/master/model_doc/bert.html#bertforquestionanswering
+
+    from transformers import BertTokenizer, BertForQuestionAnswering
+    import torch
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+
     model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
     question, text = "Who was Jim Henson?", "Jim Henson was a nice puppet"
     input_text = "[CLS] " + question + " [SEP] " + text + " [SEP]"
