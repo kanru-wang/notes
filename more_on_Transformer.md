@@ -243,3 +243,7 @@ The `class DistilBertForSequenceClassification` in https://huggingface.co/transf
     all_tokens = tokenizer.convert_ids_to_tokens(input_ids)  
     print(' '.join(all_tokens[torch.argmax(start_scores) : torch.argmax(end_scores)+1]))
     # a nice puppet
+    
+### Types of tokenizers
+
+https://huggingface.co/transformers/tokenizer_summary.html
