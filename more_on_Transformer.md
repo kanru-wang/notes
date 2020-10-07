@@ -229,10 +229,12 @@ The `class DistilBertForSequenceClassification` in https://huggingface.co/transf
 
 See newest version example: https://huggingface.co/transformers/master/model_doc/bert.html#bertforquestionanswering
 
+From: https://medium.com/@patonw/question-answering-with-pytorch-transformers-part-3-d67ac06a23b7
+
     from transformers import BertTokenizer, BertForQuestionAnswering
     import torch
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
     model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
     question, text = "Who was Jim Henson?", "Jim Henson was a nice puppet"
     input_text = "[CLS] " + question + " [SEP] " + text + " [SEP]"
@@ -249,7 +251,10 @@ See newest version example: https://huggingface.co/transformers/master/model_doc
     all_tokens = tokenizer.convert_ids_to_tokens(input_ids)  
     print(' '.join(all_tokens[torch.argmax(start_scores) : torch.argmax(end_scores)+1]))
     # a nice puppet
-    
+
+Also, in the article, softmax turns activation values into values between 0 and 1 and normalizes the outputs so that they sum to 1. When the text does not contain the answer to the question, it is likely that all the activation values are below 0, but the softmax outputs still sum to 1, since the model assumes that the text contains the right answer. In this case a relatively likely answer will be picked.
+
+
 ### Types of tokenizers
 
 https://huggingface.co/transformers/tokenizer_summary.html
