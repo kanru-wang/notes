@@ -3,9 +3,17 @@ From:
 - https://stackoverflow.com/questions/53628622/loss-function-its-inputs-for-binary-classification-pytorch
 - https://nathanbrixius.wordpress.com/2016/06/04/functions-i-have-known-logit-and-sigmoid/
 
-- torch.nn.CrossEntropyLoss includes a Softmax activation function.
-- torch.nn.BCEWithLogitsLoss includes a Sigmoid activation function.
-- torch.nn.BCELoss needs a Sigmoid activation function but doesn't have one, so need to pass through a Sigmoid before BCELoss.
+- `torch.nn.CrossEntropyLoss` includes a Softmax activation function.
+    - From: https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html and https://medium.com/deeplearningmadeeasy/negative-log-likelihood-6bd79b55d8b6
+    - Summarized here: https://www.kaggle.com/kanruwang/understanding-crossentropyloss
+    - `nn.CrossEntropyLoss()` combines `nn.LogSoftmax()` and `nn.NLLLoss(reduction="mean")` in one single class.
+    - `nn.LogSoftmax()` first softmax and then take natural log as in https://pytorch.org/docs/stable/generated/torch.nn.LogSoftmax.html
+    - For `nn.LogSoftmax()`, input shape is `[m samples, n classes]`, output shape is `[m samples, n classes]`.
+    - Output of `nn.LogSoftmax()` are all negative numbers. For each sample, `nn.NLLLoss()` simply takes the correct class's value, and the negative of that value would be a positive value.
+    - We minimize the negative log likelihood so that the probability of choosing the correct class is maximized.
+    - For `nn.NLLLoss()`, input shape is `[m samples, n classes]` and `[m samples]`; output shape is `[m samples]` if the `reduction` argument is `"none"`, output is a scalar if the `reduction` argument is `"mean"`.
+- `torch.nn.BCEWithLogitsLoss` includes a Sigmoid activation function.
+- `torch.nn.BCELoss` needs a Sigmoid activation function but doesn't have one, so need to pass through a Sigmoid before BCELoss.
 
 ### Focal loss
 
