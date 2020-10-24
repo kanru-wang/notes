@@ -1,5 +1,6 @@
 From:
 
+- https://stats.stackexchange.com/questions/233658/softmax-vs-sigmoid-function-in-logistic-classifier
 - https://stackoverflow.com/questions/53628622/loss-function-its-inputs-for-binary-classification-pytorch
 - https://nathanbrixius.wordpress.com/2016/06/04/functions-i-have-known-logit-and-sigmoid/
 
