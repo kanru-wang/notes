@@ -1,3 +1,5 @@
+## Training
+
 From: https://discuss.pytorch.org/t/what-step-backward-and-zero-grad-do/33301
 
 - opt.zero_grad() clears old gradients from the last step (otherwise you’d just accumulate the gradients from all loss.backward() calls).
@@ -30,3 +32,12 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
 - During eval mode, batchnorm should use saved running estimates instead of batch statistics.
 - There is no such thing as “test mode”. Only train() and eval().
 - torch.no_grad() and torch.set_grad_enabled(False) are the same.
+
+## torch.optim.lr_scheduler.OneCycleLR
+
+- From: https://pytorch.org/docs/stable/optim.html, total_steps = epochs * steps_per_epoch, so must either provide a value as argument for total_steps or provide a value for both epochs and steps_per_epoch.
+- From: https://discuss.pytorch.org/t/cyclic-learning-rate-max-lr and https://stackoverflow.com/questions/62917353, max_lr in OneCycleLR should be larger than the lr in the optimizer.
+- From: https://towardsdatascience.com/finding-good-learning-rate-and-the-one-cycle-policy-7159fe1db5d6
+    - Answers why it is called one-cycle
+    - The idea of "range test"
+    - Use the highest batch size value that can be fit into memory to be used as batch size
