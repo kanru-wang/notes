@@ -41,3 +41,9 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
     - Answers why it is called one-cycle
     - The idea of "range test"
     - Use the highest batch size value that can be fit into memory to be used as batch size
+- From: https://amarsaini.github.io/Optimizer-Benchmarks/
+    - lr_scheudler wraps the optimizer and adjusts the optimizer's hyperparameters when lr_scheduler.step().
+    - lr_scheduler needs to know the total number of steps beforehand, in order to adjust the lr appropriately between min_lr and max_lr.
+- From: https://www.kaggle.com/kanruwang/optimizer-and-scheduler
+    - The optimizer's originally specified lr will be overwritten by the scheduler
+    - From experiment, `4 * max_lr / 100 = initial_lr = lr = min_lr * 10000`
