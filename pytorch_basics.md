@@ -47,3 +47,7 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
 - From: https://www.kaggle.com/kanruwang/optimizer-and-scheduler
     - The optimizer's originally specified lr will be overwritten by the scheduler
     - From experiment, `4 * max_lr / 100 = initial_lr = lr = min_lr * 10000`
+- OneCycleLR implementation example
+    - https://zhuanlan.zhihu.com/p/136902153
+    - https://discuss.pytorch.org/t/cyclic-learning-rate-max-lr
+    - https://pytorch.org/docs/stable/optim.html
