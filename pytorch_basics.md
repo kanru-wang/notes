@@ -46,8 +46,16 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
     - lr_scheduler needs to know the total number of steps beforehand, in order to adjust the lr appropriately between min_lr and max_lr.
 - From: https://www.kaggle.com/kanruwang/optimizer-and-scheduler
     - The optimizer's originally specified lr will be overwritten by the scheduler
-    - From experiment, `4 * max_lr / 100 = initial_lr = lr = min_lr * 10000`
+    - In a scheduler, `4 * max_lr / 100 = initial_lr = lr = min_lr * 10000`
+    - When `max_lr` in a scheduler is specified, all other learning rate parameters will be automatically calculated and specified.
+    - `lr` is the only learning rate parameter specified in an optimizer. It will be overwritten by an automatically calculated `lr` of a scheduler.
+    - I believe when specifying `max_lr` for a OneCycleLR scheduler, with `4 * max_lr / 100 = initial_lr = lr = min_lr * 10000` in mind, we have this relationship:
+
+            `initial_lr` or `lr` of the scheduler < the optimum `lr` of a standalone optimizer < `max_lr` of the scheduler
+
 - OneCycleLR implementation example
     - https://zhuanlan.zhihu.com/p/136902153
     - https://discuss.pytorch.org/t/cyclic-learning-rate-max-lr
     - https://pytorch.org/docs/stable/optim.html
+- print optimizer and scheduler learning rates the correct way
+    - https://github.com/pytorch/pytorch/issues/31871
