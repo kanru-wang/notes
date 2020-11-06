@@ -59,8 +59,8 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
         - How LR is scheduled (per batch or per epoch) will determine whether `scheduler.step()` needs to be done for every batch or for every epoch.
     - https://stackoverflow.com/questions/59996859
         - For OneCycleLR, `scheduler.step()` need to be done for every batch, instead of for every epoch. This would explain why the following two are not really contradictory:
-                - https://discuss.pytorch.org/t/how-to-adjust-learning-rate-according-to-batch-step-rather-than-epoch
-                - https://discuss.pytorch.org/t/how-to-use-torch-optim-lr-scheduler-exponentiallr
+            - https://discuss.pytorch.org/t/how-to-adjust-learning-rate-according-to-batch-step-rather-than-epoch
+            - https://discuss.pytorch.org/t/how-to-use-torch-optim-lr-scheduler-exponentiallr  
         - Use `optimizer.step()` before `scheduler.step()`
     - https://zhuanlan.zhihu.com/p/136902153
     - https://discuss.pytorch.org/t/cyclic-learning-rate-max-lr
