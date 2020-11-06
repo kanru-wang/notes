@@ -7,6 +7,10 @@ From: https://discuss.pytorch.org/t/what-step-backward-and-zero-grad-do/33301
 - opt.step() causes the optimizer to take a step based on the gradients of the parameters.
 - The correct order is opt.zero_grad(), loss.backward(), opt.step().
 
+From: https://www.jianshu.com/p/c59b75f1064c and https://discuss.pytorch.org/t/whats-the-difference-between-optimizer-zero-grad-vs-nn-module-zero-grad
+
+- model.zero_grad() and optimizer.zero_grad() are the same if all your model parameters are in that optimizer. It's safer to call model.zero_grad() to make sure all grads are zero, e.g. if you have two or more optimizers for one model.
+
 From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
 
 - model.eval() will notify all your layers that you are in eval mode, so that batchnorm or dropout layers will work in the eval mode (which behave differently than in the training mode).
@@ -62,8 +66,9 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
             - https://discuss.pytorch.org/t/how-to-adjust-learning-rate-according-to-batch-step-rather-than-epoch
             - https://discuss.pytorch.org/t/how-to-use-torch-optim-lr-scheduler-exponentiallr  
         - Use `optimizer.step()` before `scheduler.step()`
-    - https://zhuanlan.zhihu.com/p/136902153
-    - https://discuss.pytorch.org/t/cyclic-learning-rate-max-lr
-    - https://pytorch.org/docs/stable/optim.html
+    - Others
+        - https://zhuanlan.zhihu.com/p/136902153
+        - https://discuss.pytorch.org/t/cyclic-learning-rate-max-lr
+        - https://pytorch.org/docs/stable/optim.html
 - print optimizer and scheduler learning rates the correct way
     - https://github.com/pytorch/pytorch/issues/31871
