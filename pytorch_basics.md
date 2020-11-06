@@ -9,7 +9,8 @@ From: https://discuss.pytorch.org/t/what-step-backward-and-zero-grad-do/33301
 
 From: https://www.jianshu.com/p/c59b75f1064c and https://discuss.pytorch.org/t/whats-the-difference-between-optimizer-zero-grad-vs-nn-module-zero-grad
 
-- model.zero_grad() and optimizer.zero_grad() are the same if all your model parameters are in that optimizer. It's safer to call model.zero_grad() to make sure all grads are zero, e.g. if you have two or more optimizers for one model.
+- model.zero_grad() and optimizer.zero_grad() are the same if all your model parameters are in that optimizer. 
+- It's safer to call model.zero_grad() to make sure all grads are zero, e.g. if you have two or more optimizers for one model.
 
 From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
 
