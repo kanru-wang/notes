@@ -54,6 +54,14 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
             `initial_lr` or `lr` of the scheduler < the optimum `lr` of a standalone optimizer < `max_lr` of the scheduler
 
 - OneCycleLR implementation example
+    - https://www.deeplearningwizard.com/deep_learning/boosting_models_pytorch/lr_scheduling/
+        - Need to run both `scheduler.step()` and `optimizer.step()`. The former adjusts the LR, the later updates the parameters via GD.
+        - How LR is scheduled (per batch or per epoch) will determine whether `scheduler.step()` needs to be done for every batch or for every epoch.
+    - https://stackoverflow.com/questions/59996859
+        - For OneCycleLR, `scheduler.step()` need to be done for every batch, instead of for every epoch. This would explain why the following two are not really contradictory:
+                - https://discuss.pytorch.org/t/how-to-adjust-learning-rate-according-to-batch-step-rather-than-epoch
+                - https://discuss.pytorch.org/t/how-to-use-torch-optim-lr-scheduler-exponentiallr
+        - Use `optimizer.step()` before `scheduler.step()`
     - https://zhuanlan.zhihu.com/p/136902153
     - https://discuss.pytorch.org/t/cyclic-learning-rate-max-lr
     - https://pytorch.org/docs/stable/optim.html
