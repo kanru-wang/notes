@@ -3,6 +3,8 @@
 - Gensim has `LdaModel` and `LdaMulticore`.
 - Apart from `pyLDAviz`, the evaluation can be done using gensim's `CoherenceModel`.
 
+<br>
+<br>
 
 ## Processing steps for each doc: Doc -> Sentences -> (lowercased)Tokens -> POS -> Lemmas -> CountVectorizer
 
@@ -42,6 +44,8 @@
 
 - `gensim.matutils.Sparse2Corpus`, to get: for each doc, a list of (token_id, token_count) pairs.
 
+<br>
+<br>
 
 ## Outcome
 
@@ -50,6 +54,8 @@
 - Most probable docs per topic
 - Most probable topics per doc
 
+<br>
+<br>
 
 ## About pyLDAviz
 
