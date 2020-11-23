@@ -18,6 +18,7 @@
 - .createOrReplaceTempView() The lifetime of this temp table is tied to the SparkSession
 - .union() Concat two dataframes up and down. Resolves columns by position (not name)
 - .replace() Replace all occurances of a certain value in the df to another value
+- .repartition() If argument is an int, will specify the number of partitions; if is a col name, will be used as the first partitioning column
 
 ### Others
 
