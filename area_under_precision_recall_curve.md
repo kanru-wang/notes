@@ -1,5 +1,6 @@
 # Area under Precision-Recall Curve vs AUROC
 
+- Area under Precision-Recall Curve is also called Average Precision.
 - Area under Precision-Recall Curve is better than AUROC when class is highly imbalanced.
 - AUROC is generated from TP rate (TP / (TP + FN)) and FP rate (FP / (FP + TN)).
 - AUPRC is generated from Recall (i.e. TP rate) and Precision (TP / (TP + FP)).
