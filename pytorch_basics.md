@@ -73,3 +73,22 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
         - https://pytorch.org/docs/stable/optim.html
 - print optimizer and scheduler learning rates the correct way
     - https://github.com/pytorch/pytorch/issues/31871
+    
+## Mixup, Cutmix, FMix
+
+- https://medium.com/@virajbagal12/mixed-sample-data-augmentation-721e65093fcf
+- https://medium.com/nerd-for-tech/cutmix-a-new-strategy-for-data-augmentation-bbc1c3d29aab
+
+## Mixed Precision
+
+- https://jonathan-hui.medium.com/mixed-precision-in-deep-learning-67f6dce3e0f3
+    - Need less memory and also faster
+    - <img src="image/mixed_precision_sudo_code.jpeg" width="600"/>
+    - The gradient in the backward pass can be too small and truncated to 0 in FP16 calculation
+- https://zhuanlan.zhihu.com/p/165152789
+    - pytorch's autocast + GradScaler will do the job
+    - The `with autocast()` block (which casts the tensor to FP16) only needs to include the "forward" and "loss" calculation, but not the "backward" calculation, because the "backward" calculation will automatically use the same precision as the "forward" calculation
+    - `GradScaler` scales up the loss to prevent gradient from being truncated to 0 (underflow), but if it scales the gradient too high, there will be overflow
+    - `GradScaler` scales up the loss for the back propagation step, but then unscale the gradient before updating the weights
+    - If there is overflow, the `GradScaler` will skip the current batch's weight update, and will also decrease the scaling effect
+    - If there is no overflow for a few continuous batches, the `GradScaler` will increase the scaling effect
