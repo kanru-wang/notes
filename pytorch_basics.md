@@ -92,3 +92,20 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
     - `GradScaler` scales up the loss for the back propagation step, but then unscale the gradient before updating the weights
     - If there is overflow, the `GradScaler` will skip the current batch's weight update, and will also decrease the scaling effect
     - If there is no overflow for a few continuous batches, the `GradScaler` will increase the scaling effect
+
+## Huggingface
+
+- Summary of the tasks from https://huggingface.co/transformers/task_summary.html
+    - Overview of NLP tasks that can be done
+    - In the example of doing a sequence classification to determine if two sequences are paraphrases of each other, the usage of "bert-base-cased-finetuned-mrpc" is the key to have a model doing paraphrase. Notice that "MRPC" stands for Microsoft Research Paraphrase Corpus.
+    - Likewise, `tokenizer = AutoTokenizer.from_pretrained("model_name")` and `model = AutoModelxxxxxx.from_pretrained("model_name")` is how all tokenizers and models are correctly specified on this page. Here the architectures are guessed according to the name of the pretrained model.
+
+- Preprocessing from https://huggingface.co/transformers/preprocessing.html
+    - The usage of `decode` for debugging
+
+- Training and fine-tuning from https://huggingface.co/transformers/training.html
+    - Freezing the encoder by setting the `requires_grad` attribute to `False`
+    - The `Trainer` class is a simpler way to train
+
+- Summary of the tokenizers from https://huggingface.co/transformers/tokenizer_summary.html
+    - Byte-Pair Encoding (BPE)
