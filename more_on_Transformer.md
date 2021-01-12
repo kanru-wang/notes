@@ -179,6 +179,10 @@ The softmax layer then turns those scores into probabilities (all positive, all 
 <img src="image/output_target_probability_distributions.png" width="500"/>
 <img src="image/output_trained_model_probability_distributions.png" width="500"/>
 
+### Other good sources
+
+- https://towardsdatascience.com/from-pre-trained-word-embeddings-to-pre-trained-language-models-focus-on-bert-343815627598
+
 <br>
 <br>
 
