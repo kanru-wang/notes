@@ -195,6 +195,9 @@ From:
 - http://jalammar.github.io/illustrated-bert/
 - https://towardsdatascience.com/bert-to-the-rescue-17671379687f and https://github.com/shudima/notebooks/blob/master/BERT_to_the_rescue.ipynb
 - Feature extraction, may be flawed: http://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time
+- How to only train the linear layer:
+    - https://github.com/huggingface/transformers/issues/400
+    - https://discuss.pytorch.org/t/how-the-pytorch-freeze-network-in-some-layers-only-the-rest-of-the-training
 
 Maximum sequence size for BERT is 512, so truncate any review that is longer than this. Make all the vectors the same size by padding shorter sentences with the token id 0.
 
