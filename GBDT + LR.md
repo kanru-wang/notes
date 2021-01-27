@@ -4,7 +4,7 @@ From: https://blog.csdn.net/xxiaobaib/article/details/100049720
 From: https://towardsdatascience.com/next-better-player-gbdt-lr-for-binary-classification-f8dc6f32628e
 - There is a good code example. The key is to use `pred_leaf=True` which is to use to output the index of prediction leaf node for each tree.
 - (1) get leaf node index, (2) one-hot encoding the list of leaf node index (3) feed the final list to LR
-- # of leaf nodes is not # of prediction classes
-- # of leaf trees  =  length of the list of leaf node index
-- # of leaf nodes  x  # of trees  =  length of final list
+- `# of leaf nodes` is not `# of prediction classes`
+- `# of leaf trees`  =  `length of the list of leaf node index`
+- `# of leaf nodes`  x  `# of trees`  =  `length of final list`
 
