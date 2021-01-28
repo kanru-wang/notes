@@ -16,6 +16,9 @@ From:
 - `torch.nn.BCEWithLogitsLoss` includes a Sigmoid activation function.
 - `torch.nn.BCELoss` needs a Sigmoid activation function but doesn't have one, so need to pass through a Sigmoid before BCELoss.
 
+<br>
+<br>
+
 ### Focal loss
 
 From:
@@ -43,3 +46,19 @@ Focal loss loss vs probability, given α = 0.25 and γ = 4
 <img src="image/focal_loss_loss_vs_prob.png" width="350"/>
 
 <img src="image/focal_loss_parameter_effect.png" width="500"/>
+
+<br>
+<br>
+
+### Label Smoothing
+
+From: https://towardsdatascience.com/what-is-label-smoothing-108debd7ef06
+
+- Smoothing parameter α = 0.1 is a good place to start
+- Can try label smoothing, whenever a classification neural network suffers from overfitting and/or overconfidence
+- Most popular non-deep learning methods do not use the softmax function. Thus label smoothing is usually not applicable.
+
+From: https://towardsdatascience.com/label-smoothing-making-model-robust-to-incorrect-labels-2fae037ffbd0
+
+- new_onehot_labels = onehot_labels * (1 - label_smoothing) + label_smoothing / num_classes
+- If label_smoothing = 0.2, new_onehot_labels = [0 and 1] * (1 — 0.2) + 0.2 / 2 = [0.1 and 0.9], instead of [0 and 1]
