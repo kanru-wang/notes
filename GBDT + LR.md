@@ -8,3 +8,5 @@ From: https://towardsdatascience.com/next-better-player-gbdt-lr-for-binary-class
 - `# of leaf trees`  =  `length of the list of leaf node index`
 - `# of leaf nodes`  x  `# of trees`  =  `length of final list`
 
+From: https://zhuanlan.zhihu.com/p/57987311
+- Interesting review on some implementation techniques mentioned in the Facebook CTR GBDT + LR paper
