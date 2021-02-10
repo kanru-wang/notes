@@ -62,3 +62,5 @@ From: https://towardsdatascience.com/label-smoothing-making-model-robust-to-inco
 
 - new_onehot_labels = onehot_labels * (1 - label_smoothing) + label_smoothing / num_classes
 - If label_smoothing = 0.2, new_onehot_labels = [0 and 1] * (1 — 0.2) + 0.2 / 2 = [0.1 and 0.9], instead of [0 and 1]
+
+See implementation: https://github.com/pytorch/pytorch/issues/7455
