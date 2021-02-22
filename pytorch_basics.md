@@ -93,6 +93,17 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
     - If there is overflow, the `GradScaler` will skip the current batch's weight update, and will also decrease the scaling effect
     - If there is no overflow for a few continuous batches, the `GradScaler` will increase the scaling effect
 
+## Gradient Accumulation
+
+- https://towardsdatascience.com/gradient-accumulation-overcoming-memory-constraints-in-deep-learning-36d411252d01
+    - Gradient Accumulation is useful when you want to avoid using (1) Reduce batch size or (2) Reduce image dimensions to solve the Out of Memory error problem
+    - Gradient accumulation calculates the loss and gradients after each mini-batch, but instead of updating the model parameters, it waits and accumulates the gradients over consecutive batches. And then ultimately updates the parameters based on the cumulative gradient after a specified number of batches. It serves the same purpose as having a mini-batch with higher number of images. For example: If you run a gradient accumulation with steps of 5 and batch size of 4 images, it serves almost the same purpose of running with a batch size of 20 images
+- https://towardsdatascience.com/what-is-gradient-accumulation-in-deep-learning-ec034122cfa
+    - By not updating the variables at all those steps, we cause all the mini-batches to use the same model variables for calculating the gradients
+    - Accumulating the gradients in all of these steps results in the same sum of gradients as if we were using the global batch size
+- https://ai.stackexchange.com/questions/21972/what-is-the-relationship-between-gradient-accumulation-and-batch-size
+    - Using Batch Normalization with gradient accumulation generally does not work well, simply because BatchNorm statistics cannot be accumulated. A better solution would be to use Group Normalization instead of BatchNorm
+
 ## Huggingface
 
 - Summary of the tasks from https://huggingface.co/transformers/task_summary.html
