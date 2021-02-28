@@ -1,4 +1,8 @@
-Visualize the effect here: https://albumentations-demo.herokuapp.com/
+- Visualize the effect here: https://albumentations-demo.herokuapp.com/
+
+- From: https://albumentations.readthedocs.io/en/latest/probabilities.html
+
+        All pre / post processing transforms: Compose, PadIfNeeded, CenterCrop, RandomCrop, Crop, RandomCropNearBBox, RandomSizedCrop, RandomResizedCrop, RandomSizedBBoxSafeCrop, CropNonEmptyMaskIfExists, Lambda, Normalize, ToFloat, FromFloat, ToTensor, LongestMaxSize have default probability values equal to 1. All others are equal to 0.5
 
 ```
 albumentations.Compose([
