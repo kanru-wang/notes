@@ -74,3 +74,10 @@ It ensure that **rows generated from the same customer will be in one of the fol
         - Or treat it as a feature drifting problem and remove instable features.
 
     - When there isn’t a column that indicates “customer ID”, need to find an proxy.
+
+
+# Stratified Group k-Fold Cross-Validation
+
+- https://www.kaggle.com/jakubwasikowski/stratified-group-k-fold-cross-validation
+- https://github.com/scikit-learn/scikit-learn/issues/13621#issuecomment-600894432
+- Notice that it doesn't allow specification of test_size proportion, and defaults to 50% at each fold
