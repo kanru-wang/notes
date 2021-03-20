@@ -38,6 +38,13 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
 - There is no such thing as “test mode”. Only train() and eval().
 - torch.no_grad() and torch.set_grad_enabled(False) are the same.
 
+From: https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html and https://discuss.pytorch.org/t/how-the-pytorch-freeze-network-in-some-layers-only-the-rest-of-the-training
+
+- Every parameter has an attribute called `requires_grad` which is by default True; True means it will be backpropagrated. To freeze a layer / layers you need to set `requires_grad` to False for all parameters of a layer / layers, i.e. we are feature extracting and only want to compute gradients for the newly initialized layer.
+
+        for param in model.parameters():
+            param.requires_grad = False
+
 ## torch.optim.lr_scheduler.OneCycleLR
 
 - From: https://pytorch.org/docs/stable/optim.html, total_steps = epochs * steps_per_epoch, so must either provide a value as argument for total_steps or provide a value for both epochs and steps_per_epoch.
