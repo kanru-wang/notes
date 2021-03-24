@@ -78,3 +78,7 @@ For the training of XGBoost model, there are two ways to improve it.
 - `eval_metric` is not the loss/cost/objective function; that is specified with the `objective` parameter instead, and it is default to `binary:logistic` for classification problems.
 
 - The same need to specify evaluation metric in RandomizedSearchCV or GridSearchCV is done by specifying `scoring`. From: https://stackoverflow.com/questions/43500893/gridsearchcv-and-xgbclassifier-with-eval-metric-mlogloss
+
+## Regression
+
+- When regression, set `objective` from the default of `reg:squarederror` to `reg:gamma` might be helpful for modelling skewed data (all positive). It assumes gamma regression with log-link. Output is a mean of gamma distribution. It might be useful, e.g., for modeling insurance claims severity, or for any outcome that might be gamma-distributed.
