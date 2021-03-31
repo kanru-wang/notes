@@ -45,6 +45,12 @@ From: https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutor
         for param in model.parameters():
             param.requires_grad = False
 
+From: https://discuss.pytorch.org/t/difference-between-torch-device-cuda-and-torch-device-cuda-0 and https://stackoverflow.com/questions/50954479
+
+- `model.to(device)` / `tensor.to(device)` moves a model / tensor to a device, while `device = torch.device("cuda" if torch.cuda.is_available() else "cpu")`
+- `torch.device("cuda")` by default is the 0 device, equals to `torch.device("cuda:0")`
+- Device number does not have to be 0, can be any number in `range(torch.cuda.device_count())`
+
 ## torch.optim.lr_scheduler.OneCycleLR
 
 - From: https://pytorch.org/docs/stable/optim.html, total_steps = epochs * steps_per_epoch, so must either provide a value as argument for total_steps or provide a value for both epochs and steps_per_epoch.
