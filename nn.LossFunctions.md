@@ -13,8 +13,6 @@ From:
     - Output of `nn.LogSoftmax()` are all negative numbers. For each sample, `nn.NLLLoss()` simply takes the correct class's value, and the negative of that value would be a positive value.
     - We minimize the negative log likelihood so that the probability of choosing the correct class is maximized.
     - For `nn.NLLLoss()`, input shape is `[m samples, n classes]` and `[m samples]`; output shape is `[m samples]` if the `reduction` argument is `"none"`, output is a scalar if the `reduction` argument is `"mean"`.
-- `CrossEntropyLoss` = `Softmax (not LogSoftmax)` + `Cross-Entropy loss`
-- `BCEWithLogitsLoss` = `Sigmoid` + `BCELoss`
 - `torch.nn.BCEWithLogitsLoss` includes a `Sigmoid` activation function.
 - `torch.nn.BCELoss` needs a `Sigmoid` activation function but doesn't have one, so need to pass through a `Sigmoid` before `BCELoss`.
 
@@ -27,6 +25,20 @@ From:
 - For a binary classification, either use `nn.BCEWithLogitsLoss` and a single output unit, or `nn.CrossEntropyLoss` and two outputs.
 - Usually `nn.CrossEntropyLoss` is used for a multi-class classification, but you could treat a binary classification as a (multi) 2-class classification
 - Recommended to use passing raw logits to `BCEWithLogitsLoss`, as it will yield better numerical stability than `Sigmoid` + `nn.BCELoss`.
+
+From:
+
+- https://sebastianraschka.com/faq/docs/pytorch-crossentropy.html
+
+- cross-entropy the same as the negative log likelihood
+- `nn.functional.binary_cross_entropy_with_logits` takes logits as inputs
+- `nn.functional.cross_entropy` takes logits as inputs
+- `nn.functional.binary_cross_entropy` takes Sigmoid's output probabilities as inputs
+- `nn.functional.nll_loss` takes LogSoftmax's logged probabilities as inputs
+- `CrossEntropyLoss` = `Softmax (not LogSoftmax)` + `Cross-Entropy loss`
+- `CrossEntropyLoss` = `LogSoftmax` + `NLLLoss` = `Softmax` + (`Log` + `NLLLoss`)
+- `BCEWithLogitsLoss` = `Sigmoid` + `BCELoss`
+- In fact, with the same probability inputs, `BCELoss` = `Log` + `NLLLoss`
 
 <br>
 <br>
