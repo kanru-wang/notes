@@ -96,6 +96,7 @@ From: https://discuss.pytorch.org/t/difference-between-torch-device-cuda-and-tor
 
 - https://jonathan-hui.medium.com/mixed-precision-in-deep-learning-67f6dce3e0f3
     - Need less memory and also faster
+    - The gradient in the backward pass can be too small and truncated to 0 in FP16 calculation. To correct it, we scale up the loss before the backward pass and then scale it back in the weight update. This allows a small gradient to continue to be backpropagated.
     - <img src="image/mixed_precision_sudo_code.jpeg" width="600"/>
     - The gradient in the backward pass can be too small and truncated to 0 in FP16 calculation
 - https://zhuanlan.zhihu.com/p/165152789
