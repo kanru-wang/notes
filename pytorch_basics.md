@@ -112,6 +112,7 @@ From: https://discuss.pytorch.org/t/difference-between-torch-device-cuda-and-tor
 - https://towardsdatascience.com/gradient-accumulation-overcoming-memory-constraints-in-deep-learning-36d411252d01
     - Gradient Accumulation is useful when you want to avoid using (1) Reduce batch size or (2) Reduce image dimensions to solve the Out of Memory error problem
     - Gradient accumulation calculates the loss and gradients after each mini-batch, but instead of updating the model parameters, it waits and accumulates the gradients over consecutive batches. And then ultimately updates the parameters based on the cumulative gradient after a specified number of batches. It serves the same purpose as having a mini-batch with higher number of images. For example: If you run a gradient accumulation with steps of 5 and batch size of 4 images, it serves almost the same purpose of running with a batch size of 20 images
+- https://discuss.pytorch.org/t/how-to-implement-accumulated-gradient
 - https://towardsdatascience.com/what-is-gradient-accumulation-in-deep-learning-ec034122cfa
     - By not updating the variables at all those steps, we cause all the mini-batches to use the same model variables for calculating the gradients
     - Accumulating the gradients in all of these steps results in the same sum of gradients as if we were using the global batch size
