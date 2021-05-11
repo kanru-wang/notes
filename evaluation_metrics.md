@@ -26,3 +26,7 @@ F-beta score can be calculated for the positive class in binary classification. 
 ## Label ranking average precision
 
 https://www.geeksforgeeks.org/multilabel-ranking-metrics-label-ranking-average-precision-ml/
+
+## Customize Sklearn cross validation evaluation metric
+
+https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html
