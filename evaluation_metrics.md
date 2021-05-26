@@ -23,6 +23,8 @@ When using NN for multi-label classification tasks, there is a best threshold th
 
 F-beta score can be calculated for the positive class in binary classification. For the multiclass task, it is the average (or weighted average) of the F-beta score of each class. The definition of "average" has to do with "micro" and "macro".
 
+"Weighted average", which is an option in Sklearn's `f1_score`, can alter "macro" to account for label imbalance.
+
 ## Label ranking average precision
 
 https://www.geeksforgeeks.org/multilabel-ranking-metrics-label-ranking-average-precision-ml/
