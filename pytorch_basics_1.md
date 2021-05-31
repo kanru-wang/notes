@@ -51,6 +51,11 @@ From: https://discuss.pytorch.org/t/difference-between-torch-device-cuda-and-tor
 - `torch.device("cuda")` by default is the 0 device, equals to `torch.device("cuda:0")`
 - Device number does not have to be 0, can be any number in `range(torch.cuda.device_count())`
 
+From: https://blog.csdn.net/artistkeepmonkey/article/details/115067356
+
+- `nn.Identity()` does nothing but passing the same values from input variable to output variable.
+- What `self.model.fc = nn.Identity()` says is that `self.model.fc` does nothing.
+
 ## torch.optim.lr_scheduler.OneCycleLR
 
 - From: https://pytorch.org/docs/stable/optim.html, total_steps = epochs * steps_per_epoch, so must either provide a value as argument for total_steps or provide a value for both epochs and steps_per_epoch.
