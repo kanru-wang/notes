@@ -89,26 +89,33 @@ Notice that “in_features” and “in_channels” are completely different.
 
 If you want to pass in a 28 x 28 image into a linear layer:
 
-- The 28 x 28 pixel image can’t be input as a [28, 28] tensor. This is because nn.Linear will read it as 28 batches of 28-feature-length vectors. Since it expects an input of [batch_size, num_features], need to transpose it somehow (see view() below).
+- The 28 x 28 pixel image cannot be input as a [28, 28] tensor. This is because nn.Linear will read it as 28 batches of 28-feature-length vectors. Since it expects an input of [batch_size, num_features], need to transpose it using view().
 - The batch size passes unchanged through all the layers. No matter how the data changes as it passes through a network, the first dimension will end up being the batch_size.
 
-Use view() to change your tensor’s dimensions.
-image = image.view(batch_size, -1)
-You supply your batch_size as the first number, and then “-1” basically tells Pytorch, “you figure out this other number for me… please.” Your tensor will now feed properly into any linear layer. Now we’re talking!
-So then, to initialize the very first argument of your linear layer, pass it the number of features of your input data. For 28 x 28, our new view tensor is of size [1, 784] (1 * 28 * 28):
-Example 3: Resize with view() to fit into a linear layer
-batch_size = 1
-# Simulate a 28 x 28 pixel, grayscale "image"
-input = torch.randn(1, 28, 28)
-# Use view() to get [batch_size, num_features].
-# -1 calculates the missing value given the other dim.
-input = input.view(batch_size, -1) # torch.Size([1, 784])
-# Intialize the linear layer.
-fc = torch.nn.Linear(784, 10)
-# Pass in the simulated image to the layer.
-output = fc(input)
-print(output.shape)
->>> torch.Size([1, 10])
+        Use view() to change a tensor’s dimensions, so that it can be fed into a linear layer
+        image = image.view(batch_size, -1)
+        “-1” tells Pytorch to figure out other numbers. The tensor will now feed properly into any linear layer.
+
+To initialize the very first argument of your linear layer, pass it the number of features of your input data. For 28 x 28, our new view tensor is of size [1, 784] (1 * 28 * 28):
+
+        batch_size = 1
+
+        # Simulate a 28 x 28 pixel, grayscale "image"
+        input = torch.randn(1, 28, 28)
+
+        # Use view() to get [batch_size, num_features].
+        # -1 calculates the missing value given the other dim.
+        input = input.view(batch_size, -1) # torch.Size([1, 784])
+
+        # Intialize the linear layer.
+        fc = torch.nn.Linear(784, 10)
+
+        # Pass in the simulated image to the layer.
+        output = fc(input)
+
+        print(output.shape)
+        >>> torch.Size([1, 10])
+
 Remember this — if you’re ever transitioning from a convolutional layer output to a linear layer input, you must resize it from 4d to 2d using view, as described with image example above.
 So, a conv output of [32, 21, 50, 50] should be “flattened” to become a [32, 21 * 50 * 50] tensor. And the in_features of the linear layer should also be set to [21 * 50 * 50].
 The second argument of a linear layer, if you’re passing it on to more layers, is called H for hidden layer. You just kind of play positional ping-pong with H and make it the last of the previous and the first of the next, like this:
