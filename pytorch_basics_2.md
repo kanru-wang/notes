@@ -116,14 +116,14 @@ To initialize the very first argument of your linear layer, pass it the number o
         print(output.shape)
         >>> torch.Size([1, 10])
 
-Remember this — if you’re ever transitioning from a convolutional layer output to a linear layer input, you must resize it from 4d to 2d using view, as described with image example above.
-So, a conv output of [32, 21, 50, 50] should be “flattened” to become a [32, 21 * 50 * 50] tensor. And the in_features of the linear layer should also be set to [21 * 50 * 50].
-The second argument of a linear layer, if you’re passing it on to more layers, is called H for hidden layer. You just kind of play positional ping-pong with H and make it the last of the previous and the first of the next, like this:
-"""The in-between dimensions are the hidden layer dimensions, you just pass in the last of the previous as the first of the next."""
-fc1 = torch.nn.Linear(784, 100) # 100 is last.
-fc2 = torch.nn.Linear(100, 50) # 100 is first, 50 is last.
-fc3 = torch.nn.Linear(50, 20) # 50 is first, 20 is last.
-fc4 = torch.nn.Linear(20, 10) # 20 is first. 
-"""This is the same pattern for convolutional layers as well, only it's channels, and not features that get passed along."""
-The very last output, aka your output layer depends on your model and your loss function. If you have 10 classes like in MNIST, and you’re doing a classification problem, you want all of your network architecture to eventually consolidate into those final 10 units so that you can determine which of those 10 classes your input is predicting.
-The last layer is dependent on what you want to infer from your data. The operations you can do to get the answer you need is a topic for another article, because there is a lot to cover. But for now you should have all the basics covered.
+In order to transit from a convolutional layer output to a linear layer input, you must resize it from 4d to 2d using view. A conv output of [32, 21, 50, 50] should be “flattened” to become a [32, 21 * 50 * 50] tensor. And the in_features of the linear layer should also be set to [21 * 50 * 50].
+
+Next
+
+        """The in-between dimensions are the hidden layer dimensions, you just pass in the last of the previous as the first of the next."""
+        fc1 = torch.nn.Linear(784, 100) # 100 is last.
+        fc2 = torch.nn.Linear(100, 50) # 100 is first, 50 is last.
+        fc3 = torch.nn.Linear(50, 20) # 50 is first, 20 is last.
+        fc4 = torch.nn.Linear(20, 10) # 20 is first. 
+
+Here we assume a 10-class classification problem.
