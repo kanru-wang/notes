@@ -123,6 +123,9 @@ From: https://blog.csdn.net/artistkeepmonkey/article/details/115067356
     - Accumulating the gradients in all of these steps results in the same sum of gradients as if we were using the global batch size
 - https://ai.stackexchange.com/questions/21972/what-is-the-relationship-between-gradient-accumulation-and-batch-size
     - Using Batch Normalization with gradient accumulation generally does not work well, simply because BatchNorm statistics cannot be accumulated. A better solution would be to use Group Normalization instead of BatchNorm
+- Kaggle example
+    - https://www.kaggle.com/underwearfitting/pytorch-densenet-arcface-validation-training
+    - https://www.kaggle.com/kanruwang/cassava-efficientnet-train
 
 ## Huggingface
 
