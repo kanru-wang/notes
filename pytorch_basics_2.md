@@ -96,7 +96,7 @@ If you want to pass in a 28 x 28 image into a linear layer:
         image = image.view(batch_size, -1)
         “-1” tells Pytorch to figure out other numbers. The tensor will now feed properly into any linear layer.
 
-To initialize the very first argument of your linear layer, pass it the number of features of your input data. For 28 x 28, our new view tensor is of size [1, 784] (1 * 28 * 28):
+To initialize the very first argument of your linear layer, pass it the number of features of your input data. For 28 x 28, the new view tensor is of size [1, 784] (1 * 28 * 28):
 
         batch_size = 1
 
@@ -116,14 +116,23 @@ To initialize the very first argument of your linear layer, pass it the number o
         print(output.shape)
         >>> torch.Size([1, 10])
 
-In order to transit from a convolutional layer output to a linear layer input, you must resize it from 4d to 2d using view. A conv output of [32, 21, 50, 50] should be “flattened” to become a [32, 21 * 50 * 50] tensor. And the in_features of the linear layer should also be set to [21 * 50 * 50].
+In order to transit from a convolutional layer output to a linear layer input, need to resize it from 4d to 2d using view. A conv output of [32, 21, 50, 50] should be “flattened” to become a [32, 21 * 50 * 50] tensor. And the in_features of the linear layer should also be set to [21 * 50 * 50].
 
 Next
 
-        """The in-between dimensions are the hidden layer dimensions, you just pass in the last of the previous as the first of the next."""
+        """The in-between dimensions are the hidden layer dimensions, just pass in the last of the previous as the first of the next."""
         fc1 = torch.nn.Linear(784, 100) # 100 is last.
         fc2 = torch.nn.Linear(100, 50) # 100 is first, 50 is last.
         fc3 = torch.nn.Linear(50, 20) # 50 is first, 20 is last.
         fc4 = torch.nn.Linear(20, 10) # 20 is first. 
 
 Here we assume a 10-class classification problem.
+
+<br>
+<br>
+
+### Three ways of modifying pytorch models
+
+- https://blog.csdn.net/whut_ldz/article/details/78845947
+- https://blog.csdn.net/whut_ldz/article/details/78874977
+
