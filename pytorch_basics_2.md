@@ -136,3 +136,7 @@ Here we assume a 10-class classification problem.
 - https://blog.csdn.net/whut_ldz/article/details/78845947
 - https://blog.csdn.net/whut_ldz/article/details/78874977
 
+### About .detach().cpu().numpy()
+
+- https://zhuanlan.zhihu.com/p/165219346
+- https://blog.csdn.net/ODIMAYA/article/details/102892799
