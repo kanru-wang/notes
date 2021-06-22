@@ -3,8 +3,8 @@
 From: https://discuss.pytorch.org/t/what-step-backward-and-zero-grad-do/33301
 
 - opt.zero_grad() clears old gradients from the last step (otherwise you’d just accumulate the gradients from all loss.backward() calls).
-- loss.backward() computes the derivative of the loss w.r.t. the parameters (or anything requiring gradients) using backpropagation.
-- opt.step() causes the optimizer to take a step based on the gradients of the parameters.
+- loss.backward() computes the derivative of the loss w.r.t. each parameter which has `requires_grad=True` (or anything requiring gradients) using backpropagation. Calling .backward() mutiple times accumulates the gradient (by addition) for each parameter.
+- opt.step() causes the optimizer to take a step based on the gradients of the parameters. It updates each parameter based on the current gradient (stored in .grad attribute of a parameter) and the update rule. Recall that when initializing optimizer, we specify what parameters (tensors) of the model it should be updating.
 - The correct order is opt.zero_grad(), loss.backward(), opt.step().
 
 From: https://www.jianshu.com/p/c59b75f1064c and https://discuss.pytorch.org/t/whats-the-difference-between-optimizer-zero-grad-vs-nn-module-zero-grad
