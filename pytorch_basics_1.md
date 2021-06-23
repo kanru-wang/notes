@@ -38,8 +38,9 @@ From: https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615
 - There is no such thing as “test mode”. Only train() and eval().
 - torch.no_grad() and torch.set_grad_enabled(False) are the same.
 
-From: https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html and https://discuss.pytorch.org/t/how-the-pytorch-freeze-network-in-some-layers-only-the-rest-of-the-training
+From: https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html and https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html and https://discuss.pytorch.org/t/how-the-pytorch-freeze-network-in-some-layers-only-the-rest-of-the-training
 
+- It seems that in Kaggle image classification projects, "finetuning" instead of "feature extraction" is used.
 - Every parameter has an attribute called `requires_grad` which is by default True; True means it will be backpropagrated. To freeze a layer / layers you need to set `requires_grad` to False for all parameters of a layer / layers, i.e. we are feature extracting and only want to compute gradients for the newly initialized layer.
 
         for param in model.parameters():
