@@ -59,6 +59,13 @@ For the training of XGBoost model, there are two ways to improve it.
     - https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/40618
     - https://stats.stackexchange.com/questions/233248/max-delta-step-in-xgboost
     - https://stats.stackexchange.com/questions/387632/running-xgboost-with-highly-imbalanced-data-returns-near-0-true-positive-rate
+
+### 3. sample_weight
+
+- From https://stackoverflow.com/questions/48079973/
+    - scale_pos_weight VS sample_weight
+- From https://towardsdatascience.com/how-to-handle-multiclass-imbalanced-data-say-no-to-smote-e9a7f393c310
+    - scale_pos_weight for binary classification and sample_weights for both binary and multiclass problems.
     
 ## eval_metric
 
