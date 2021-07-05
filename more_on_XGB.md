@@ -90,3 +90,8 @@ For the training of XGBoost model, there are two ways to improve it.
 
 - When regression, set `objective` from the default of `reg:squarederror` to `reg:gamma` might be helpful for modelling skewed data (all positive). It assumes gamma regression with log-link. The model output is a mean of gamma distribution. It might be useful, e.g., for modeling insurance claims severity, or for any outcome that might be gamma-distributed. Meanwhile, the `eval_metric` should be set to `gamma-nloglik`.
 - See log link: https://www.theanalysisfactor.com/count-models-understanding-the-log-link-function and https://www.theanalysisfactor.com/the-difference-between-link-functions-and-data-transformations/
+
+## Multiclass and multioutput
+
+- https://scikit-learn.org/stable/modules/multiclass.html
+
