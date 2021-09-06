@@ -36,7 +36,7 @@ In below,
     - Not practically significant. Confident that there was not a practically significant change
     - In other words, confident there is a change, but don't care about the magnitude of the change
 - Case 4
-    - The confidence interval bounds are outside of what's practically significant.
+    - The confidence interval bounds are outside of what's practically significant
 - Case 5
     - The point estimate is beyond what's practically significant. This change is an effect you care about
     - But the confidence interval overlaps 0, so there might not be a change
