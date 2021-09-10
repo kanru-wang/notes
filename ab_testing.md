@@ -71,8 +71,21 @@ Bootstrapping
     - Why use Bootstrapping
         - When we do not have a large sample and cannot assume the sampling distribution is normal
         - When there isn't a formula to calculate the standard error of the estimate (e.g. 80th percentile)
-    - Instead of calculating the standard error and then the confidence interval from formula, we can observe it from Bootstrapping
+    - Instead of calculating the standard error and then the confidence interval from a formula, we can observe it from Bootstrapping
+    - Yes, Bootstrapping is impacted by outliers, but using a formula (if there is one) is also impacted by outliers
 - Example usage: to construct a confidence interval for a non-normal distribution dataset. https://statisticsbyjim.com/hypothesis-testing/bootstrapping
 - From: https://stats.stackexchange.com/questions/26088
     - Resampling is not done to provide an estimate of the population distribution -- we take our sample itself as a model of the population. Rather, resampling is done to provide an estimate of the sampling distribution of the sample statistic in question.
     - We usually have a hard time calculating the actual quantities of interest from that sample. So, we have to estimate them, and this is why we draw lots of bootstrap samples.
+
+<br>
+
+<img src="image/unit_of_diversion.png" width="700"/>
+
+
+The unit of analysis is whatever the denominator of your metric is.
+E.g. for click through rate, there is clicks divided by page views, then page view would be the unit of analysis.
+
+When the unit of diversion is also a page view (e.g. the case in an event base diversion), then the analytically computed variability is likely to be very close to the empirically computed variability. If, however, the unit of diversion is a cookie or a user id, then the variability of the same metric click through rate can be much higher. In those cases should use an empirically computed variability given the unit of diversion.
+
+This is because the independence assumption is no longer valid for computing the variability analytically. When doing event-based diversion every single event is a different random draw, and so the independence assumption is actually valid. When doing cookie or user ID based diversion, the independence assumption is no longer valid because groups of events are diverted, and they are correlated together. This will increase the variability greatly.
