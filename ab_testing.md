@@ -80,12 +80,13 @@ Bootstrapping
 
 <br>
 
+Unit of diversion
+
 <img src="image/unit_of_diversion.png" width="700"/>
 
-
-The unit of analysis is whatever the denominator of your metric is.
-E.g. for click through rate, there is clicks divided by page views, then page view would be the unit of analysis.
+The unit of analysis is whatever the denominator of the metric is. E.g. for click through rate, there is clicks divided by page views, then page view would be the unit of analysis.
 
 When the unit of diversion is also a page view (e.g. the case in an event base diversion), then the analytically computed variability is likely to be very close to the empirically computed variability. If, however, the unit of diversion is a cookie or a user id, then the variability of the same metric click through rate can be much higher. In those cases should use an empirically computed variability given the unit of diversion.
 
 This is because the independence assumption is no longer valid for computing the variability analytically. When doing event-based diversion every single event is a different random draw, and so the independence assumption is actually valid. When doing cookie or user ID based diversion, the independence assumption is no longer valid because groups of events are diverted, and they are correlated together. This will increase the variability greatly.
+
