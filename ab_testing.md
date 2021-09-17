@@ -22,6 +22,8 @@ Here "increased practical significance level" means we are no longer interested 
 
 In below, statistical significance 0.0202 is compared with the practical significance 0.02.
 
+`m` stands for `margin of error` or `confidence interval`.
+
 <img src="image/hypo_test_1.png" width="700"/>
 
 <br>
@@ -82,11 +84,29 @@ Bootstrapping
 
 Unit of diversion
 
-<img src="image/unit_of_diversion.png" width="700"/>
+A unit of diversion is how we define what an individual subject is in the experiment.
+
+<img src="image/unit_of_diversion_1.png" width="700"/>
 
 The unit of analysis is whatever the denominator of the metric is. E.g. for click through rate, there is clicks divided by page views, then page view would be the unit of analysis.
 
 When the unit of diversion is also a page view (e.g. the case in an event base diversion), then the analytically computed variability is likely to be very close to the empirically computed variability. If, however, the unit of diversion is a cookie or a user id, then the variability of the same metric click through rate can be much higher. In those cases should use an empirically computed variability given the unit of diversion.
 
 This is because the independence assumption is no longer valid for computing the variability analytically. When doing event-based diversion every single event is a different random draw, and so the independence assumption is actually valid. When doing cookie or user ID based diversion, the independence assumption is no longer valid because groups of events are diverted, and they are correlated together. This will increase the variability greatly.
+
+In the following example, 
+
+<img src="image/unit_of_diversion_2.png" width="700"/>
+
+<br>
+
+In the example below, it doesn't mention practical significance. The probability difference would be significant, if the confidence interval (margin of error), around the probability difference, doesn't include 0.
+
+The focus is to show although for global-wide experiments, the confidence interval may be narrower than local experiments due to larger sample size, however the local experiments' probability difference may be narrower due to more uniformed population.
+
+<img src="image/global_exp_vs_local_exp_1.png" width="700"/>
+
+<img src="image/global_exp_vs_local_exp_2.png" width="700"/>
+
+
 
