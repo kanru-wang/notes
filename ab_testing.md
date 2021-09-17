@@ -49,6 +49,7 @@ In below,
 <img src="image/confidence_interval_cases.png" width="700"/>
 
 <br>
+<br>
 
 Click metric definitions
 
@@ -59,12 +60,15 @@ Click metric definitions
 <img src="image/click_metric_impact.png" width="700"/>
 
 <br>
+<br>
 
-- Percentiles are more useful than mean or median. Now we need to choose a percentile as the metric
+Percentiles are more useful than mean or median. Now we need to choose a percentile as the metric
+
 - Take a few very similar population groups, and look at their, say, 75th percentiles. If the 75th percentiles vary a lot, then 75th percentiles is not robust enough.
 - Take a few different population groups, and look at their, say, 75th percentiles. If the 75th percentiles do not vary much, then 75th percentiles is not sensitive enough.
 - We need to choose a percentile that is both robust and sensitive
 
+<br>
 <br>
 
 Bootstrapping
@@ -81,6 +85,7 @@ Bootstrapping
     - We usually have a hard time calculating the actual quantities of interest from that sample. So, we have to estimate them, and this is why we draw lots of bootstrap samples.
 
 <br>
+<br>
 
 Unit of diversion
 
@@ -90,14 +95,15 @@ A unit of diversion is how we define what an individual subject is in the experi
 
 The unit of analysis is whatever the denominator of the metric is. E.g. for click through rate, there is clicks divided by page views, then page view would be the unit of analysis.
 
-When the unit of diversion is also a page view (e.g. the case in an event base diversion), then the analytically computed variability is likely to be very close to the empirically computed variability. If, however, the unit of diversion is a cookie or a user id, then the variability of the same metric click through rate can be much higher. In those cases should use an empirically computed variability given the unit of diversion.
+When the unit of diversion is also a page view (e.g. the case in an event base diversion), then the analytically computed variability is likely to be very close to the empirically computed variability. If, however, the unit of diversion is a cookie or a user id, then the variability of the same metric click through rate can be much higher. In those cases the analytically computed variability is likely to be an under-estimate, and should use an empirically computed variability given the unit of diversion.
 
 This is because the independence assumption is no longer valid for computing the variability analytically. When doing event-based diversion every single event is a different random draw, and so the independence assumption is actually valid. When doing cookie or user ID based diversion, the independence assumption is no longer valid because groups of events are diverted, and they are correlated together. This will increase the variability greatly.
 
-In the following example, 
+In the following example, to get the same standard error, we need far more page views, if we divert by cookies instead of by page views.
 
 <img src="image/unit_of_diversion_2.png" width="700"/>
 
+<br>
 <br>
 
 In the example below, it doesn't mention practical significance. The probability difference would be significant, if the confidence interval (margin of error), around the probability difference, doesn't include 0.
