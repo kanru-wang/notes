@@ -73,12 +73,14 @@ Percentiles are more useful than mean or median. Now we need to choose a percent
 
 Bootstrapping
 
+- From: https://youtu.be/Xz0x-8-cgaQ
+    - Each bootstrapped dataset is created using sampling with replacement, so that it has the same number of data points as the original sample.
 - From: https://youtu.be/O_Fj4q8lgmc
     - Why use Bootstrapping
-        - When we do not have a large sample and cannot assume the sampling distribution is normal
-        - When there isn't a formula to calculate the standard error of the estimate (e.g. 80th percentile)
-    - Instead of calculating the standard error and then the confidence interval from a formula, we can observe it from Bootstrapping
-    - Yes, Bootstrapping is impacted by outliers, but using a formula (if there is one) is also impacted by outliers
+        - When we do not have a large sample and cannot assume the sampling distribution (i.e. the distribution of the sample's mean) is normal.
+        - When there isn't a formula to calculate the standard error of the estimate (e.g. 80th percentile).
+    - Instead of calculating the standard error and then the confidence interval from a formula, we can observe it from Bootstrapping.
+    - Yes, Bootstrapping is impacted by outliers, but using a formula (if there is one) is also impacted by outliers.
 - Example usage: to construct a confidence interval for a non-normal distribution dataset. https://statisticsbyjim.com/hypothesis-testing/bootstrapping
 - From: https://stats.stackexchange.com/questions/26088
     - Resampling is not done to provide an estimate of the population distribution -- we take our sample itself as a model of the population. Rather, resampling is done to provide an estimate of the sampling distribution of the sample statistic in question.
