@@ -1,5 +1,11 @@
 # A/B Testing udacity course learning notes
 
+In below, before analysing any A/B test result (or after conducting an A/A test), we can first check if the data split (unit of diversion split) follows the intended proportion. If the split significantly deviates from the intended proportion, it can be due to (1) an infrastructure setup problem, (2) a failure in capturing user behavior during experiment, (3) unintended filters, (4) something is causing cookies to reset, (5) etc.
+
+<img src="image/checking_invariants.png" width="700"/>
+
+<br>
+
 <img src="image/pooled_standard_error.png" width="700"/>
 
 <br>
