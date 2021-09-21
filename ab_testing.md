@@ -6,7 +6,7 @@ In below, before analysing any A/B test result (or after conducting an A/A test)
 
 <br>
 
-In below, hypothesis testing
+In below, hypothesis testing (this example doesn't mention the Practical Significance)
 
 <img src="image/pooled_standard_error.png" width="700"/>
 
@@ -22,8 +22,9 @@ In below, significance vs sensitivity. Ignore the "α low"
 
 In below, the assumption is to hold all else equal.
 
-Here "increased practical significance level" means we are no longer interested in detecting small changes. Larger changes are easier to detect, and require fewer page views.
+Setting a Practical Significance Level is how we express a minimum threshold below which something is not worth doing.
 
+Here "increased practical significance level" means we are no longer interested in detecting small changes. Larger changes are easier to detect, and require fewer page views.
 <img src="image/sensitivity_3.png" width="700"/>
 
 <br>
@@ -133,3 +134,19 @@ Decide on a sample size in advance and don't conclude before the experiment is o
 
 <br>
 <br>
+
+From: https://youtu.be/LCZG4wlEFXE and https://youtu.be/-QwMdwqUq9c
+
+Another example of the process: 
+
+1. Calculate (1) Standard Error and (2) diff `d` between the rate of control group and the rate of experiment group
+2. Calculate Margin of Error
+3. Surround the diff `d` with the Margin of Error, as a Confidence Interval
+4. See if the Confidence Interval overlaps 0 (or, further, see if it overlaps the Practical Significance)
+
+Also mentions a way to do paired day-by-day Sign Test
+
+
+
+
+
