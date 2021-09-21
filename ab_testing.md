@@ -6,11 +6,13 @@ In below, before analysing any A/B test result (or after conducting an A/A test)
 
 <br>
 
+In below, hypothesis testing
+
 <img src="image/pooled_standard_error.png" width="700"/>
 
 <br>
 
-In below, ignore the "α low"
+In below, significance vs sensitivity. Ignore the "α low"
 
 <img src="image/sensitivity_1.png" width="700"/>
 
@@ -122,5 +124,12 @@ The focus is to show although for global-wide experiments, the confidence interv
 
 <img src="image/global_exp_vs_local_exp_2.png" width="700"/>
 
+<br>
+<br>
 
+From: https://www.evanmiller.org/how-not-to-run-an-ab-test.html
 
+Decide on a sample size in advance and don't conclude before the experiment is over. Restrain yourself from stopping an experiment before it has run its course. Size the experiment in advance to ensure that there will have enough power when the experiment is over.
+
+<br>
+<br>
