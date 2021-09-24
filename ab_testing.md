@@ -25,6 +25,7 @@ In below, the assumption is to hold all else equal.
 Setting a Practical Significance Level is how we express a minimum threshold below which something is not worth doing.
 
 Here "increased practical significance level" means we are no longer interested in detecting small changes. Larger changes are easier to detect, and require fewer page views.
+
 <img src="image/sensitivity_3.png" width="700"/>
 
 <br>
@@ -145,6 +146,25 @@ Another example of the process:
 4. See if the Confidence Interval overlaps 0 (or, further, see if it overlaps the Practical Significance)
 
 Also mentions a way to do paired day-by-day Sign Test
+
+<br>
+<br>
+
+Estimated Variance
+
+<img src="image/estimated_variance.png" width="700"/>
+
+<br>
+<br>
+
+Simpson's Paradox
+
+The cause of the Simpson's Paradox in this example is that there are lots of Experienced Users in the Experiment Group, causing the overall Click-through-rate of the Experiment Group to be low.
+
+<img src="image/simpsons_paradox.png" width="700"/>
+
+In A/B testing, Simpson's Paradox may be caused by: (1) something wrong with setup, (2) the change affects the two subgroups of users differently.
+
 
 
 
