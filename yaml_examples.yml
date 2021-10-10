@@ -37,3 +37,10 @@ example_10:
     "employee_3": {"name": "CCC", "age": 22, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
     "employee_4": {"name": "DDD", "age": 23, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
     "employee_5": {"name": "EEE", "age": 24, "arrival": *item_1, "lunch": *item_2, "leave (normal/night)": *item_3}
+
+example_11:
+    item_1: this is a string
+    item_2: None
+    item_3: null
+    item_4: '([a-zA-Z]{1,})'
+    item_5: ([a-zA-Z]{1,})
