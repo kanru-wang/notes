@@ -265,3 +265,13 @@ Also, in the article, softmax turns activation values into values between 0 and 
 ### Types of tokenizers
 
 https://huggingface.co/transformers/tokenizer_summary.html
+
+- BERT uses WordPiece tokenizer
+- RoBERTa uses Byte-level BPE tokenizer
+
+### RoBERTa
+
+https://huggingface.co/transformers/model_doc/roberta.html
+
+- RoBERTa has the same architecture as BERT, but uses a byte-level BPE as a tokenizer and uses a different pretraining scheme.
+- RoBERTa doesn’t have token_type_ids, you don’t need to indicate which token belongs to which segment. Just separate your segments with the separation token tokenizer.sep_token (or </s>)
