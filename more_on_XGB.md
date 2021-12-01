@@ -97,13 +97,13 @@ For the training of XGBoost model, there are two ways to improve it.
 
 ## Missing values
 
-Very often XGBoost receives a sparse matrix as input. In an input sparse matrix, zeros are ignored. From my experience, XGBoost converts zero-cells in the sparse matrix into np.nan, so having zeros or having np.nan in an input sparse matrix is the same for the model.
+Very often XGBoost receives a sparse matrix as input. In an input sparse matrix, zeros are ignored. From my experience, XGBoost converts zero-cells in the sparse matrix into `np.nan`, so having zeros or having np.nan in an input sparse matrix is the same for the model.
 
-If we use XGBoost and we have zeros and missing values in a feature, we should fill missing values by for example -1 instead of by zeros, because all zeros will be converted to np.nan, and the model cannot tell which ones are truely zeros and which ones are truely missing values, and the information is therefore wasted.
+If we use XGBoost and we have zeros and missing values in a feature, we should fill missing values by for example `-1` instead of by zeros, because all zeros will be converted to `np.nan`, and the model cannot tell which ones are truely zeros and which ones are truely missing values, and the information is therefore wasted.
 
-(I have not experimented if all zeros would be converted to np.nan, when the input data is a dataframe or a dense matrix, instead of a sparse matrix.)
+(I have not experimented if all zeros would be converted to `np.nan`, when the input data is a dataframe or a dense matrix, instead of a sparse matrix.)
 
-When XGBoost splits on a feature, it very often chooses to split on whether it is np.nan or not. When doing SHAP analysis, if the training data is in sparse matrix format, we need to convert it to dense matrix which is required by SHAP (currently). Notice that we also need to convert all zero-cells in the sparse matrix into np.nan, because we are matching what XGBoost does. These zero-cells are supposed to get the SHAP values of np.nan; whereas if they are not converted to np.nan (and are still zeros), they will get the SHAP values of "not being np.nan".
+When XGBoost splits on a feature, it very often chooses to split on whether it is `np.nan` or not. When doing SHAP analysis, if the training data is in sparse matrix format, we need to convert it to dense matrix which is required by SHAP (currently). Notice that we also need to convert all zero-cells in the sparse matrix into np.nan, because we are matching what XGBoost does. These zero-cells are supposed to get the SHAP values of `np.nan`; whereas if they are not converted to np.nan (and are still zeros), they will get the SHAP values of "not being `np.nan`".
 
     X_train_sparse = sklearn_pipeline["feature_generation_section"].transform(X_train_raw)
 
