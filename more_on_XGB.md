@@ -95,3 +95,30 @@ For the training of XGBoost model, there are two ways to improve it.
 
 - https://scikit-learn.org/stable/modules/multiclass.html
 
+## Missing values
+
+Very often XGBoost receives a sparse matrix as input. In an input sparse matrix, zeros are ignored. From my experience, XGBoost converts zero-cells in the sparse matrix into np.nan, so having zeros or having np.nan in an input sparse matrix is the same for the model.
+
+If we use XGBoost and we have zeros and missing values in a feature, we should fill missing values by for example -1 instead of by zeros, because all zeros will be converted to np.nan, and the model cannot tell which ones are truely zeros and which ones are truely missing values, and the information is therefore wasted.
+
+(I have not experimented if all zeros would be converted to np.nan, when the input data is a dataframe or a dense matrix, instead of a sparse matrix.)
+
+When XGBoost splits on a feature, it very often chooses to split on whether it is np.nan or not. When doing SHAP analysis, if the training data is in sparse matrix format, we need to convert it to dense matrix which is required by SHAP (currently). Notice that we also need to convert all zero-cells in the sparse matrix into np.nan, because we are matching what XGBoost does. These zero-cells are supposed to get the SHAP values of np.nan; whereas if they are not converted to np.nan (and are still zeros), they will get the SHAP values of "not being np.nan".
+
+    X_train_sparse = sklearn_pipeline["feature_generation_section"].transform(X_train_raw)
+
+    X_train_dense = (
+        pd.DataFrame.sparse.from_spmatrix(X_train_sparse, columns=column_names)
+        .astype(pd.SparseDtype("float", np.nan))
+        .sparse.to_dense()
+    )
+
+    explainer = shap.TreeExplainer(sklearn_pipeline["xgboost_model"])
+
+    shap_values = explainer.shap_values(X_train_dense)
+
+Reference
+
+- If we leave zeros as zeros when converting a sparse matrix to a dense matrix, it is possible to see all shap values of a certain feature will be positive or negative https://github.com/slundberg/shap/issues/553
+- SHAP expects a dense matrix as input https://github.com/slundberg/shap/issues/138
+
