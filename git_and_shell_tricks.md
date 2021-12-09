@@ -8,3 +8,6 @@
 - git reset --hard (remove all staged changes)
 - git add -f filename (add a file of a gitignored file type)
 - git checkout branch_name file_name (How to get just one file from another branch? https://stackoverflow.com/questions/2364147)
+- du -sh * (check file sizes)
+- du -sh */* (check file sizes one level down)
+- gzip -dr path_name/ (recursively unzip)
