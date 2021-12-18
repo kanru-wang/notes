@@ -192,6 +192,7 @@ The softmax layer then turns those scores into probabilities (all positive, all 
 
 From:
 
+- https://mccormickml.com/2019/07/22/BERT-fine-tuning/
 - http://jalammar.github.io/illustrated-bert/
 - https://towardsdatascience.com/bert-to-the-rescue-17671379687f and https://github.com/shudima/notebooks/blob/master/BERT_to_the_rescue.ipynb
 - Feature extraction, may be flawed: http://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time

@@ -32,3 +32,9 @@ https://www.geeksforgeeks.org/multilabel-ranking-metrics-label-ranking-average-p
 ## Customize Sklearn cross validation evaluation metric
 
 https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html
+
+## Spearman's Correlation
+
+- https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php
+- https://www.kaggle.com/c/google-quest-challenge/overview/evaluation
+- My understanding is that, ROC is comparing a ranking column (predicted) and a binary label column (truth), whereas Spearman's Correlation is comparing a ranking column (predicted) and a ranking column (truth)
