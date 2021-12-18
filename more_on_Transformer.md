@@ -262,6 +262,10 @@ From: https://medium.com/@patonw/question-answering-with-pytorch-transformers-pa
 
 Also, in the article, softmax turns activation values into values between 0 and 1 and normalizes the outputs so that they sum to 1. When the text does not contain the answer to the question, it is likely that all the activation values are below 0, but the softmax outputs still sum to 1, since the model assumes that the text contains the right answer. In this case a relatively likely answer will be picked.
 
+Direct inference without fine-tuning:
+
+- https://towardsdatascience.com/question-answering-with-a-fine-tuned-bert-bc4dafd45626
+- https://mccormickml.com/2020/03/10/question-answering-with-a-fine-tuned-BERT/
 
 ### Types of tokenizers
 
