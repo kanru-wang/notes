@@ -14,6 +14,8 @@ From:
     - We minimize the negative log likelihood so that the probability of choosing the correct class is maximized.
     - For `nn.NLLLoss()`, input shape is `[m samples, n classes]` and `[m samples]`; output shape is `[m samples]` if the `reduction` argument is `"none"`, output is a scalar if the `reduction` argument is `"mean"`.
 - `torch.nn.BCEWithLogitsLoss` includes a `Sigmoid` activation function.
+- Sigmoid is used for binary classification; Softmax is used for multiclass classification.
+- Sigmoid is used for multi-label classification (allow high probability for all of the classes, some of them, or none of them); Softmax is used for multiclass classification (mutually exclusive classes). See https://glassboxmedicine.com/2019/05/26/classification-sigmoid-vs-softmax/
 - `torch.nn.BCELoss` needs a `Sigmoid` activation function but doesn't have one, so need to pass through a `Sigmoid` before `BCELoss`.
 
 From:
