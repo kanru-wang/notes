@@ -233,6 +233,9 @@ Our goal is to take BERTs pooled output, apply a linear layer and a sigmoid acti
 
 The `class DistilBertForSequenceClassification` in https://huggingface.co/transformers/v2.1.1/_modules/transformers/modeling_distilbert.html mentions something similar.
 
+According to https://iq.opengenus.org/bert-cased-vs-bert-uncased/, BERT uncased is better than BERT cased in most applications except in applications where case information of text is important. Named Entity Recognition and Part-of-Speech tagging are two applications where case information is important and hence, BERT cased is better in this case.
+
+
 ### BertForQuestionAnswering
 
 See newest version example: https://huggingface.co/transformers/master/model_doc/bert.html#bertforquestionanswering
