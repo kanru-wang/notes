@@ -90,3 +90,16 @@ From: https://towardsdatascience.com/label-smoothing-making-model-robust-to-inco
 - If label_smoothing = 0.2, new_onehot_labels = [0 and 1] * (1 — 0.2) + 0.2 / 2 = [0.1 and 0.9], instead of [0 and 1]
 
 See implementation: https://github.com/pytorch/pytorch/issues/7455
+
+<br>
+<br>
+
+### How to explain validation loss is increasing while validation accuracy is increasing as well
+
+From:
+
+- https://stats.stackexchange.com/a/448033
+- https://stats.stackexchange.com/a/341054
+
+In cross-entropy loss, bad outlier predictions are penalized much more strongly than good predictions are rewarded.
+
