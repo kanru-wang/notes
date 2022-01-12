@@ -202,7 +202,7 @@ From:
 - https://towardsdatascience.com/bert-to-the-rescue-17671379687f and https://github.com/shudima/notebooks/blob/master/BERT_to_the_rescue.ipynb
 - Feature extraction: http://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time
 - How to only train the linear layer (in most use cases and in Kaggle, we are and we should fine-tune the whole model + the linear layer):
-    - https://huggingface.co/transformers/v3.5.1/training.html#freezing-the-encoder
+    - https://huggingface.co/transformers/v4.5.1/training.html#freezing-the-encoder
     - https://github.com/huggingface/transformers/issues/400
     - https://discuss.pytorch.org/t/how-the-pytorch-freeze-network-in-some-layers-only-the-rest-of-the-training
 
