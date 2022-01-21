@@ -11,3 +11,4 @@
 - du -sh * (check file sizes)
 - du -sh */* (check file sizes one level down)
 - gzip -dr path_name/ (recursively unzip)
+- (tar and un-tar a file https://askubuntu.com/questions/25347)
