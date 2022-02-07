@@ -12,3 +12,5 @@
 - du -sh */* (check file sizes one level down)
 - gzip -dr path_name/ (recursively unzip)
 - (tar and un-tar a file https://askubuntu.com/questions/25347)
+- (try "git fetch", if see this message "Your branch is ahead of 'origin/develop' by xx commits.")
+- top (check memory usage)
