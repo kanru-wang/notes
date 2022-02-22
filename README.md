@@ -1,48 +1,55 @@
-# notes
+# Learning Notes 🍰🧁🍩🍪🍺
 
 ## Presentations
 
-- [pytorch_image_classification.pdf](pytorch_image_classification.pdf)
-- [pytorch_transformer_classification_and_qa.pdf](pytorch_transformer_classification_and_qa.pdf)
-- [LDA.pdf](LDA.pdf)
-- [kaggle_prostate.pdf](kaggle_prostate.pdf)
+- [PyTorch Image Classification Common Code Template](pytorch_image_classification.pdf)
+- [PyTorch Transformer: Tokenizer, Text Classification and Question Answering](pytorch_transformer_classification_and_qa.pdf)
+- [LDA](LDA.pdf)
+- [Model Interpretation: LIME and SHAPLY](model_interpretation.pdf)
+- [Kaggle Prostate Image Classification](kaggle_prostate.pdf)
 
 ## Deep Learning
 
 - [more_on_Transformer.md](more_on_Transformer.md)
 - [more_on_RNN.md](more_on_RNN.md)
-- [augmentation.md](augmentation.md)
-- [gated_recurrent_unit.pdf](gated_recurrent_unit.pdf)
-- [image_processing.md](image_processing.md)
-- [nn.LossFunctions.md](nn.LossFunctions.md)
 - [pytorch_basics_1.md](pytorch_basics_1.md)
 - [pytorch_basics_2.md](pytorch_basics_2.md)
+- [nn.LossFunctions.md](nn.LossFunctions.md)
 - [question_answering_indexing.pdf](question_answering_indexing.pdf)
+- [gated_recurrent_unit.pdf](gated_recurrent_unit.pdf)
+- [image_processing.md](image_processing.md)
 - [transposed_convolution_upsampling.pdf](transposed_convolution_upsampling.pdf)
 - [U-Net.md](U-Net.md)
+- [augmentation.md](augmentation.md)
 
 ## Traditional Machine Learning
 
+### Thoughts
+
+- [credit_risk_feature_creation.md](credit_risk_feature_creation.md)
 - [multiclass_classification_feature_selection.ipynb](multiclass_classification_feature_selection.ipynb)
+- [feature_stability_classification_models.md](feature_stability_classification_models.md)
+- [train_deploy_pipeline_matching.pdf](train_deploy_pipeline_matching.pdf)
+- [sliding_window_cross_validation.md](sliding_window_cross_validation.md)
+- [tabular_data_train_val_split.md](tabular_data_train_val_split.md)
+- [structure_of_main_scripts.md](structure_of_main_scripts.md)
+- [auc_interpretation.pdf](auc_interpretation.pdf)
+- [gap_between_train_and_test_performance_matters.md](gap_between_train_and_test_performance_matters.md)
+- [more_features_than_samples.md](more_features_than_samples.md)
+
+### Learning
+
+- [more_on_XGB.md](more_on_XGB.md)
 - [area_under_precision_recall_curve.md](area_under_precision_recall_curve.md)
 - [coursera_how_to_win_a_data_science_competition.pdf](coursera_how_to_win_a_data_science_competition.pdf)
-- [credit_risk_feature_creation.md](credit_risk_feature_creation.md)
+- [LDA.md](LDA.md)
+- [GBDT+LR.md](GBDT+LR.md)
 - [customize_loss_function.md](customize_loss_function.md)
 - [evaluation_metrics.md](evaluation_metrics.md)
-- [feature_stability_classification_models.md](feature_stability_classification_models.md)
-- [gap_between_train_and_test_performance_matters.md](gap_between_train_and_test_performance_matters.md)
-- [GBDT + LR.md](GBDT + LR.md)
-- [LDA.md](LDA.md)
-- [ml_fairness.md](ml_fairness.md)
-- [model_calibration.md](model_calibration.md)
-- [more_features_than_samples.md](more_features_than_samples.md)
-- [more_on_XGB.md](more_on_XGB.md)
 - [sklearn_pipeline_and_transformer.md](sklearn_pipeline_and_transformer.md)
-- [sliding_window_cross_validation.md](sliding_window_cross_validation.md)
-- [structure_of_main_scripts.md](structure_of_main_scripts.md)
-- [tabular_data_train_val_split.md](tabular_data_train_val_split.md)
-- [train_deploy_pipeline_matching.pdf](train_deploy_pipeline_matching.pdf)
 - [word_embedding_for_topic_modelling.md](word_embedding_for_topic_modelling.md)
+- [model_calibration.md](model_calibration.md)
+- [ml_fairness.md](ml_fairness.md)
 
 ## Statistics
 
