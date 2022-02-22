@@ -24,7 +24,7 @@
 
 ## Traditional Machine Learning
 
-### Thoughts
+### (i) Thoughts
 
 - [credit_risk_feature_creation.md](credit_risk_feature_creation.md)
 - [multiclass_classification_feature_selection.ipynb](multiclass_classification_feature_selection.ipynb)
@@ -37,7 +37,7 @@
 - [gap_between_train_and_test_performance_matters.md](gap_between_train_and_test_performance_matters.md)
 - [more_features_than_samples.md](more_features_than_samples.md)
 
-### Learning
+### (ii) Learning
 
 - [more_on_XGB.md](more_on_XGB.md)
 - [area_under_precision_recall_curve.md](area_under_precision_recall_curve.md)
