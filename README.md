@@ -5,7 +5,7 @@
 - [PyTorch Image Classification Common Code Template](pytorch_image_classification.pdf)
 - [PyTorch Transformer: Tokenizer, Text Classification and Question Answering](pytorch_transformer_classification_and_qa.pdf)
 - [LDA](LDA.pdf)
-- [Model Interpretation: LIME and SHAPLY](model_interpretation.pdf)
+- [Model Interpretation: LIME and Shapley](model_interpretation.pdf)
 - [Kaggle Prostate Image Classification](kaggle_prostate.pdf)
 
 ## Deep Learning
@@ -54,7 +54,7 @@
 ## Statistics
 
 - [meaning_common_distributions.md](meaning_common_distributions.md)
-- [fourier_transform_and_melspectrogram.ipynb)](fourier_transform_and_melspectrogram.ipynb)
+- [fourier_transform_and_melspectrogram.ipynb](fourier_transform_and_melspectrogram.ipynb)
 - [singular_value_decomposition.ipynb](singular_value_decomposition.ipynb)
 - [ab_testing.md](ab_testing.md)
 - [rule_of_succession.md](rule_of_succession.md)
