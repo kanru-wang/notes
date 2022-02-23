@@ -28,5 +28,5 @@
 - sort namelist.txt | uniq -c (find the unique and count the duplicates; uniq requires doing sort first)
 - ls folder_name (list what's in a folder)
 - cat file.txt | jq (pretty-printing a JSON document, https://earthly.dev/blog/jq-select/)
-- > (output and overwrite a file)
-- >> (output and append to a file)
+- `>` (output and overwrite a file)
+- `>>` (output and append to a file)
