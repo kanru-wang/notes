@@ -4,7 +4,7 @@
 - git clean -f (delete all untracked files. "git clean -n" peeks files to be deleted before running "git clean -f")
 - git reset --hard (remove all staged changes)
 - git add -f filename (add a file of a gitignored file type)
-- git checkout branch_name file_name (How to get just one file from another branch? https://stackoverflow.com/questions/2364147)
+- git checkout branch_name file_name (How to get just one file from another branch? https://stackoverflow.com/questions/2364147 Need to be in the correct folder and use the full file path)
 
 
 # Shell
