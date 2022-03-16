@@ -34,6 +34,7 @@
 - [tabular_data_train_val_split.md](tabular_data_train_val_split.md)
 - [structure_of_main_scripts.md](structure_of_main_scripts.md)
 - [auc_interpretation.pdf](auc_interpretation.pdf)
+- [high_accuracy_low_f1.md](high_accuracy_low_f1.md)
 - [gap_between_train_and_test_performance_matters.md](gap_between_train_and_test_performance_matters.md)
 - [more_features_than_samples.md](more_features_than_samples.md)
 
@@ -57,6 +58,7 @@
 - [fourier_transform_and_melspectrogram.ipynb](fourier_transform_and_melspectrogram.ipynb)
 - [singular_value_decomposition.ipynb](singular_value_decomposition.ipynb)
 - [ab_testing.md](ab_testing.md)
+- [rule_of_three.md](rule_of_three.md)
 - [rule_of_succession.md](rule_of_succession.md)
 - [casual_inference.md](casual_inference.md)
 - [entropy.md](entropy.md)
