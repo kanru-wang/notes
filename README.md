@@ -71,6 +71,7 @@
 - [python_trick_collection_2.ipynb](python_trick_collection_2.ipynb)
 - [python_trick_collection_3.ipynb](python_trick_collection_3.ipynb)
 - [python_trick_collection_4.ipynb](python_trick_collection_4.ipynb)
+- [algorithms.md](algorithms.md)
 - [pyspark_notes.md](pyspark_notes.md)
 - [git_and_shell_tricks.md](git_and_shell_tricks.md)
 - [test_image_insertion.ipynb](test_image_insertion.ipynb)
