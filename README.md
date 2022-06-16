@@ -51,6 +51,8 @@
 - [word_embedding_for_topic_modelling.md](word_embedding_for_topic_modelling.md)
 - [model_calibration.md](model_calibration.md)
 - [ml_fairness.md](ml_fairness.md)
+- [extrapolate_GBRT_for_time_series.md](extrapolate_GBRT_for_time_series.md)
+- [k_prototypes.md](k_prototypes.md)
 
 ## Statistics
 
