@@ -35,3 +35,6 @@
 - cat file.txt | jq (pretty-printing a JSON document, https://earthly.dev/blog/jq-select/)
 - `>` (output and overwrite a file)
 - `>>` (output and append to a file)
+- Ctrl + A: Move cursor to the beginning of the line.
+- Ctrl + E: Move cursor to the end of the line.
+- Use `Ctrl + c` or `kill -9 %[enter_job_number]` to terminate a program, whereas `Ctrl + z` just put a program into sleep. Use `jobs` to check existing jobs in the background and their job numbers.
