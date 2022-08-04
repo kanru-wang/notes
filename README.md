@@ -7,6 +7,7 @@
 - [LDA](LDA.pdf)
 - [Model Interpretation: LIME and Shapley](model_interpretation.pdf)
 - [Kaggle Prostate Image Classification](kaggle_prostate.pdf)
+- [SQL Window Function Tutorial](sql_window_function.pdf)
 
 ## Deep Learning
 
