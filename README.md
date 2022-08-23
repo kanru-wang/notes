@@ -42,6 +42,7 @@
 ### (ii) Learning
 
 - [more_on_XGB.md](more_on_XGB.md)
+- [designing_machine_learning_systems.md](designing_machine_learning_systems.md)
 - [area_under_precision_recall_curve.md](area_under_precision_recall_curve.md)
 - [coursera_how_to_win_a_data_science_competition.pdf](coursera_how_to_win_a_data_science_competition.pdf)
 - [LDA.md](LDA.md)
