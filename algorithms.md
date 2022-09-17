@@ -12,3 +12,7 @@
 
 - From https://brilliant.org/wiki/master-theorem/
     - Master Theorem
+
+When calculating space complexity, input and output objects' space should not be taken into consideration.
+
+When calculating time complexity, constant multiplier/coefficient should be ignored. When the time is the sum of multiple components, any component that is guaranteed to be smaller than the largest component should be ignored. 
