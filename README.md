@@ -22,6 +22,7 @@
 - [transposed_convolution_upsampling.pdf](transposed_convolution_upsampling.pdf)
 - [U-Net.md](U-Net.md)
 - [augmentation.md](augmentation.md)
+- [inception_network.md](inception_network.md)
 
 ## Traditional Machine Learning
 
@@ -63,7 +64,9 @@
 - [fourier_transform_and_melspectrogram.ipynb](fourier_transform_and_melspectrogram.ipynb)
 - [singular_value_decomposition.ipynb](singular_value_decomposition.ipynb)
 - [ab_testing.md](ab_testing.md)
+- [linear_regression_remedial_measures.md](linear_regression_remedial_measures.md)
 - [rule_of_three.md](rule_of_three.md)
+- [james_stein_estimator_and_steins_paradox.md](james_stein_estimator_and_steins_paradox.md)
 - [rule_of_succession.md](rule_of_succession.md)
 - [casual_inference.md](casual_inference.md)
 - [entropy.md](entropy.md)
