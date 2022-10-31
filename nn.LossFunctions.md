@@ -95,6 +95,16 @@ See implementation: https://github.com/pytorch/pytorch/issues/7455
 <br>
 <br>
 
+### Contrastive Loss
+
+See: https://www.coursera.org/lecture/custom-models-layers-loss-functions-with-tensorflow/coding-contrastive-loss-SzfUz
+
+- A loss function designed for the tasking of prediction if any two imagines belong to the same category.
+- In the example, an Euclidean distance D is what the model outputs. If D is below the threshold/margin, two images are classified as belonging to the same category. 
+
+<br>
+<br>
+
 ### How to explain validation loss is increasing while validation accuracy is increasing as well
 
 From:
