@@ -11,7 +11,7 @@
 
     <img src="image/mae_mse.png" width="700"/>
     
-    - Huber Loss combines good properties from both MSE and MAE, but need to define the hyperparameter delta.
+    - Huber Loss combines good properties from both MSE and MAE, but need to define the hyperparameter delta. It is less sensitive to outliers in data than the squared error loss. It combines the MSE and absolute value functions, with smooth joints, so that the combined function is differentiable. From: https://www.cantorsparadise.com/huber-loss-why-is-it-like-how-it-is-dcbe47936473
     
 
 ## Classification
