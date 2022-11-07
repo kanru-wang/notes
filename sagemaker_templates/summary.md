@@ -11,14 +11,14 @@
                 - which takes:
                     - FeatureDefinition (the datatype of each feature)
                 - which does:
-                    - used to 
+                    - needed for Feature Store
                     - used to create an Athena query
         - read_csv
         - tokenizer.encode_plus
         - sample to balance the dataset
         - Train / Val / Test split
         - save to csv
-        - ingest (save) Train / Val / Test data to the FeatureGroup
+        - ingest (save) Train / Val / Test data to the Feature Store
 
 - To retrieve the data from the FeatureGroup in the future, use athena_query().run(query_string, s3_output_location)
 
@@ -38,9 +38,12 @@
         - Python and PyTorch versions
         - hyperparameters
         - metric log regex
-        - DebuggerHookConfig
-            - which does:
-                - 
+        - DebuggerHookConfig (s3 path to save debugging output)
+        - ProfilerConfig (config for Profiler)
+        - Rules for Profiler (see the output in the profiler_report folder)
+        - Train / Val data s3 path
+    - which does:
+        - fit a model
 
 
 
