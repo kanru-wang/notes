@@ -21,3 +21,26 @@
         - ingest (save) Train / Val / Test data to the FeatureGroup
 
 - To retrieve the data from the FeatureGroup in the future, use athena_query().run(query_string, s3_output_location)
+
+- Use from sagemaker.pytorch import PyTorch
+    - which takes:
+        - training script
+            - which does:
+                - initialize the distributed environment
+                - get configuration from RobertaConfig.from_pretrained
+                - create model from RobertaForSequenceClassification.from_pretrained
+                - create DataLoader
+                - create loss function
+                - create optimizer
+                - epoch for loop
+                - save model
+        - training instance settings
+        - Python and PyTorch versions
+        - hyperparameters
+        - metric log regex
+        - DebuggerHookConfig
+            - which does:
+                - 
+
+
+
