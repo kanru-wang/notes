@@ -1,12 +1,15 @@
 ### Feature transformation with Amazon SageMaker processing job and Feature Store
 
-- Use from sagemaker.sklearn.processing import SKLearnProcessor
+- from sagemaker.sklearn.processing import SKLearnProcessor
+- Use SKLearnProcessor.run()
     - which takes:
-        - Input raw data s3 path
-        - Output data (train, val, test) s3 paths
-        - All arguments needed for processing data
+        - a SKLearnProcessor instance
+        - input raw data s3 path
+        - output data (Train, Val, Test) s3 paths
+        - data preparation script
+        - arguments needed for the data preparation script
     - which does, in a multiprocessing fashion:
-        - Create FeatureGroup
+        - create FeatureGroup
             - Use from sagemaker.feature_store.feature_group import FeatureGroup
                 - which takes:
                     - FeatureDefinition (the datatype of each feature)
@@ -68,13 +71,24 @@
 - from sagemaker.workflow.steps import ProcessingStep, TrainingStep
 - ProcessingStep
     - which takes:
+        - SKLearnProcessor without .run(task)
         - TrainingStep
             - which takes:
                 - PyTorch object (mentioned above)
-                - ProcessingStep (whose input, output and functionality are similar to SKLearnProcessor.run( ) mentioned above)
+                - Train / Val data ProcessingStep (whose input, output and functionality are similar to SKLearnProcessor.run( ) mentioned above)
                 - CacheConfig (before executing a step, if there can be found a previous execution of a step using the same arguments, instead of recomputing the step, the pipeline would use the values from the cache)
             - which does:
+                - outputs a trained model
+        - Test data ProcessingStep (whose input, output and functionality are similar to SKLearnProcessor.run( ) mentioned above)
+        - evaluation script
+            - which does:
+                - read model from model path
+                - tokenizer.encode_plus on input data
+                - read test data
                 - 
+        - arguments to the evaluation script
+
+                
  
 
 
