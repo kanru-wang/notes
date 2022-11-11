@@ -70,7 +70,10 @@
 - Use from sagemaker.workflow.steps import TrainingStep
     - which takes:
         - PyTorch object (mentioned above)
-        - 
+        - Train / Val data s3 paths
+        - CacheConfig (before executing a step, if there can be found a previous execution of a step using the same arguments, instead of recomputing the step, the pipeline would use the values from the cache) 
+ 
+
 
        
 
