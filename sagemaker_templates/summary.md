@@ -65,13 +65,16 @@
 
 ### Building a SageMaker Pipeline to train and deploy a BERT-Based text classifier
 
-- The usage of from sagemaker.workflow.steps import ProcessingStep is similar to SKLearnProcessor.run( ).
-
-- Use from sagemaker.workflow.steps import TrainingStep
+- from sagemaker.workflow.steps import ProcessingStep, TrainingStep
+- ProcessingStep
     - which takes:
-        - PyTorch object (mentioned above)
-        - Train / Val data s3 paths
-        - CacheConfig (before executing a step, if there can be found a previous execution of a step using the same arguments, instead of recomputing the step, the pipeline would use the values from the cache) 
+        - TrainingStep
+            - which takes:
+                - PyTorch object (mentioned above)
+                - ProcessingStep (whose input, output and functionality are similar to SKLearnProcessor.run( ) mentioned above)
+                - CacheConfig (before executing a step, if there can be found a previous execution of a step using the same arguments, instead of recomputing the step, the pipeline would use the values from the cache)
+            - which does:
+                - 
  
 
 
