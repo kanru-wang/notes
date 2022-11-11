@@ -83,10 +83,12 @@
         - evaluation script
             - which does:
                 - read model from model path
-                - tokenizer.encode_plus on input data
                 - read test data
-                - 
+                - tokenizer.encode_plus
+                - calculate metrics
+                - save output
         - arguments to the evaluation script
+        - PropertyFile that saves key metrics that decide how a conditional step should be executed. 
 
                 
  
