@@ -63,6 +63,19 @@
     - which does:
         - deploy to a certain endpoint, using a certain computing instance
 
+### Building a SageMaker Pipeline to train and deploy a BERT-Based text classifier
+
+- The usage of from sagemaker.workflow.steps import ProcessingStep is similar to SKLearnProcessor.run( ).
+
+- Use from sagemaker.workflow.steps import TrainingStep
+    - which takes:
+        - PyTorch object (mentioned above)
+        - 
+
+       
+
+
+
 ### From https://course19.fast.ai/deployment_amzn_sagemaker.html
 
 - To serve models in SageMaker, need a script that implements 4 methods: `model_fn`, `input_fn`, `predict_fn` & `output_fn`.
