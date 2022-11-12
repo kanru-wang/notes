@@ -89,7 +89,9 @@
                 - save output
         - arguments to the evaluation script
         - PropertyFile that saves key metrics that decide how a conditional step should be executed
-        
+    - which does:
+        - create a step to fit a model and then calculate evaluation metrics
+        - will not run until later calling Pipeline.start()
 
 - Use from sagemaker.workflow.condition_step import ConditionStep
     - which takes:
@@ -97,7 +99,7 @@
             - which takes:
                 - PyTorch object (mentioned above)
                 - inference image uri
-                - model artifact property from the TrainingStep mentioned above
+                - model artifact property from the TrainingStep mentioned above (not trained yet)
                 - deployment instance setting
                 - approval status (set to pending for now) 
                 - PropertyFile model metrics (mentioned above)
@@ -108,7 +110,7 @@
                  - Model
                      - which takes:
                          - inference image uri
-                         - model artifact property from the TrainingStep mentioned above
+                         - model artifact property from the TrainingStep mentioned above (not trained yet)
                  - CreateModelInput
                      - which takes:
                          - deployment instance setting
@@ -116,7 +118,11 @@
                  - create the model for deployment
          - ConditionGreaterThanOrEqualTo
              - which takes:
-             
+                 - the evaluation ProcessingStep (mentioned above)
+                 - the PropertyFile model metrics (mentioned above)
+                 - minimum accuracy ParameterFloat threshold
+    - which does:
+        - 
    
  
 
