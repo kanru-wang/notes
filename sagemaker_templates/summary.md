@@ -122,7 +122,8 @@
                  - the PropertyFile model metrics (mentioned above)
                  - minimum accuracy ParameterFloat threshold
     - which does:
-        - 
+        - only register the model if the accuracy, as determined by the evaluation step, exceeded a threshold
+
    
  
 
