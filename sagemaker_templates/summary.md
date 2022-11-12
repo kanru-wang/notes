@@ -124,13 +124,33 @@
     - which does:
         - only register the model if the accuracy, as determined by the evaluation step, exceeded a threshold
 
-   
- 
+- Use from sagemaker.workflow.pipeline import Pipeline
+    - which takes:
+        - parameters
+        - Train / Val data ProcessingStep (mentioned above)
+        - TrainingStep (mentioned above)
+        - Evaluation ProcessingStep (mentioned above)
+        - ConditionStep (mentioned above)
+    - which does:
+        - start the pipeline by calling .start()
 
+- After retrieving and verifying the metric, use boto3.client().update_model_package() to approve the model for deployment
 
-       
+- Deploy by doing:
+    - boto3.client().create_endpoint_config()
+        - which takes:
+            - EndpointConfigName
+            - deployment instance settings
+        - which does:
+            - config the endpoint
+    - boto3.client().create_endpoint()
+        - which takes:
+            - EndpointName
+            - EndpointConfigName
+        - which does:
+            - create the endpoint
 
-
+- Use Predictor class to predict. (Notice that unlike above, here we don't use PyTorchModel, so no need use a customized Predictor to encapsulate JSON serializer and deserializer)
 
 ### From https://course19.fast.ai/deployment_amzn_sagemaker.html
 
