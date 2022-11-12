@@ -78,7 +78,7 @@
                 - Train / Val data ProcessingStep (whose input, output and functionality are similar to SKLearnProcessor.run( ) mentioned above)
                 - CacheConfig (before executing a step, if there can be found a previous execution of a step using the same arguments, instead of recomputing the step, the pipeline would use the values from the cache)
             - which does:
-                - outputs a trained model
+                - create a training job to train a model
         - Test data ProcessingStep (whose input, output and functionality are similar to SKLearnProcessor.run( ) mentioned above)
         - evaluation script
             - which does:
@@ -97,7 +97,7 @@
             - which takes:
                 - PyTorch object (mentioned above)
                 - inference image uri
-                - model artifact s3 path
+                - model artifact property from the TrainingStep mentioned above
                 - deployment instance setting
                 - approval status (set to pending for now) 
                 - PropertyFile model metrics (mentioned above)
@@ -108,7 +108,7 @@
                  - Model
                      - which takes:
                          - inference image uri
-                         - model artifact s3 path
+                         - model artifact property from the TrainingStep mentioned above
                  - CreateModelInput
                      - which takes:
                          - deployment instance setting
