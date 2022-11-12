@@ -1,3 +1,11 @@
+Thoughts:
+- having Feature Store when creating Train/Val/Test data is useful
+- the debugging report is useful
+- SageMaker framework is a Pipeline framework, and won't run until called
+
+<br>
+<br>
+
 ### Feature transformation with Amazon SageMaker processing job and Feature Store
 
 - from sagemaker.sklearn.processing import SKLearnProcessor
