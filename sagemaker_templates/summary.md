@@ -26,6 +26,9 @@
 
 - To retrieve the data from the FeatureGroup in the future, use athena_query().run(query_string, s3_output_location)
 
+<br>
+<br>
+
 ### Train a review classifier with BERT and Amazon SageMaker
 
 - Use from sagemaker.pytorch import PyTorch
@@ -65,6 +68,9 @@
         - Python and PyTorch versions
     - which does:
         - deploy to a certain endpoint, using a certain computing instance
+
+<br>
+<br>
 
 ### Building a SageMaker Pipeline to train and deploy a BERT-Based text classifier
 
@@ -151,6 +157,9 @@
             - create the endpoint
 
 - Use Predictor class to predict. (Notice that unlike above, here we don't use PyTorchModel, so no need use a customized Predictor to encapsulate JSON serializer and deserializer)
+
+<br>
+<br>
 
 ### From https://course19.fast.ai/deployment_amzn_sagemaker.html
 
