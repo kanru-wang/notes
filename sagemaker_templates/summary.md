@@ -61,7 +61,7 @@
                 - predict 
         - model name string
         - data
-        - a customized class for JSON serializer and deserializer, to deserialize JSON data from an inference endpoint
+        - a customized Predictor class for JSON serializer and deserializer, to deserialize JSON data from an inference endpoint
         - Python and PyTorch versions
     - which does:
         - deploy to a certain endpoint, using a certain computing instance
@@ -71,7 +71,7 @@
 - from sagemaker.workflow.steps import ProcessingStep, TrainingStep
 - ProcessingStep
     - which takes:
-        - SKLearnProcessor without .run(task)
+        - SKLearnProcessor without .run(some task)
         - TrainingStep
             - which takes:
                 - PyTorch object (mentioned above)
@@ -88,9 +88,31 @@
                 - calculate metrics
                 - save output
         - arguments to the evaluation script
-        - PropertyFile that saves key metrics that decide how a conditional step should be executed. 
+        - PropertyFile that saves key metrics that decide how a conditional step should be executed
+        
 
-                
+- Use from sagemaker.workflow.condition_step import ConditionStep
+    - which takes:
+        - RegisterModel
+            - which takes:
+                - PyTorch object (mentioned above)
+                - inference image uri
+                - model artifact s3 path
+                - deployment instance setting
+                - approval status (set to pending for now) 
+                - PropertyFile model metrics (mentioned above)
+            - which does:
+                - register the model for deployment
+         - CreateModelStep
+             - which takes:
+                 - Model
+                     - which takes:
+                         - inference image uri
+                         - model artifact s3 path
+                 - CreateModelInput
+                     - which takes:
+                         - deployment instance setting
+   
  
 
 
