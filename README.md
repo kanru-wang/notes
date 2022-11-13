@@ -57,6 +57,7 @@
 - [extrapolate_GBRT_for_time_series.md](extrapolate_GBRT_for_time_series.md)
 - [k_prototypes.md](k_prototypes.md)
 - [classification_ordered_classes.md](classification_ordered_classes.md)
+- [sagemaker_templates](sagemaker_templates)
 
 ## Statistics
 
