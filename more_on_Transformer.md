@@ -58,6 +58,8 @@ The **second step** in calculating self-attention is to calculate scores. The sc
 
 The score is calculated by taking the dot product of the query vector with the key vector of the respective word we’re scoring. So if we’re processing the self-attention for the word in position #1, the first score would be the dot product of q1 and k1. The second score would be the dot product of q1 and k2.
 
+According to https://www.coursera.org/lecture/nlp-sequence-models/self-attention-lsvRK, a Query vector represents an useful question about an input word, say word 3. The dot product of word 3 Query vector and word 1 Key vector represents how good is word 1 as an answer to the aforementioned question about word 3; the higher the dot product, the better that question can be answered by word 1. 
+
 <img src="image/self-attention-output.png" width="600"/>
 
 The **third and forth steps** are to divide the scores by 8 (the square root of the dimension of the key vectors used in the paper – 64. This leads to having more stable gradients. There could be other possible values here, but this is the default), then pass the result through a softmax operation. Softmax normalizes the scores so they’re all positive and add up to 1.
