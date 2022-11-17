@@ -154,7 +154,9 @@ Zoom in:
 
 ### Decoder
 
-The output of the top encoder is transformed into a set of attention vectors K and V. These are to be used by each decoder in its “encoder-decoder attention” layer which helps the decoder focus on appropriate places in the input sequence.
+The output of the top encoder is transformed into a set of attention vectors/matrices K and V. These are to be used by each decoder in its “encoder-decoder attention” layer which helps the decoder focus on appropriate places in the input sequence.
+
+According to https://www.coursera.org/lecture/nlp-sequence-models/transformer-network-Kf5Y3, what each decoder passes to the next decoder is a Query vector/matrix Q which can be understood as a question "Given the predicted words, what can be the next word?"
 
 <img src="image/transformer_decoding_1.gif" width="800"/>
 
