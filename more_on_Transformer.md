@@ -138,6 +138,8 @@ If we assumed the embedding has a dimensionality of 4, the actual positional enc
 
 <img src="image/transformer_positional_encoding_example.png" width="700"/>
 
+See https://www.coursera.org/lecture/nlp-sequence-models/transformer-network-Kf5Y3 to understand how positional encodings are generated.
+
 <br>
 <br>
 
