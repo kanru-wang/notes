@@ -58,7 +58,7 @@ The **second step** in calculating self-attention is to calculate scores. The sc
 
 The score is calculated by taking the dot product of the query vector with the key vector of the respective word we’re scoring. So if we’re processing the self-attention for the word in position #1, the first score would be the dot product of q1 and k1. The second score would be the dot product of q1 and k2.
 
-According to https://www.coursera.org/lecture/nlp-sequence-models/self-attention-lsvRK, a Query vector represents an useful question about an input word, say word 3. The dot product of word 3 Query vector and word 1 Key vector represents how good is word 1 as an answer to the aforementioned question about word 3; the higher the dot product, the better that question can be answered by word 1. 
+According to https://www.coursera.org/lecture/nlp-sequence-models/self-attention-lsvRK, a Query vector represents an useful question about an input word, say Word 3 (e.g. What's Word 3? When does Word 3 happen? Who is Word 3 related to?). The dot product of Word 3 Query vector and Word 1 Key vector represents how good is Word 1 as an answer to the aforementioned question about Word 3; the higher the dot product, the better that question can be answered by Word 1. 
 
 <img src="image/self-attention-output.png" width="600"/>
 
@@ -93,6 +93,8 @@ Every row in the X matrix corresponds to a word in the input sentence. We again 
 <br>
 
 ### Multi-headed self-attention
+
+According to https://www.coursera.org/lecture/nlp-sequence-models/multi-head-attention-jsV2q, multi-headed self-attention allows the mechanism to ask and answer multiple questions about each word (e.g. What's Word 3? When does Word 3 happen? Who is Word 3 related to?) 
 
 Two benefits:
 
