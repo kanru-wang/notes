@@ -94,7 +94,7 @@ Every row in the X matrix corresponds to a word in the input sentence. We again 
 
 ### Multi-headed self-attention
 
-According to https://www.coursera.org/lecture/nlp-sequence-models/multi-head-attention-jsV2q, multi-headed self-attention allows the mechanism to ask and answer multiple questions about each word (e.g. What's Word 3? When does Word 3 happen? Who is Word 3 related to?) 
+According to https://www.coursera.org/lecture/nlp-sequence-models/multi-head-attention-jsV2q, multi-headed self-attention allows the mechanism to ask and answer multiple questions about each word (e.g. What's Word 3? When does Word 3 happen? Who is Word 3 related to?) **These eight heads can be computed in parallel**.
 
 Two benefits:
 
