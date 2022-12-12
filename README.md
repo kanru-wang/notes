@@ -34,6 +34,7 @@
 - [train_deploy_pipeline_matching.pdf](train_deploy_pipeline_matching.pdf)
 - [sliding_window_cross_validation.md](sliding_window_cross_validation.md)
 - [tabular_data_train_val_split.md](tabular_data_train_val_split.md)
+- [simple_deployment.md](simple_deployment.md)
 - [structure_of_main_scripts.md](structure_of_main_scripts.md)
 - [auc_interpretation.pdf](auc_interpretation.pdf)
 - [high_accuracy_low_f1.md](high_accuracy_low_f1.md)
