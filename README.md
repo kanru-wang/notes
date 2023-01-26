@@ -16,6 +16,7 @@
 - [pytorch_basics_1.md](pytorch_basics_1.md)
 - [pytorch_basics_2.md](pytorch_basics_2.md)
 - [nn.LossFunctions.md](nn.LossFunctions.md)
+- [graph_neural_network.md](graph_neural_network.mds)
 - [question_answering_indexing.pdf](question_answering_indexing.pdf)
 - [gated_recurrent_unit.pdf](gated_recurrent_unit.pdf)
 - [image_processing.md](image_processing.md)
