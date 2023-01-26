@@ -19,7 +19,6 @@
 - [graph_neural_network.pdf](graph_neural_network.pdf)
 - [question_answering_indexing.pdf](question_answering_indexing.pdf)
 - [gated_recurrent_unit.pdf](gated_recurrent_unit.pdf)
-- [image_processing.md](image_processing.md)
 - [transposed_convolution_upsampling.pdf](transposed_convolution_upsampling.pdf)
 - [U-Net.md](U-Net.md)
 - [augmentation.md](augmentation.md)
@@ -54,11 +53,8 @@
 - [evaluation_metrics.md](evaluation_metrics.md)
 - [sklearn_pipeline_and_transformer.md](sklearn_pipeline_and_transformer.md)
 - [word_embedding_for_topic_modelling.md](word_embedding_for_topic_modelling.md)
-- [model_calibration.md](model_calibration.md)
 - [ml_fairness.md](ml_fairness.md)
 - [extrapolate_GBRT_for_time_series.md](extrapolate_GBRT_for_time_series.md)
-- [k_prototypes.md](k_prototypes.md)
-- [classification_ordered_classes.md](classification_ordered_classes.md)
 - [sagemaker_templates](sagemaker_templates)
 
 ## Statistics
@@ -71,10 +67,7 @@
 - [rule_of_three.md](rule_of_three.md)
 - [james_stein_estimator_and_steins_paradox.md](james_stein_estimator_and_steins_paradox.md)
 - [rule_of_succession.md](rule_of_succession.md)
-- [casual_inference.md](casual_inference.md)
-- [entropy.md](entropy.md)
 - [good_turing_frequency_estimation.md](good_turing_frequency_estimation.md)
-- [hyperloglog.md](hyperloglog.md)
 
 ## Programming
 
@@ -85,5 +78,14 @@
 - [algorithms.md](algorithms.md)
 - [pyspark_notes.md](pyspark_notes.md)
 - [git_and_shell_tricks.md](git_and_shell_tricks.md)
-- [test_image_insertion.ipynb](test_image_insertion.ipynb)
 
+## Small Learning
+
+- [casual_inference.md](casual_inference.md)
+- [entropy.md](entropy.md)
+- [k_prototypes.md](k_prototypes.md)
+- [model_calibration.md](model_calibration.md)
+- [image_processing.md](image_processing.md)
+- [hyperloglog.md](hyperloglog.md)
+- [classification_ordered_classes.md](classification_ordered_classes.md)
+- [test_image_insertion.ipynb](test_image_insertion.ipynb)
