@@ -48,6 +48,7 @@
 - [area_under_precision_recall_curve.md](area_under_precision_recall_curve.md)
 - [coursera_how_to_win_a_data_science_competition.pdf](coursera_how_to_win_a_data_science_competition.pdf)
 - [LDA.md](LDA.md)
+- [recommender_systems.pdf](recommender_systems.pdf)
 - [GBDT+LR.md](GBDT+LR.md)
 - [customize_loss_function.md](customize_loss_function.md)
 - [evaluation_metrics.md](evaluation_metrics.md)
