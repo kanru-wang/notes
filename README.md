@@ -19,6 +19,7 @@
 - [graph_neural_network.pdf](graph_neural_network.pdf)
 - [question_answering_indexing.pdf](question_answering_indexing.pdf)
 - [gated_recurrent_unit.pdf](gated_recurrent_unit.pdf)
+- [deep_reinforcement_learning.pdf](deep_reinforcement_learning.pdf)
 - [transposed_convolution_upsampling.pdf](transposed_convolution_upsampling.pdf)
 - [U-Net.md](U-Net.md)
 - [augmentation.md](augmentation.md)
