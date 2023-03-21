@@ -74,3 +74,11 @@ From: https://nbviewer.jupyter.org/github/bmabey/hacker_news_topic_modelling/blo
 - λ determines the weight given to the probability of term w under topic k relative to its lift. 
 - Setting λ to 1 results in the familiar ranking of terms in decreasing order of their topic-specific probability, and setting λ to 0 ranks terms solely by their lift.
 - The optimal value of λ was about 0.6.
+
+## Non-negative Matrix Factorization - NMF
+
+- NMF can also be used for topic modelling.
+- TFIDF generates, for example, 2000 features, which is the original dimensionality of the data. 
+- Use NMF to reduce dimensionality, so that every data point is represented by n components, and each component represents a topic.
+- The value for each topic/component is how strong the relationship between the text and the topic/component is.
+- Each topic/component can be interpreted by looking at the important words of each topic/component.
