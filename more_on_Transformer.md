@@ -151,7 +151,7 @@ Zoom in:
 
 <img src="image/transformer_resideual_layer_norm_2.png" width="400"/>
 
-<img src="image/layer_vs_batch_norm.png" width="400"/>
+<img src="image/layer_vs_batch_norm.png" width="600"/>
 
 <br>
 <br>
@@ -188,7 +188,7 @@ The softmax layer then turns those scores into probabilities (all positive, all 
 <img src="image/transformer_decoder_output_softmax.png" width="600"/>
 <img src="image/output_target_probability_distributions.png" width="500"/>
 <img src="image/output_trained_model_probability_distributions.png" width="500"/>
-<img src="image/GPT_transformer_tasks.png" width="500"/>
+<img src="image/GPT_transformer_tasks.png" width="700"/>
 
 ### Other good sources
 
