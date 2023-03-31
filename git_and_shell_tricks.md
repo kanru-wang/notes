@@ -12,6 +12,7 @@
 - q (quit "git diff")
 - (working with VIM https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor)
 - (ways to pass the answer to a shell script promopt question in one line: https://stackoverflow.com/questions/3804577/have-bash-script-answer-interactive-prompts)
+- ls -lh (check file sizes)
 - du -sh * (check file sizes)
 - du -sh */* (check file sizes one level down)
 - gzip -dr path_name/ (recursively unzip)
