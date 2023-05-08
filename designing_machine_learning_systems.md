@@ -10,8 +10,8 @@
 If it is a recommender system, we can add a positional feature to the training dataset to offset this problem.
 
 - Shifting
-    - Covariate shift: When P(X) changes, but P(Y|X) remains the same. E.g. have more age > 40 in the training data than in the inference data, but for age > 40, the probability of cancer is the same.
-    - Label shift: When P(Y) changes but P(X|Y) remains the same. E.g. percentage of Positive is higher in training data, but if we randomly select person A with cancer from the training data and person B with cancer from the test data, A and B have the same probability of > 40.
+    - Covariate shift (aka data drift, feature drift, population shift): When P(X) changes, but P(Y|X) remains the same. The distribution of the input features become different, so the trained model is not relevant for this new data (but still a good model for the old data). E.g. have more age > 40 in the training data than in the inference data, but for age > 40, the probability of cancer is the same.
+    - Label shift (aka prior shift, prior probability shift, target shift): When P(Y) changes but P(X|Y) remains the same. It is when the output distribution changes, but for a given output, the input distribution stays the same. E.g. If the model is trained on a balanced dataset of 50% spam and 50% non-spam emails, but it is deployed in a real-world setting where 90% of emails are spam.
     - Concept drift: When P(Y|X) changes but P(X) remains the same. E.g. (1) Spammers used to send ten messages in one minute, but now sending ten messages in a minute becomes normal and not something that only spammers do. (2) Phishing emails get more sophisticated over the time, and an email regarded as normal in the past can be a phishing email now.
 
 - We may bucket a feature, and hope any volatility will stay inside of buckets, although there is a trade-off between the performance (without buckets, features values are more granular) and the stability of a feature.
