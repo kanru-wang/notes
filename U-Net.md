@@ -10,3 +10,9 @@ From: https://towardsdatascience.com/understanding-semantic-segmentation-with-un
 From: https://www.kaggle.com/julian3833/2-understanding-and-plotting-rle-bounding-boxes
 
 - Understanding RLE-encoded bounding boxes
+
+Implementation and example:
+
+- Apart from U-Net, also consider FPN, Linknet, PSPNet
+- https://github.com/qubvel/segmentation_models/tree/master/examples
+- https://github.com/vgarshin/kaggle_kidney/blob/master/kidney_train.ipynb and https://www.kaggle.com/code/vgarshin/kidney-unet-model-keras-inference
