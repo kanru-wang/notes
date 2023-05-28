@@ -304,3 +304,7 @@ https://huggingface.co/transformers/model_doc/roberta.html
 
 - RoBERTa has the same architecture as BERT, but uses a byte-level BPE as a tokenizer and uses a different pretraining scheme.
 - RoBERTa doesn’t have token_type_ids, you don’t need to indicate which token belongs to which segment. Just separate your segments with the separation token tokenizer.sep_token (or `</s>`)
+
+### Encoder-only (autoencoding AE), decoder-only (autoregressive AR)
+
+https://medium.com/@yulemoon/an-in-depth-look-at-the-transformer-based-models-22e5f5d17b6b
