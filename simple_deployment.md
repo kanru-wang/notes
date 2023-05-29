@@ -3,7 +3,8 @@
 Airflow orchestration tool can implement:
 - Time based scheduling
 - Inter-job dependencies
-- Start an AWS ECR container or EC2 instance
+- Start an AWS ECS container
+- ECS container downloads code, model, and config (task sequence file) from Artifactory
 - Integrate CloudWatch for logging and monitoring
 - The following 3 steps (which can also be done with Ansible). Notice that these 3 steps are run in a docker container running on AWS ECS.
     - Pull and pre-processing data
@@ -19,6 +20,7 @@ Airflow orchestration tool can implement:
     - URL of the endpoint
     - Validate the JSON schema of inputs/outputs
 - Code and model saved to Artifactory
+- Docker image deployed on AWS ECS
 - During inference:
     - Business application passes an identity access token to a Kong API endpoint
     - Kong API endpoint triggers the model (Kong uses OpenAPI/Swagger files)
