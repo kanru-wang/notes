@@ -10,9 +10,14 @@
     - Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion
 
 How to reduce made-up statements
--	First ask the model to find relevant information/quotes
--	Then ask the model to answer the question based on the relevant information/quotes
+- First ask the model to find relevant information/quotes
+- Then ask the model to answer the question based on the relevant information/quotes
 
 ## LangChain
--	LangChain helps parse/transform model’s output from string to JSON
--	LLM is stateless; previous conversations are just saved in the memory as context. LangChain helps summarize previous conversations to reduce the memory usage
+
+- LangChain helps parse/transform model’s output from string to JSON
+- LLM is stateless; previous conversations are just saved in the memory as context. LangChain helps summarize previous conversations to reduce the memory usage
+- LangChain's Router Chain
+    - User provides a different prompt for each different problem, resulting in a "router".
+    - User also provides a prompt to ask the LLM to choose the best prompt among the aforementioned prompts
+    - When a question is asked, the LLM first chooses the best prompt, and then the question and the best prompt are used to invoke LLM again. All in one function call.
