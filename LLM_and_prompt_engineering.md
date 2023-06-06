@@ -1,3 +1,16 @@
+## Two Types of LLM
+
+https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/
+
+- Base LLM
+    - Predicts next word, based on text training data
+- Instruction Tuned LLM
+    - Tries to follow instructions
+    - Is fine-tuned on the Base LLM, by doing the following:
+        - Each Input is an instruction
+        - Obtain human-ratings of the quality of different LLM outputs, on criteria such as whether it is helpful, honest and harmless
+        - Tune the Base LLM to increase probability that it generates the more highly rated outputs (using Reinforcement Learning from Human Feedback)
+
 ## Prompting Principles
 
 https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
@@ -10,6 +23,7 @@ https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-develop
 - Principle 2: Give the model time to “think”
     - Tactic 1: Specify the steps required to complete a task
     - Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion
+    - E.g. ask LLM's answer to contain answers to many small steps, each separated by delimiters, or in a specific format, so the answer can be easily parsed, and only display the last paragraph to the user.
 
 How to reduce made-up statements
 - First ask the model to find relevant information/quotes
