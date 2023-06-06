@@ -23,18 +23,16 @@ https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-develop
 - Principle 2: Give the model time to “think”
     - Tactic 1: Specify the steps required to complete a task
     - Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion
-    - E.g. ask LLM's answer to contain answers to many small steps, each separated by delimiters, or in a specific format, so the answer can be easily parsed, and only display the last paragraph to the user.
 
 How to reduce made-up statements
 - First ask the model to find relevant information/quotes
 - Then ask the model to answer the question based on the relevant information/quotes
 
-## LangChain
+## Techniques and LangChain
 
 https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/
 
-- LangChain helps parse/transform model’s output from string to JSON
-- LLM is stateless; previous conversations are just saved in the memory as context. LangChain helps summarize previous conversations to reduce the memory usage
+- LLM is stateless; previous conversations are just saved in the memory as context. LangChain use LLM to summarize previous conversations to reduce the memory usage
 - Regarding LangChain's Router Chain
     1. User provides a different prompt for each different problem, resulting in a "router".
     2. User also provides a prompt to ask the LLM to choose the best prompt among the aforementioned prompts
@@ -45,5 +43,8 @@ https://www.deeplearning.ai/short-courses/langchain-for-llm-application-developm
     3. Storing documents and embedding vectors in a vectorstore
     4. Finding documents most related to the question by comparing the embedding vectors (many retrieval ways to choose from)
     5. Passing the question and the relevant documents to LLM to get the final answer
+- Can ask LLM to determine to which category a user's question belongs, and then pass only documents of that category and the original user question to LLM again. The benefit is (1) More focused (2) Deal with documents being too long / too many (3) Reduce cost (because of paying per token).
 - Human QA ground truth labels do not exactly match LLM's outputs, but can still be matching. LangChain's QAEvalChain functionality use LLM itself to evaluate if (and to what degree) LLM's outputs match human QA ground truth labels.
-- LangChain's Agents functionality allows connecting to calculators and search engines.
+- Can pass LLM's answer and the context to the LLM again, and ask it to determine if the answer is sufficiently good, before displaying to the user. But this technique is used less commonly in practice due to latency and cost.
+- LangChain's Agents functionality allows connecting LLM to calculators and search engines.
+- Can ask LLM's answer to contain answers to many small steps, each separated by delimiters, or in a specific format, so the answer can be easily parsed, and only display the last paragraph to the user.
