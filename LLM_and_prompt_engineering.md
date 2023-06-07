@@ -32,6 +32,10 @@ How to reduce made-up statements
 
 https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/
 
+https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/
+
+#### Chaining and Result Improving
+
 - LLM is stateless; previous conversations are just saved in the memory as context. LangChain use LLM to summarize previous conversations to reduce the memory usage
 - Regarding LangChain's Router Chain
     1. User provides a different prompt for each different problem, resulting in a "router".
@@ -44,7 +48,12 @@ https://www.deeplearning.ai/short-courses/langchain-for-llm-application-developm
     4. Finding documents most related to the question by comparing the embedding vectors (many retrieval ways to choose from)
     5. Passing the question and the relevant documents to LLM to get the final answer
 - Can ask LLM to determine to which category a user's question belongs, and then pass only documents of that category and the original user question to LLM again. The benefit is (1) More focused (2) Deal with documents being too long / too many (3) Reduce cost (because of paying per token).
-- Human QA ground truth labels do not exactly match LLM's outputs, but can still be matching. LangChain's QAEvalChain functionality use LLM itself to evaluate if (and to what degree) LLM's outputs match human QA ground truth labels.
-- Can pass LLM's answer and the context to the LLM again, and ask it to determine if the answer is sufficiently good, before displaying to the user. But this technique is used less commonly in practice due to latency and cost.
-- LangChain's Agents functionality allows connecting LLM to calculators and search engines.
 - Can ask LLM's answer to contain answers to many small steps, each separated by delimiters, or in a specific format, so the answer can be easily parsed, and only display the last paragraph to the user.
+- LangChain's Agents functionality allows connecting LLM to calculators and search engines.
+
+#### Evaluation
+
+- Human QA ground truth labels do not exactly match LLM's outputs, but can still be semantically matching. LangChain's QAEvalChain functionality use LLM itself to evaluate if (and to what degree, according to a rubric) LLM's outputs match human QA ground truth labels.
+- Can pass LLM's answer and the context (and maybe also a rubric) to the LLM again, and ask it to determine if the answer is sufficiently good (before displaying the answer to the user in production). This technique is used less commonly in production due to latency and cost, but can be used for accuracy evaluation.
+
+
