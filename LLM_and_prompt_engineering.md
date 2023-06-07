@@ -38,9 +38,10 @@ https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/
 
 - LLM is stateless; previous conversations are just saved in the memory as context. LangChain use LLM to summarize previous conversations to reduce the memory usage
 - Regarding LangChain's Router Chain
-    1. User provides a different prompt for each different problem, resulting in a "router".
-    2. User also provides a prompt to ask the LLM to choose the best prompt among the aforementioned prompts
+    1. User provides a different prompt for each different problem, collectively as a "router" template.
+    2. User also provides a prompt to ask the LLM to choose the best / most suitable prompt from the "router" template.
     3. When a question is asked, the LLM first chooses the best prompt, and then the question and the best prompt are used to invoke LLM again. All in one function call.
+    4. With the best / most suitable prompt, the LLM's answer would be better.
 - LangChain's Indexes functionality answer questions based on documents (whose size is too large to directly pass to LLM) by
     1. Splitting the documents into chunks
     2. Creating an embedding vector for each document by calling API (many APIs to choose from)
