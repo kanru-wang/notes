@@ -5,7 +5,7 @@ https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/
 - Base LLM
     - Predicts next word, based on text training data
 - Instruction Tuned LLM
-    - Tries to follow instructions
+    - Tries to generate a sequence after/following an instruction
     - Is fine-tuned on the Base LLM, by doing the following:
         - Each Input is an instruction
         - Obtain human-ratings of the quality of different LLM outputs, on criteria such as whether it is helpful, honest and harmless
