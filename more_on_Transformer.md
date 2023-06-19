@@ -153,6 +153,8 @@ Zoom in:
 
 <img src="image/layer_vs_batch_norm.png" width="600"/>
 
+<img src="image/batch_layer_instance_group_normalization.png" width="600"/>
+
 <br>
 <br>
 
