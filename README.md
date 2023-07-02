@@ -11,6 +11,7 @@
 
 ## Deep Learning
 
+- [LLM_and_prompt_engineering.md](LLM_and_prompt_engineering.md)
 - [more_on_Transformer.md](more_on_Transformer.md)
 - [more_on_RNN.md](more_on_RNN.md)
 - [pytorch_basics_1.md](pytorch_basics_1.md)
