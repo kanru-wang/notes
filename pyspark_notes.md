@@ -7,7 +7,7 @@
 - `.udf(lambda x: ...)` Create a user defined function. Every time want "lambda" should use this.
 - `.when().otherwise().alias("col_name")`
   - `df.select(when(df["col_a"] == 2, 3).otherwise(4).alias(“col_b”))`
-  - `df.withColumn("col_a", (when(df["col_a"] == 2, 3).otherwise(4))
+  - `df.withColumn("col_a", (when(df["col_a"] == 2, 3).otherwise(4))`
 - `f.date_format(f.col("date_col"), "yyyyMMdd")`
 
 ### pyspark.sql.DataFrame
@@ -32,6 +32,13 @@
 - `pyspark.sql.Window`
   - `.withColumn("total_aaa", f.sum("aaa").over(Window.partitionBy("some_id")))`
   - `.withColumn("rank", rank().over(Window.partitionBy("some_id")))`
+- `from pyspark.sql.types import StructType, StructField, StringType, ArrayType`
+  - `data = [("Alice", ["Java", "Scala"]), ("Bob", ["Python", "Scala"])]`
+  - `schema = StructType([`
+    - `StructField("name", StringType()),`
+    - `StructField("languagesSkills", ArrayType(StringType())),`
+  - `])`
+  - `df = spark.createDataFrame(data=data, schema=schema)`
 - `map(lambda x: )`
 - `reduceByKey` to count occurrences
 - `sortByKey`
