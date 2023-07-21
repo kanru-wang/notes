@@ -9,6 +9,8 @@
   - `df.select(when(df["col_a"] == 2, 3).otherwise(4).alias(“col_b”))`
   - `df.withColumn("col_a", (when(df["col_a"] == 2, 3).otherwise(4))`
 - `f.date_format(f.col("date_col"), "yyyyMMdd")`
+- `df.select(arrays_zip("col_1", "col_2").alias("zipped"))`
+- `explode` Similar to `pandas.DataFrame.explode` 
 
 ### pyspark.sql.DataFrame
 
@@ -26,22 +28,27 @@
   - `repartition(1)` and `coalesce(1)` can be used to write out a DataFrame to a single file. Avoid writing out a DataFrame to a single file because it is slow and has a size limit. Only write out a DataFrame to a single file when it is tiny.
 - `.printSchema()`
 
+### pyspark.sql.types
+
+    from pyspark.sql.types import StructType, StructField, StringType, ArrayType
+    data = [("Alice", ["Java", "Scala"]), ("Bob", ["Python", "Scala"])]
+    schema = StructType([
+        StructField("name", StringType()),
+        StructField("languagesSkills", ArrayType(StringType())),
+    ])
+    df = spark.createDataFrame(data=data, schema=schema)
+
 ### Others
 
 - `pyspark.sql.Column.isin()` If each value in a column is in a list of values
 - `pyspark.sql.Window`
   - `.withColumn("total_aaa", f.sum("aaa").over(Window.partitionBy("some_id")))`
   - `.withColumn("rank", rank().over(Window.partitionBy("some_id")))`
-- `from pyspark.sql.types import StructType, StructField, StringType, ArrayType`
-  - `data = [("Alice", ["Java", "Scala"]), ("Bob", ["Python", "Scala"])]`
-  - `schema = StructType([`
-    - `StructField("name", StringType()),`
-    - `StructField("languagesSkills", ArrayType(StringType())),`
-  - `])`
-  - `df = spark.createDataFrame(data=data, schema=schema)`
 - `map(lambda x: )`
 - `reduceByKey` to count occurrences
 - `sortByKey`
 - `keyBy` and `join`
 - `broadcast` a dictionary and then lookup the wanted value by the dictionary key, will result in the same effect of joining
 - `accumulator` to calculate the global average
+- `pyspark.sql.GroupedData.pivot` Similar to `pandas.DataFrame.pivot`
+  
