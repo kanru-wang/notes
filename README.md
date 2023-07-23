@@ -84,11 +84,4 @@
 
 ## Small Learning
 
-- [casual_inference.md](casual_inference.md)
-- [entropy.md](entropy.md)
-- [k_prototypes.md](k_prototypes.md)
-- [model_calibration.md](model_calibration.md)
-- [image_processing.md](image_processing.md)
-- [hyperloglog.md](hyperloglog.md)
-- [classification_ordered_classes.md](classification_ordered_classes.md)
-- [test_image_insertion.ipynb](test_image_insertion.ipynb)
+- [small_learning.md](small_learning.md)
