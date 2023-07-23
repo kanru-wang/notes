@@ -1,3 +1,0 @@
-- From https://scikit-learn.org/stable/modules/calibration.html
-    - The main advantage of `ensemble=True` is to benefit from the traditional ensembling effect. The resulting ensemble should both be well calibrated and slightly more accurate than with `ensemble=False`. 
-    - The main advantage of using `ensemble=False` is computational: it... decreases the final model size and increases prediction speed.
