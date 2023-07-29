@@ -45,3 +45,7 @@ From my experience
 ### Classification for Ordered Classes
 
 - https://stats.stackexchange.com/questions/222073/classification-with-ordered-classes
+
+### NN training checklist
+
+- http://karpathy.github.io/2019/04/25/recipe/
