@@ -71,6 +71,7 @@
 - [james_stein_estimator_and_steins_paradox.md](james_stein_estimator_and_steins_paradox.md)
 - [rule_of_succession.md](rule_of_succession.md)
 - [good_turing_frequency_estimation.md](good_turing_frequency_estimation.md)
+- [survival_analysis.md](survival_analysis.md)
 
 ## Programming
 
