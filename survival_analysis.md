@@ -9,9 +9,9 @@ Censoring and Truncation
 Hazard and Survival Functions
 - https://youtu.be/zAdF8WSyfsA
 
-Cox Proportional Hazards Model (Semi-Parametric Models)
+Cox Proportional Hazards Model (Semi-Parametric Model)
 - https://medium.com/utility-machine-learning/survival-analysis-part-1-the-weibull-model-5c2552c4356f
 - https://medium.com/utility-machine-learning/survival-analysis-part-2-taking-advantage-of-static-data-28acd09fa2d4
 
-Accelerated Failure Time (Parametric Models)
+Accelerated Failure Time (Parametric Model)
 - https://xgboost.readthedocs.io/en/stable/tutorials/aft_survival_analysis.html
