@@ -11,13 +11,13 @@
 
 ## Deep Learning
 
-- [Large_Language_Models](https://github.com/kanru-wang/Large_Language_Models/blob/main/README.md)
+- [Large_Language_Models.md](https://github.com/kanru-wang/Large_Language_Models/blob/main/README.md)
 - [LLM_and_prompt_engineering.md](LLM_and_prompt_engineering.md)
-- [GAN_and_Diffusion_models](https://github.com/kanru-wang/Udemy_GAN_and_Diffusion_models/blob/main/README.md)
-- [Variational AutoEncoder](https://github.com/kanru-wang/Coursera_Generative_Deep_Learning/blob/main/README.md)
+- [GAN_and_Diffusion_models.md](https://github.com/kanru-wang/Udemy_GAN_and_Diffusion_models/blob/main/README.md)
+- [Variational AutoEncoder.md](https://github.com/kanru-wang/Coursera_Generative_Deep_Learning/blob/main/README.md)
 - [more_on_Transformer.md](more_on_Transformer.md)
 - [more_on_RNN.md](more_on_RNN.md)
-- [Quantization_Pruning_Distillation](https://github.com/kanru-wang/Coursera_Quantization_Pruning_Distillation/blob/main/README.md)
+- [Quantization_Pruning_Distillation.md](https://github.com/kanru-wang/Coursera_Quantization_Pruning_Distillation/blob/main/README.md)
 - [pytorch_basics_1.md](pytorch_basics_1.md)
 - [pytorch_basics_2.md](pytorch_basics_2.md)
 - [nn.LossFunctions.md](nn.LossFunctions.md)
