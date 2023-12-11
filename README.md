@@ -29,6 +29,7 @@
 - [U-Net.md](U-Net.md)
 - [augmentation.md](augmentation.md)
 - [Inception_network.md](inception_network.md)
+- [prepare_numerical_data_for_NN.md](prepare_numerical_data_for_NN.md)
 
 ## Traditional Machine Learning
 
