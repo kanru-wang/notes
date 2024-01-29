@@ -1,5 +1,7 @@
 ## Survival Analysis
 
+<img src="image/survival_analysis_functions.png" width="800"/>
+
 Survival Analysis Benefits
 - https://medium.com/dataminingapps-articles/using-survival-analysis-to-model-time-to-default-f918e6d5ff36
 
@@ -17,8 +19,10 @@ Cox Proportional Hazards Model (Semi-Parametric Model, models the hazard/risk)
 
 Accelerated Failure Time (Parametric Model, models the time-to-event)
 - https://xgboost.readthedocs.io/en/stable/tutorials/aft_survival_analysis.html
+  - Express the labels in the form of a range, so that every data point has two numbers associated with it, namely the lower and upper bounds for the label. For uncensored labels, use a degenerate interval of form `[a, a]`.
 - First half of: https://youtu.be/Mfq8vWOGTQo and https://youtu.be/JUaZK9TchCU
   - A positive coefficient of a variable means that the higher the variable the lower the risk.
--  https://lifelines.readthedocs.io/en/latest/Survival%20Regression.html#accelerated-failure-time-models
+- https://lifelines.readthedocs.io/en/latest/Survival%20Regression.html#accelerated-failure-time-models
+  - Unlike XGBoost, no need to specify the lower and upper bounds for the label, due to its input data format different from XGBoost's.
 - First half of: https://myweb.uiowa.edu/pbreheny/7210/f15/notes/10-15.pdf
   - Whereas in a proportional hazards (PH) model, the covariates act multiplicatively on the hazard, in an AFT model the covariates act multiplicatively on time.
