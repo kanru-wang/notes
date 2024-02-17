@@ -7,6 +7,8 @@
         df.groupby("month").pivot_table(index="month", columns="class_label", values=list_of_features_for_investigation, aggfunc="mean")
         df["ratio_true_false_mean"] = df["positive"] / df["negative"]
 
+If the "ratio_true_false_mean" for a long period always > 1 and for another long period always < 1, then this feature will likely to mislead the model.
+
 ### When the class mixture is unstable
 
 - For many projects, in the training data the class mixture is unstable over time (due to data source changes, population mix changes), so for each feature its PSI is certainly unstable.
