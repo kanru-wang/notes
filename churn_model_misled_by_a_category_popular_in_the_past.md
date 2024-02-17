@@ -1,0 +1,6 @@
+## Churn / Retention Model Misled by a Category Popular in the Past
+
+- If a category is popular in the past, but no longer popular among newly joined customers, the model trained would be misled by this category's one-hot feature.
+- As an example, assume a channel was very popular in the past, but no longer popular now. Customers joined from this channel (yet still with the company at the start_date of the training data) would be long tenure customers and are less likely to churn. A model would therefore be misled, and wrongly predict recent customers who joined from this channel to be less likely to churn.
+- For another example, the training data is obtained from joining a few tables, but one table is missing early customers' information (these early customers are still with the company at the start_date of the training data). For all features derived from this table, the category of "missing" would infer "less likely to churn". A model trained on this dataset would wrongly predict any recent customers with missing values in these features to be less likely to churn.
+- The tenure feature itself does not cause a problem, because it truly represents a long / short tenure, in the past and the future.
