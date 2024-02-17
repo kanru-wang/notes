@@ -47,6 +47,7 @@
 - [high_accuracy_low_F1.md](high_accuracy_low_f1.md)
 - [gap_between_train_and_test_performance_matters.md](gap_between_train_and_test_performance_matters.md)
 - [more_features_than_samples.md](more_features_than_samples.md)
+- [churn_model_misled_by_a_category_popular_in_the_past.md](churn_model_misled_by_a_category_popular_in_the_past.md)
 
 ### (ii) Learning
 
