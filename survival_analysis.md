@@ -26,3 +26,6 @@ Accelerated Failure Time (Parametric Model, models the time-to-event)
   - Unlike XGBoost, no need to specify the lower and upper bounds for the label, due to its input data format different from XGBoost's.
 - First half of: https://myweb.uiowa.edu/pbreheny/7210/f15/notes/10-15.pdf
   - Whereas in a proportional hazards (PH) model, the covariates act multiplicatively on the hazard, in an AFT model the covariates act multiplicatively on time.
+
+Construct a dataset in one of the following ways
+- Starting date: randomly chosen month between 1 to n before the event / censor date. Probability mass function of event samples is used to randomly generate censor dates for non-event samples, so that (1) observation periods for event and non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
