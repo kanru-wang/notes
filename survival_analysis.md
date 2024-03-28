@@ -28,4 +28,6 @@ Accelerated Failure Time (Parametric Model, models the time-to-event)
   - Whereas in a proportional hazards (PH) model, the covariates act multiplicatively on the hazard, in an AFT model the covariates act multiplicatively on time.
 
 Construct a dataset in one of the following ways
-- Starting date: randomly chosen month between 1 to n before the event / censor date. Probability mass function of event samples is used to randomly generate censor dates for non-event samples, so that (1) observation periods for event and non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
+- Duration is measured from when each customer starts to exist, until its event (or censor) date. We would not have window features.
+- Given source data is available from time `t` and window features take a span of `s`, we model all customers that already have a history of `s` at the time `t + s`. We would not have window features. In production, we would not be able to apply this model to relatively new customers who have a tenure <= `s`.
+- Starting date is a randomly chosen month between 1 to n before the event (or censor) date. Probability mass function of event customers is used to randomly generate censor dates for non-event customers, so that (1) observation periods for event and non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
