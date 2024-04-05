@@ -31,3 +31,7 @@ Construct a dataset in one of the following ways
 - Duration is measured from when each customer starts to exist, until its event (or censor) date. We would not have window features.
 - Given source data is available from time `t` and window features take a span of `s`, we model all customers that already have a history of `s` at the time `t + s`. We would not have window features. In production, we would not be able to apply this model to relatively new customers who have a tenure <= `s`.
 - Starting date is a randomly chosen month between 1 to n before the event (or censor) date. Probability mass function of event customers is used to randomly generate censor dates for non-event customers, so that (1) observation periods for event and non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
+
+Prioritize contacting customers whose predicted survival falls below a certain threshold.
+
+Additionally, customer lifetime value can be calculated by combining expected survival times with monthly revenues.
