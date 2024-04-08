@@ -1,28 +1,22 @@
 ## Calculate the financial benefit of a new retention model over an existing model
 
-`Monthly $ difference in benefit (changing from existing model to new)` =
+`Monthly $ difference in benefit (changing from existing model to new)`
+
+=
+
+`revenue loss from customers who would churn in a month if not treated`
+
+x `reduction in churn prob for treated customers who would otherwise churn`
+
+=
 
 `$ amount of profit per customer per year`
 
-x `n number of customers per month that the company has capacity to treat`
+x `n number of customers that the company has capacity to treat per month`
 
 x (`new_model's top n customers' precision` - `old model's top n customers' precision`)
 
-x (`% of n customers who originally would churn but now stay after treatment` **+** `% of n customers who originally would stay but now churn after treatment`)
-
-<br>
-
-It is hard to calculate from historical statistics
-
-`% of n customers who originally would churn but now stay after treatment` **+** `% of n customers who originally would stay but now churn after treatment`,
-
-but it is equal to
-
-`% of n customers who originally would churn but now stay after treatment` **-** `% of n customers who originally would stay but now churn after treatment`,
-
-if `% of n customers who originally would stay but now churn after treatment` is small.
-
-The later is easy to derive from historical statistics.
+x ((`churn rate of not treated customers` - `churn rate of treated customers`) / `churn rate of not treated customers`)
 
 <br>
 <br>
