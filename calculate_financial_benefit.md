@@ -4,13 +4,13 @@
 
 =
 
-`revenue loss from customers who would churn in a month if not treated`
+`additional monthly profit (by changing from existing model to new) from customers who would churn if not treated`
 
 x `reduction in churn prob for treated customers who would otherwise churn`
 
 =
 
-`$ amount of profit per customer per year`
+`$ amount of life time profit from each customer`
 
 x `n number of customers that the company has capacity to treat per month`
 
