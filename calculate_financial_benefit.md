@@ -23,6 +23,7 @@ x ((`churn rate of not treated customers` - `churn rate of treated customers`) /
 
 Also:
 
+- Monitor the model by: group by `customer value bin` and `risk decile`, and then count `# of churn customers among treated`, `# of customers treated`, `# of chun customers among not treated`, and `# of customers not treated`.
 - `cumulative lift` = (`num positive in top n` / `n`) / (`num positive in all customers` / `num all customers`)
 - `strike rate` = `precision of top n`
 - `cumulative gains of top n` = `recall of top n`
