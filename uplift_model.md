@@ -1,0 +1,35 @@
+### Uplift Model
+
+- General
+  - From an ROI standpoint, increasing the probability to purchase on one group of prospects from 30% to 50% is just as valuable as increasing that probability on another group from 50% to 70% (assuming the groups are roughly the same size, with the same expected revenue values)
+  - Net Life is most useful when the campaign cost (offer cost) is high or the probability to scare away customers is high.
+- S-Learner and T-Learner
+  - https://colab.research.google.com/github/maks-sh/scikit-uplift/blob/master/notebooks/RetailHero_EN.ipynb
+    - Very good guide of S-Learner and T-Learner
+  - https://github.com/Minyus/causallift/
+    - Very good guide of T-Learner solution, with metrics such as Qini and AUUC (Area Under the Uplift Curve)
+  - https://github.com/klostest/uplift_modeling/blob/master/uplift-modeling.ipynb
+    - Demonstrated a S-Learner solution, with many useful plots
+  - https://learn.microsoft.com/en-us/fabric/data-science/uplift-modeling
+    - Demonstrated a T-Learner solution, with many useful plots
+  - https://colab.research.google.com/github/tensorflow/decision-forests/blob/main/documentation/tutorials/uplift_colab.ipynb
+    - The idea of numerical uplifting to predict the numerical increase in spending
+- Uplift Tree / Forest
+  - https://medium.com/@steshenkotema/uplift-tree-code-example-89a42a57fd3c
+    - Splits on uplift-specific metrics instead of entropy; easily shows how different segments respond to the treatment
+  - https://www.youtube.com/watch?v=IEj8uzIG7C8
+  - https://www.aboutwayfair.com/tech-innovation/modeling-uplift-directly-uplift-decision-tree-with-kl-divergence-and-euclidean-distance-as-splitting-criteria
+    - Regardless of what feature is used to split, the divergence is calculated by combining the “conversion rate difference between the treatment group and holdout group” from the lift and it from the right. The best feature to split would result in those treated converting as different as possible from those not treated.
+- Transformed Outcome
+  - Combines outcome and treatment labels to a new label, and becomes a regression problem
+  - https://www.youtube.com/watch?v=IWXKUJIsjZg
+  - https://pylift.readthedocs.io/en/latest/introduction.html
+  - https://www.uplift-modeling.com/en/latest/user_guide/models/transformed_outcome.html
+- Evaluation
+  - Uplift Curve / Cumulative Gain Curve
+    - An uplift curve measures the cumulative gain in conversions in the targeted population as more and more people are targeted according to descending uplift score, until all are targeted.
+    - https://medium.com/data-reply-it-datatech/uplift-modeling-predict-the-causal-effect-of-marketing-communications-24385fb04f2e
+  - Qini Coefficient
+    - The Qini-Coefficient is the difference between the area under the Uplift Curve and the random curve.
+    - A Qini-Coefficient near one represents a good performance of the Uplift Model and a Qini-Coefficient near zero a worse one.
+    - https://humboldt-wi.github.io/blog/research/theses/uplift_modeling_blogpost/
