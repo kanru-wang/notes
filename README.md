@@ -66,6 +66,7 @@
 - [ML_fairness.md](ml_fairness.md)
 - [extrapolate_GBRT_for_time_series.md](extrapolate_GBRT_for_time_series.md)
 - [Sagemaker_templates](sagemaker_templates)
+- [uplift_model.md](uplift_model.md)
 
 ## Statistics
 
