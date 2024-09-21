@@ -4,11 +4,11 @@
 
     `Initial Date <----- 12 months -----> Final Date <----- 12 months -----> Recent`
 
-- CLV is calculated using 2 components, a Revenue Matrix of size [s, 1], and a Transition Matrix of size [s, s]. The number of states (categories) is denoted by s.
-    - The state n years later would be the Transition Matrix self-multiplied n times.
-    - Multiply the resulting [s, s] state matrix (n years later) with the Revenue Matrix [s, 1] to get a [s, 1] year-n probability-based Revenue Matrix.
-    - Discount (divide) the year-n probability-based Revenue Matrix by (1 + discount_rate) ** n to get the present value of it.
-    - Assume that we consider five years' customer value, then sum all five probability-based Revenue Matrices to get one CLV lookup table (of size [s, 1]).
+- CLV is calculated using 2 components, a Revenue Matrix of size `[s, 1]`, and a Transition Matrix of size `[s, s]`. The number of states (categories) is denoted by `s`.
+    - The state n years later would be the Transition Matrix self-multiplied `n` times.
+    - Multiply the resulting `[s, s]` state matrix (n years later) with the Revenue Matrix `[s, 1]` to get a `[s, 1]` year-n probability-based Revenue Matrix.
+    - Discount (divide) the year-n probability-based Revenue Matrix by `(1 + discount_rate) ** n` to get the present value of it.
+    - Assume that we consider five years' customer value, then sum all five probability-based Revenue Matrices to get one CLV lookup table (of size `[s, 1]`).
     - Join the CLV lookup table to each customer according to their category.
 - Categorise customers and estimate a Transition Matrix in either way:
   - By individual’s product usage mix (e.g., a category for customers who only use Product B and D).
@@ -34,9 +34,9 @@
   - The Transition Matrix is outdated.
 - What are saved during train and loaded during inference?
   - Two lists of bin edges (for categorising any transaction count and any loan balance), or a list of all the non-rare product-mix strings.
-  - Transition Matrix, shape [s, s].
-  - Revenue Matrix, shape [s, 1].
-  - Ordered segment labels, shape [s, 1], to turn the product of Transition Matrix and Revenue Matrix into a dataframe.
+  - Transition Matrix, shape `[s, s]`.
+  - Revenue Matrix, shape `[s, 1]`.
+  - Ordered segment labels, shape `[s, 1]`, to turn the product of Transition Matrix and Revenue Matrix into a dataframe.
 - Training / Fitting process
   - Create two history dataframes and two snapshot dataframes:
     - [History Dataframe 1] / [History Dataframe 2] is one row per customer per month; include any customers who appeared in the 12 months period between [Initial Date and Final Date] / [Final Date and Recent].
@@ -50,11 +50,11 @@
   - Define categories:
     - For the Product Usage Mix model, fitting is to find all common product usage mixes; fitting is only on the [Snapshot] / [Combined] Dataframe 1. Transforming is to add a category column to each of the [Snapshot] / [Combined] Dataframe 1 and 2.
     - For the 9 Category model, fitting is to find the bin edges of "average loan balance size" and "total transaction count"; fitting is only on Combined Dataframe 1. Transforming is to add a category column to each of the Combined Dataframe 1 and 2.
-  - Join [Snapshot] / [Combined] Dataframe 1 and 2 on customer ID.
+  - Join [Snapshot] / [Combined] Dataframe 1 and 2 on customer ID.
   - Calculate the Transition Matrix and Revenue Matrix.
 - Inference process
   - No need to have inference code that calculates the sum of revenue per customer, nor the average revenue of each category.
   - For the Product Usage Mix model, get the most recent month's customer data, `c` number of unique customers result in `c` rows. For the 9 Category model, get the last 12 months' customer data, `c` number of unique customers result in `12c` rows.
   - (After aggregation and calculation if needed) Assign a category column to the customer dataframe.
-  - Calculate the CLV lookup table (of size [s, 1]), given `discount_rate` and the estimation horizon.
+  - Calculate the CLV lookup table (of size `[s, 1]`), given `discount_rate` and the estimation horizon.
   - Join the customer dataframe and the CLV lookup table by each customer's category.
