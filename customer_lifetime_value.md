@@ -1,3 +1,5 @@
+## Customer Lifetime Value Estimation
+
 - Customer Lifetime Value (CLV) can be estimated by Markov Chain Model.
 - CLV is estimated for every customer category, instead of for every customer. Every customer belongs to a certain customer category.
 - Need to decide an Initial Date and a Final Date that are 12 months apart. Notice that 12 months' data needs to be available after the Final Date.
@@ -8,7 +10,7 @@
     - The state n years later would be the Transition Matrix self-multiplied `n` times.
     - Multiply the resulting `[s, s]` state matrix (n years later) with the Revenue Matrix `[s, 1]` to get a `[s, 1]` year-n probability-based Revenue Matrix.
     - Discount (divide) the year-n probability-based Revenue Matrix by `(1 + discount_rate) ** n` to get the present value of it.
-    - Assume that we consider five years' customer value, then sum all five probability-based Revenue Matrices to get one CLV lookup table (of size `[s, 1]`).
+    - Assume that we consider five years' customer value (not really "lifetime"), then sum all five probability-based Revenue Matrices to get one CLV lookup table (of size `[s, 1]`).
     - Join the CLV lookup table to each customer according to their category.
 - Categorise customers and estimate a Transition Matrix in either way:
   - By individual’s product usage mix (e.g., a category for customers who only use Product B and D).
