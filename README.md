@@ -49,6 +49,7 @@
 - [more_features_than_samples.md](more_features_than_samples.md)
 - [churn_model_misled_by_a_category_popular_in_the_past.md](churn_model_misled_by_a_category_popular_in_the_past.md)
 - [calculate_financial_benefit.md](calculate_financial_benefit.md)
+- [monitor_performance_and_treatment_effectiveness.md](monitor_performance_and_treatment_effectiveness.md)
 
 ### (ii) Learning
 
@@ -67,6 +68,7 @@
 - [extrapolate_GBRT_for_time_series.md](extrapolate_GBRT_for_time_series.md)
 - [Sagemaker_templates](sagemaker_templates)
 - [uplift_model.md](uplift_model.md)
+- [customer_lifetime_value.md](customer_lifetime_value.md)
 
 ## Statistics
 
