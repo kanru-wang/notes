@@ -49,3 +49,12 @@ From my experience
 ### NN training checklist
 
 - http://karpathy.github.io/2019/04/25/recipe/
+
+### Warn Before Too Late
+
+- For some products, customers would first reveal their intent to churn (e.g. zeroing the account balance, cancelling membership, etc.), and most of them would then churn after a period. A retention model would try to predict the actual churn event.
+- Need to measure for most of customers, how long ago did they reveal their intent to churn before the actual churn event, e.g. 3 months.
+- We need the model to warn early, because it is too late to intervene after customers revealing their intent to churn (customer already made up their mind to leave).
+- We can then create a 3-month gap between each “feature extraction period” and “event occurring window” pair. Each pair is a “vintage”.
+- Alternatively, can build a model to predict the event of zeroing the account balance or cancelling membership, etc.
+
