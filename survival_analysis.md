@@ -67,8 +67,9 @@
 ### Dynamic Start Date (a.k.a. Rolling Entry Cohort) method
 - Select customers if their loan had originated between Start Date and Censor Date.
 - Choose attributes at the Start Date (𝑡 = 0)
-  - If Duration is measured from when each customer starts to exist, until its event (or censor) date, we would not have window features.
-  - Alternatively, if given source data is available from time `t` and window features take a span of `s`, we model all customers that already have a history of `s` at the time `t + s`, we would have window features. In production, we would not be able to apply this model to relatively new customers who have a tenure <= `s`.  
+  - If Duration is measured from when each customer starts to exist, until its Event (or Censor) Date, we would not have window features.
+  - Alternatively, if given source data is available from time `t` and window features take a span of `s`, we model all customers that already have a history of `s` at the time `t + s`, we would have window features. In production, we would not be able to apply this model to relatively new customers who have a tenure <= `s`.
+  - Alternatively, Start Date is a randomly chosen month between 1 to n before the Event (or Censor) date. Probability mass function of Event customers is used to randomly generate Censor Dates for non-event customers, so that (1) observation periods for Event and Non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
 - Model can only score customers whose home loan was acquired between Start Date and Censor Date.
 - If we use an earlier Start Date we may not have enough customer history to supply data at origination.
 - During inference, a trained Dynamic Start Date model should not be applied to customers who originated after the Censor Date. It should be applied to those originated between the Start Date and the Censor Date.
@@ -84,11 +85,14 @@
 - The assumption is that the hazard is constant in time (the survival function decays exponentially). The period needs to be long enough to capture enough events to build a reasonable model while short enough so the hazard remains constant.
 - Can have a feature that indicates how long have they existed before the Start Date.
 
+<br>
 
+## Applications
 
-
-- Starting date is a randomly chosen month between 1 to n before the event (or censor) date. Probability mass function of event customers is used to randomly generate censor dates for non-event customers, so that (1) observation periods for event and non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
-
-Prioritize contacting customers whose predicted survival falls below a certain threshold.
-
-Additionally, customer lifetime value can be calculated by combining expected survival times with monthly revenues.
+- When we pre-process the data for model training, we only need to calculate a Duration column and an Event_vs_Censor (binary) column; the python package (lifelines / XGBoost) can handle the rest.
+- There is a dilemma between (1) having a long censoring period (more accurate estimates) and (2) applying the trained model to a large customer base; because after a long censoring period many customers already experienced the event.
+- How to apply model to customers joined after the censor date?
+  - Re-train the model with more recent data.
+  - Use a classification propensity model to handle new customers.
+- Prioritize contacting customers whose predicted survival falls below a certain threshold.
+- Additionally, customer lifetime value can be calculated by combining expected survival times with monthly revenues.
