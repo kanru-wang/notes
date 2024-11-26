@@ -70,9 +70,8 @@
   - If Duration is measured from when each customer starts to exist, until its Event (or Censor) Date, we would not have window features.
   - Alternatively, if given source data is available from time `t` and window features take a span of `s`, we model all customers that already have a history of `s` at the time `t + s`, we would have window features. In production, we would not be able to apply this model to relatively new customers who have a tenure <= `s`.
   - Alternatively, Start Date is a randomly chosen month between 1 to n before the Event (or Censor) date. Probability mass function of Event customers is used to randomly generate Censor Dates for non-event customers, so that (1) observation periods for Event and Non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
-- Model can only score customers whose home loan was acquired between Start Date and Censor Date.
+- In theory, the model can only score customers whose home loan was acquired between Start Date and Censor Date. During inference, a trained Dynamic Start Date model should not be applied to customers who originated after the Censor Date. But in practice, the model is applied to customers originate after Censor Date.
 - If we use an earlier Start Date we may not have enough customer history to supply data at origination.
-- During inference, a trained Dynamic Start Date model should not be applied to customers who originated after the Censor Date. It should be applied to those originated between the Start Date and the Censor Date.
 - Has fewer customer Selection Biases (compared to Fixed Start Date method) because customers joined at different times are all included; the model captures a broader range of behaviour.
 - Has potential Temporal Bias. When customers join at different time, significant changes in economic conditions or marketing campaigns can happen.
 - Allows including relatively new customers in the training set, compared to Fixed Start Date method.
@@ -80,7 +79,7 @@
 ### Fixed Start Date method
 - Measure all customers' attributes on the Start Date.
 - All customers in the training dataset joined the company before the Start Date; this is Selection Bias. Customers who have short lifespans (or customers who joined the company after the Start Date) are not included in the training dataset; this is Survivorship Bias.
-- During inference, a trained Fixed Start Date model should not be applied to customers who originated after the Start Date.
+- In theory, during inference, a trained Fixed Start Date model should not be applied to customers who originated after Start Date. In practice, the model is applied to customers originate after Start Date.
 - Low potential Temporal Bias. Because all customers are first observed at the same date, the impact of significant changes (in economic conditions or marketing campaigns between Start Date and Censor Date) are just the same offset for all customers, and the impact of individual's conditions can be accurately measured.
 - The assumption is that the hazard is constant in time (the survival function decays exponentially). The period needs to be long enough to capture enough events to build a reasonable model while short enough so the hazard remains constant.
 - Can have a feature that indicates how long have they existed before the Start Date.
