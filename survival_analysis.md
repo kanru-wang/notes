@@ -33,18 +33,19 @@
 ## Two Main Types of Survival Model 
 
 - Accelerated Failure Time (AFT) model – customer information models the survival time t, i.e. some customer tenures will "age" faster than others.
-- Cox Proportional Hazards (CPH) model – customer information models the Hazard Rate. The baseline hazard function varies over time but is the same for all customers; the Hazard Rate ratio between two customers is constant over time. E.g. a broker managed customer is 3 times more likely to refi-out than a retail managed customer.
+- Cox Proportional Hazards (CPH) model – customer information models the Hazard Rate. The baseline hazard function varies over time but is the same for all customers; the Hazard Rate ratio between two customers is constant over time. E.g. a certain type of customers are 3 times more likely to churn than another type of customers.
 
 ### Cox Proportional Hazards Model (a.k.a. CPHM) (Semi-Parametric Model, models the hazard/risk)
 - CPHM's Hazard Function / Hazard Rate (h) and why it is proportional
   - <img src="image/hazard_function_hazard_rate_cox_proportional_hazards_1.png" width="500"/>
   - <img src="image/hazard_function_hazard_rate_cox_proportional_hazards_2.png" width="500"/>
 - Fitting Cox Proportional Hazards Model
-  - If we can find out a dimension from which we can separate the customer base into multiple groups whose estimated Hazard Rate (Hazard Function) vs Time axis does not obey the proportional hazards assumption (i.e. each line should be a proportional scaling up or down of other lines), then we need to split customers into these groups and model them separately.
+  - If the hazard function / hazard rate has a sharp peak (e.g. many new customers tend to leave at about 12 months after joining), we should use CPHM because it does not assume a particular distribution for survival times; we should not use Accelerated Failure Time model because it assumes a particular distribution for the survival time (e.g. Weibull, log-normal, exponential) which does not accommodate the peak.
+  - If we can find out a dimension from which we can separate the customer base into multiple groups whose estimated Hazard Rate (Hazard Function) vs. Time axis does not obey the proportional hazards assumption (i.e. each line should be a proportional scaling up or down of other lines), then we need to split customers into these groups and model them separately.
   - During training, we estimate the values of all β, and then estimate the baseline survival function 𝑆0(𝑡).
   - During inference, we plug in each customer's value of x.
   - Target customers when the predicted survival falls below e.g. 0.50. For a customer, the fewer historical months the customer lived before crossing the 0.5 threshold, the more endangered.
-- More Concept
+- More Concepts
   - https://medium.com/utility-machine-learning/survival-analysis-part-1-the-weibull-model-5c2552c4356f
   - https://medium.com/utility-machine-learning/survival-analysis-part-2-taking-advantage-of-static-data-28acd09fa2d4
   - First half of: https://youtu.be/W9_V-TTOCPM and https://youtu.be/JUaZK9TchCU
@@ -65,24 +66,24 @@
 ## Two Ways of Forming Training Data
 
 ### Dynamic Start Date (a.k.a. Rolling Entry Cohort) method
-- Select customers if their loan had originated between Start Date and Censor Date.
+- The training dataset includes customers who became customers between Start Date and Censor Date.
 - Choose attributes at the Start Date (𝑡 = 0)
   - If Duration is measured from when each customer starts to exist, until its Event (or Censor) Date, we would not have window features.
   - Alternatively, if given source data is available from time `t` and window features take a span of `s`, we model all customers that already have a history of `s` at the time `t + s`, we would have window features. In production, we would not be able to apply this model to relatively new customers who have a tenure <= `s`.
   - Alternatively, Start Date is a randomly chosen month between 1 to n before the Event (or Censor) date. Probability mass function of Event customers is used to randomly generate Censor Dates for non-event customers, so that (1) observation periods for Event and Non-event samples are consistent, (2) the test set can be naturally created. Furthermore, window features are available for modeling.
-- In theory, the model can only score customers whose home loan was acquired between Start Date and Censor Date. During inference, a trained Dynamic Start Date model should not be applied to customers who originated after the Censor Date. But in practice, the model is applied to customers originate after Censor Date.
-- If we use an earlier Start Date we may not have enough customer history to supply data at origination.
+- In theory, during inference a trained Dynamic Start Date model can only score customers who originate between Start Date and Censor Date. But in practice, the model is applied to customers originate after Censor Date; we assume that the hazard rate is only affected by each customer's "internal clock" and is not affected by environment changes (e.g. interest rate changes).
+- If we have very long tenure customers, we may not have recorded all their features at Start Date; their features at Start Date may also be too outdated and therefore not representative of their current situation.
 - Has fewer customer Selection Biases (compared to Fixed Start Date method) because customers joined at different times are all included; the model captures a broader range of behaviour.
 - Has potential Temporal Bias. When customers join at different time, significant changes in economic conditions or marketing campaigns can happen.
 - Allows including relatively new customers in the training set, compared to Fixed Start Date method.
 
 ### Fixed Start Date method
-- Measure all customers' attributes on the Start Date.
-- All customers in the training dataset joined the company before the Start Date; this is Selection Bias. Customers who have short lifespans (or customers who joined the company after the Start Date) are not included in the training dataset; this is Survivorship Bias.
-- In theory, during inference, a trained Fixed Start Date model should not be applied to customers who originated after Start Date. In practice, the model is applied to customers originate after Start Date.
+- Measure all customers' attributes on Start Date.
+- All customers in the training dataset joined the company before Start Date; this is Selection Bias. Customers who have short lifespans (or customers who joined the company after Start Date) are not included in the training dataset; this is Survivorship Bias.
+- In theory, during inference, a trained Fixed Start Date model should not be applied to customers who originate after Start Date. In practice, the model is applied to customers originate after Start Date; we assume that the hazard rate is only affected by each customer's "internal clock" and is not affected by environment changes (e.g. interest rate changes).
 - Low potential Temporal Bias. Because all customers are first observed at the same date, the impact of significant changes (in economic conditions or marketing campaigns between Start Date and Censor Date) are just the same offset for all customers, and the impact of individual's conditions can be accurately measured.
 - The assumption is that the hazard is constant in time (the survival function decays exponentially). The period needs to be long enough to capture enough events to build a reasonable model while short enough so the hazard remains constant.
-- Can have a feature that indicates how long have they existed before the Start Date.
+- Can have a feature that indicates how long have they existed before Start Date.
 
 <br>
 
