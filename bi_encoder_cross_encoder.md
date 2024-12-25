@@ -12,7 +12,7 @@
 
 - The inference of Bi-encoder is relatively fast, but not accurate enough. The inference of Cross-encoder is slow (need to run for each complaint-class sentence pair), but has a focus on sentence pair relevance and accuracy. A hybrid of Bi-encoder and Cross-encoder achieves both accuracy and speed.
 
-- In fact, in the realm of Information Retrieval, it is common to use an algorithm similar to Bi-encoder that focuses on Recall, followed by a Cross-encoder-like algorithm that focuses on Precision. When you think about Text Classification from a different perspective, it is also an Information Retrieval problem.
+- In fact, in the realm of Information Retrieval, it is common to use an algorithm similar to Bi-encoder that focuses on Recall, followed by a Cross-encoder-like algorithm that focuses on Precision. When you think about Text Classification from a different perspective, it is also an Information Retrieval task.
 
 - The Cross-encoder is downloadable as a pre-trained model, and can be further fine-tuned with data of this project (not recommended, for simplicity).
 
