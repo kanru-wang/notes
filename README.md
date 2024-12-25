@@ -50,6 +50,7 @@
 - [churn_model_misled_by_a_category_popular_in_the_past.md](churn_model_misled_by_a_category_popular_in_the_past.md)
 - [calculate_financial_benefit.md](calculate_financial_benefit.md)
 - [monitor_performance_and_treatment_effectiveness.md](monitor_performance_and_treatment_effectiveness.md)
+- [bi_encoder_cross_encoder.md](bi_encoder_cross_encoder.md)
 
 ### (ii) Learning
 
