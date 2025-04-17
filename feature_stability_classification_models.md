@@ -35,3 +35,9 @@ Implementation:
         )
 
 - pd.DataFrame.sample
+
+### If an unstable feature is also very important
+
+For example, when the interest rate first start to raise, people would be less likely to buy new houses; but after the interest rate remaining at a high level for years, people would begin to buy new houses regardless of the high interest rate.
+
+In this case, for each training sample, we can exclude the raw interest rate from the feature set, but calculate the delta interest rate (e.g. the at-the-time interest rate - interest rate 18 months prior to that time) as a new feature.
