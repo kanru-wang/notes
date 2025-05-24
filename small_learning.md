@@ -58,3 +58,21 @@ From my experience
 - We can then create a 3-month gap between each “feature extraction period” and “event occurring window” pair. Each pair is a “vintage”.
 - Alternatively, can build a model to predict the event of zeroing the account balance or cancelling membership, etc.
 
+### Slowly Changing Dimensions (SCD)
+
+- A Type 1 table does not track changes in dimensional attributes - the new value overwrites the existing value. Here, we do not preserve historical changes in data. To update, we:
+    - Extract the required data from our operational system(s)
+    - Perform any required data cleansing operations
+    - Compare our incoming records to those already in the dimension table
+    - Update any existing records where incoming attributes differ from what’s already recorded
+    - Insert any incoming records that do not have a corresponding record in the dimension table
+- A Type 2 Table tracks change over time by creating new rows for each change. A new dimension record is inserted with a high-end date or one with NULL. The previous record is "closed" with an end date. This approach maintains a complete history of changes and allows for as-was reporting use cases. To update, we:
+    - Extract the required data from our operational system(s)
+    - Perform any required data cleansing operations
+    - Update any late-arriving member records in the target table (https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/late-arriving-dimension/). For rows that are flagged as late arriving, update record in place (like a type-1 SCD) to set the late arriving flag column off as 0.
+    - Expire any existing records in the target table for which new versions are found in staging
+    - Insert any new (or new versions) of records into the target table
+- Type 3 – The current data and historical data are kept in the same record. The user decides how much history is kept in the record. (Me: As an example: Item, Date, Value, Date, Value…)
+- See
+    - https://www.databricks.com/blog/implementing-dimensional-data-warehouse-databricks-sql-part-1
+    - https://www.databricks.com/blog/implementing-dimensional-data-warehouse-databricks-sql-part-2
