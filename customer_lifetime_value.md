@@ -43,11 +43,12 @@
   - Create two history dataframes and two snapshot dataframes:
     - [History Dataframe 1] / [History Dataframe 2] is one row per customer per month; include any customers who appeared in the 12 months period between [Initial Date and Final Date] / [Final Date and Recent].
     - [Snapshot Dataframe 1] / [Snapshot Dataframe 2] is one row per customer, on the [Initial Date] / [Final Date].
-    - For the Product Usage Mix model, we do not need a History Dataframe 2 (or to ensure it has 12 months), because we only need a Snapshot Dataframe 2.
+    - For the Product Usage Mix model, we do not need a History Dataframe 2 (and if there is one, it can be as short as 0 day), because we only need a Snapshot Dataframe 2.
   - History dataframes aggregate by ID and then:
     - For the Product Usage Mix model, calculate "total revenue per customer" and "number of rows" (only needed for History Dataframe 1).
-    - For the 9 Category model, calculate "total revenue per customer" (only needed for History Dataframe 1), and also "average loan balance size", "total transaction count" and "number of rows" (for both History Dataframe 1 and 2).
+    - For the 9 Category model, calculate "total revenue per customer" (only needed for History Dataframe 1 or 2), and also "average loan balance size", "total transaction count" and "number of rows" (for both History Dataframe 1 and 2).
     - Filter to only customers who have 12 rows (i.e., exists for the full 12 months, so the summation is meaningful).
+    - History Dataframe 1 is needed for the 9 Category model, because it allows (1) filtering to only customers who have the full 12 months, and (2) determining each customer's category, at the Final Date.
   - Join the aggregated dataframes to the snapshot dataframes of the same period, on customer ID, resulting in Combined Dataframe 1, or Combined Dataframe 2 as well.
   - Define categories:
     - For the Product Usage Mix model, fitting is to find all common product usage mixes; fitting is only on the [Snapshot] / [Combined] Dataframe 1. Transforming is to add a category column to each of the [Snapshot] / [Combined] Dataframe 1 and 2.
