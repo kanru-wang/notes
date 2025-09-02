@@ -2,7 +2,7 @@
 
 - General
   - From an ROI standpoint, increasing the probability to purchase on one group of prospects from 30% to 50% is just as valuable as increasing that probability on another group from 50% to 70% (assuming the groups are roughly the same size, with the same expected revenue values)
-  - Net Life is most useful when the campaign cost (offer cost) is high or the probability to scare away customers is high.
+  - Net Lift is most useful when the campaign cost (offer cost) is high or the probability to scare away customers is high.
 - S-Learner and T-Learner
   - https://colab.research.google.com/github/maks-sh/scikit-uplift/blob/master/notebooks/RetailHero_EN.ipynb
     - Very good guide of S-Learner and T-Learner
