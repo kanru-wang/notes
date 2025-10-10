@@ -60,6 +60,7 @@
 - [Coursera_how_to_win_a_data_science_competition.pdf](coursera_how_to_win_a_data_science_competition.pdf)
 - [LDA.md](LDA.md)
 - [recommender_systems.pdf](recommender_systems.pdf)
+- [recommender_system_vs_propensity_models.md](recommender_system_vs_propensity_models.md)
 - [GBDT+LR.md](GBDT+LR.md)
 - [customize_loss_function.md](customize_loss_function.md)
 - [evaluation_metrics.md](evaluation_metrics.md)
