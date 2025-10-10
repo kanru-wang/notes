@@ -48,6 +48,8 @@ This page discusses the feasibility of moving from mutiple (e.g. 30) separate cr
 * If a customer has not adopted any product at a snapshot time, then remove that group of rows from the training data.
 * Keep all examples (best, if infrastructure allows), or down-sample easy negatives per query (e.g., keep all positives, sample up to N negatives per customer-month).
 
+<img src="image/rec_sys_1.jpg" width="500"/>
+
 ### What is qid / group?
 
 * In a LambdaMART ranker, training is done within **groups**.
@@ -91,3 +93,19 @@ Need to monitor per-product **NDCG/Recall**.
 
 * Calibrate per product.
 * Use a **gradient boost tree classifier** (or a **logistic regression classifier**) with monotonic constraints.
+* Use ground truth, scores, and features for calibration.
+
+<br>
+
+## Key evaluation metrics for a LambdaMART Ranker
+
+* **Recall@Top1 / Precision@Top1** — exclude customers with no positives from the metric’s denominator.
+* After calibration, use our common metrics (e.g., **Precision@top x%** for a certain product, **AUC**, etc.).
+* Need to monitor **calibration drift**.
+
+<br>
+
+## Why do we not use a multi-label gradient boost tree instead?
+
+* Just like a LambdaMART Ranker, a multi-label model can also benefit from transfer learning, which can improve accuracy for rare products.
+* However, it cannot properly handle **ineligible (or already owned)** products.
