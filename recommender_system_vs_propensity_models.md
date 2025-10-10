@@ -1,6 +1,6 @@
 # Recommender System vs. Multiple Cross-selling/Upselling Propensity Models
 
-This page discusses the feasibility of moving from mutiple (e.g. 30) separate cross-selling/upselling propensity models to one recommender system.
+This page discusses the feasibility of replacing mutiple (e.g. 30) separate cross-selling/upselling propensity models with one recommender system.
 
 ## Which recommender system
 
