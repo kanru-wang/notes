@@ -91,7 +91,7 @@ Need to monitor per-product **NDCG/Recall**.
 
 ## How to calibrate a LambdaMART Ranker
 
-* Use one calibrator for all products (or one calibrator per product).
+* Train one calibrator for all products (or one calibrator per product).
 * Use a **gradient boost tree classifier** (or a **logistic regression classifier**) with monotonic constraints.
 * Use ground truth, scores, and features for calibration.
 
